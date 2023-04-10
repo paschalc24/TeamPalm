@@ -45,4 +45,5 @@ def insertPost(post: dict):
 
     new_row.save()
 
-populateDatabase()
+# Uncomment below line to populate the database
+# populateDatabase()
