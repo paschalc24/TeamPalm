@@ -23,29 +23,26 @@ def populateDatabase():
         insertPost(post)     
 
 def insertAuthor(author: dict):
-    author_row, created = Author.objects.get_or_create(
+    new_row = Author(
         slug=author["slug"], 
         firstName=author["firstName"],
         lastName=author["lastName"]
     )
-    
-    if created:
-        author_row.save()
+
+    new_row.save()
 
 def insertPost(post: dict):
-    post_row, created = Post.objects.get_or_create(
+    new_row = Post(
         author=Author.objects.get(slug=post["author"]["slug"]),
         post_slug=post["slug"],
         public=post["visibility"]=="member",
     )
+    other_attrs = ["number", "title", "body", "type", "publishedAt", "viewsCount", 
+                   "uniqueViewsCount", "read", "modAnsweredAt", "answersCount"]
+    for attr in other_attrs:
+        if attr in post:
+            setattr(new_row, attr, post[attr])
 
-    if created:
-        other_attrs = ["number", "title", "body", "type", "publishedAt", "viewsCount", 
-                    "uniqueViewsCount", "read", "modAnsweredAt", "answersCount"]
-        for attr in other_attrs:
-            if attr in post:
-                setattr(post_row, attr, post[attr])
-
-        post_row.save()
+    new_row.save()
 
 populateDatabase()
