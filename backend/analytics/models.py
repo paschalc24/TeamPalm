@@ -6,7 +6,7 @@ class Author(models.Model):
     lastName = models.CharField(max_length=50)
 
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE)
     number = models.IntegerField(default=0, primary_key=True)
     post_slug = models.CharField(max_length=9)
     title = models.CharField(max_length=100)
