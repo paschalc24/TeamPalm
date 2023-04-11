@@ -1,15 +1,14 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-interface Props {
-  data: ReactNode;
-  heading: string;
-}
-
-const Card = ({ data, heading }: Props) => {
+const Card = () => {
   return (
-    <div className="card">
-      <h5 className="card-title">{heading}</h5>
-      <p className="card-body">Example Text</p>
+    <div className="card shadow">
+      <div className="card-body">
+        <h5 className="card-title">Title</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Subtitle</h6>
+        <p className="card-text">Text</p>
+      </div>
     </div>
   );
 };
