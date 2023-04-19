@@ -38,23 +38,3 @@ class AnalyticsPostByNumApiView(APIView):
 
         serializer = PostSerializer(Post_instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-class AnalyticsAuthorByNumApiView(APIView):
-    # Helper method to get the object with given post_id
-    def get_object(self, author_id):
-        try:
-            return Author.objects.get(slug=author_id)
-        except Author.DoesNotExist:
-            return None
-
-    # Retrieves the Author with given Author_id
-    def get(self, request, author_id):
-        Author_instance = self.get_object(author_id)
-        if not Author_instance:
-            return Response(
-                {"res": "Object with Author id does not exists"},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        serializer = AuthorSerializer(Author_instance)
-        return Response(serializer.data, status=status.HTTP_200_OK)
