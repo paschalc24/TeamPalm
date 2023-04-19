@@ -21,6 +21,5 @@ from analytics import urls as analytics_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('authors/', include(analytics_urls)),
-    path('posts/', include(analytics_urls))
+    path('', include(analytics_urls)),
 ]
