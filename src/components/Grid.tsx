@@ -9,18 +9,18 @@ interface Props {
 const Grid = () => {
   let heading = "Example";
   return (
-    <div className="row row-cols-1 row-cols-md-2 g-4">
-      <div className="col">
-        <Card heading={heading} data="" />
+    <div className="row g-4 mt-4">
+      <div className="col" style={{ height: "100vh", flexDirection: "column" }}>
+        <Card heading={heading} />
       </div>
       <div className="col">
-        <Card heading={heading} data="" />
+        <Card heading={heading} />
       </div>
       <div className="col">
-        <Card heading={heading} data="" />
+        <Card heading={heading} />
       </div>
       <div className="col">
-        <Card heading={heading} data="" />
+        <Card heading={heading} />
       </div>
     </div>
   );
