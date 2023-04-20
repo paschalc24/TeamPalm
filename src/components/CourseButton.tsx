@@ -5,6 +5,8 @@ interface CourseButtonProps {
   imageSrc: string;
   tooltipText: string;
   onClick: () => void;
+  selectedCourse: string;
+  setSelectedCourse: (course: string) => void;
 }
 
 const CourseButtonWrapper = styled.button`
@@ -65,6 +67,8 @@ const CourseButton: React.FC<CourseButtonProps> = ({
   imageSrc,
   tooltipText,
   onClick,
+  selectedCourse,
+  setSelectedCourse
 }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -78,7 +82,7 @@ const CourseButton: React.FC<CourseButtonProps> = ({
   };
 
   const handleClick = () => {
-    setIsActive(!isActive);
+    setSelectedCourse(tooltipText);
     onClick();
   };
 
@@ -89,7 +93,7 @@ const CourseButton: React.FC<CourseButtonProps> = ({
       onMouseLeave={handleMouseLeave}
     >
       <CourseButtonImage src={imageSrc} alt="button" />
-      <CourseButtonHighlight active={isActive} />
+      <CourseButtonHighlight active={selectedCourse == tooltipText} />
       <CourseButtonTooltip visible={isHovering}>
         {tooltipText}
       </CourseButtonTooltip>

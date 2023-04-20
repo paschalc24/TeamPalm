@@ -7,6 +7,8 @@ import settingsIcon from "../assets/settings-icon.jpg";
 interface SidebarProps {
   courses: { imageSrc: string; tooltipText: string; onClick: () => void }[];
   username: string;
+  selectedCourse: string;
+  setSelectedCourse: (course: string) => void;
 }
 
 const SidebarWrapper = styled.div`
@@ -84,13 +86,14 @@ const SettingsIcon = styled.img`
   margin-top: 5px;
 `;
 
-const Sidebar: React.FC<SidebarProps> = ({ courses, username }) => {
+const Sidebar: React.FC<SidebarProps> = ({ courses, username, selectedCourse, setSelectedCourse }) => {
+
   return (
     <SidebarWrapper>
       <ScrollViewContainer>
         <CourseButtonContainer>
           {courses.map((course) => (
-            <CourseButton {...course} />
+            <CourseButton {...course} selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse}/>
           ))}
         </CourseButtonContainer>
       </ScrollViewContainer>
