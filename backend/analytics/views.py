@@ -5,15 +5,41 @@ from rest_framework import status
 from .models import Author, Post
 from .serializers import AuthorSerializer, PostSerializer
 
-class AnalyticsApiView(APIView):
-    # 1. List all Authors
-    def getAuthors(self, request):
+class AnalyticsApiAllAuthorsView(APIView):
+    # List all Authors
+    def get(self, request):
       authors = Author.objects.all()
       serializer = AuthorSerializer(authors, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
       
-    # 2. List all Posts
-    def getPosts(self, request):
+class AnalyticsApiAllPostsView(APIView):      
+    # List all Posts
+    def get(self, request):
       posts = Post.objects.all()
       serializer = PostSerializer(posts, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
+
+class AnalyticsPostByNumApiView(APIView):
+  # Retrieves the Post with given post_id
+  def get(self, request, post_id):
+    Post_instance = Post.objects.get(number=post_id)
+    if not Post_instance:
+        return Response(
+            {"res": "Object with Post id does not exists"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    serializer = PostSerializer(Post_instance)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+class AnalyticsPostByAuthorApiView(APIView):
+  # Retrieves the Post with given author_id
+  def get(self, request, author_id):
+    Post_instance = Post.objects.filter(author=author_id)
+    if not Post_instance:
+        return Response(
+            {"res": "Object with Author id does not exists"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    serializer = PostSerializer(Post_instance, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
