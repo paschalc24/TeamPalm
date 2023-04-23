@@ -4,7 +4,8 @@ from .views import (
     AnalyticsApiAllPostsView,
     AnalyticsApiAllAuthorsView,
     AnalyticsPostByNumApiView,
-    AnalyticsPostByAuthorApiView
+    AnalyticsPostByAuthorApiView,
+    AnalyticsPostByTimeframeApiView
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     path('authors/', AnalyticsApiAllAuthorsView.as_view()),
     path('posts/<int:post_id>/', AnalyticsPostByNumApiView.as_view()),
     path('postsbyauthor/<str:author_id>/', AnalyticsPostByAuthorApiView.as_view()),
+    path('postsbytimeframe/<str:start_time>/<str:end_time>/', AnalyticsPostByTimeframeApiView.as_view()),
 ]

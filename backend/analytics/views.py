@@ -48,14 +48,11 @@ class AnalyticsPostByAuthorApiView(APIView):
 class AnalyticsPostByTimeframeApiView(APIView):
   # Retrieves the post within given time-frame
   def get(self, request, start_time, end_time):
-    time_format = "%Y-%m-%dT%H:%M:%S.%fZ"
-    str_to_time = lambda time_str: datetime.strptime(time_str, time_format)
-
-    start_time, end_time = str_to_time(start_time), str_to_time(end_time)
+    start_time = datetime.strptime(start_time, "%Y-%m-%d")
+    end_time = datetime.strptime(end_time, "%Y-%m-%d")
     posts = set()
     for post in Post.objects.all():
-      publish_time = str_to_time(post.publishedAt)
-      if start_time <= publish_time <= end_time:
+      if post.publishedAt and start_time <= post.publishedAt <= end_time:
         posts.add(post.number)
 
     response = Post.objects.filter(number__in=posts)
