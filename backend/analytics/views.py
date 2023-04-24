@@ -58,3 +58,15 @@ class AnalyticsPostByTimeframeApiView(APIView):
     response = Post.objects.filter(number__in=posts)
     serializer = PostSerializer(response, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+class AnalyticsUnansweredPostsApiView(APIView):
+  # Retrieves all unanswered posts
+  def get(self, request):
+    Post_instance = Post.objects.filter(modAnsweredAt=None)
+    if not Post_instance:
+        return Response(
+            {"res": "Object with Author id does not exists"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    serializer = PostSerializer(Post_instance, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
