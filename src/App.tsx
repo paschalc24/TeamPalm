@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import SideBar from "./components/SideBar";
+import NavBar from "./components/NavBar";
+import Grid from "./components/Grid";
+import OverlayHub from "./components/OverlayHub";
+import CourseButton from "./components/CourseButton";
+import { ThemeProvider } from "styled-components";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+//import './App.css'
+const theme = {
+  colors: {
+    blue: "#0070f3",
+    white: "#ffffff",
+  },
+};
 
-export default App
+var courseObjects = [ {imageSrc: 'src/assets/course_img.png', 
+                tooltipText: "CS-320",
+                onClick: () => {console.log("320!")}},
+                {imageSrc: 'src/assets/course_img2.png', 
+                tooltipText: "CS-383",
+                onClick: () => {console.log("383!")}},
+                {imageSrc: 'src/assets/course_img3.png', 
+                tooltipText: "CS-240",
+                onClick: () => {console.log("240!")}}
+              ]
+
+              function App() {
+                return (
+                  <ThemeProvider theme={theme}>
+                    <NavBar />
+                    <OverlayHub courses={courseObjects}/>
+                  </ThemeProvider>
+                );
+              }
+              
+
+export default App;

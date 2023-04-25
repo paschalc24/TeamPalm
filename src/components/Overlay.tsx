@@ -15,6 +15,7 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse }) => {
     return (
       (course == activeCourse ? 
       <>
+        <div  style={{ flex: 1 }}></div>
         <h1 className={course}>{course}</h1>
       </>
       :
