@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import SideBar from "./components/SideBar";
 import NavBar from "./components/NavBar";
 import Grid from "./components/Grid";
+import OverlayHub from "./components/OverlayHub";
 import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
 
@@ -57,14 +58,7 @@ var courseObjects = [ {imageSrc: 'src/assets/course_img.png',
                 return (
                   <ThemeProvider theme={theme}>
                     <NavBar />
-                    <div style={{ display: 'flex' }}>
-                      <div style={{ width: '250px' }}>
-                        <SideBar courses={courseObjects} username="Matthew Rattigan" />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <Grid />
-                      </div>
-                    </div>
+                    <OverlayHub courses={courseObjects}/>
                   </ThemeProvider>
                 );
               }
