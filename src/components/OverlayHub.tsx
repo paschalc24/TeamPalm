@@ -5,7 +5,7 @@ import Overlay from "./Overlay"
 
 
 interface OverlayHubProps {
-    courses: { 
+    courses: {
       imageSrc: string;
       tooltipText: string;
       onClick: () => void;
