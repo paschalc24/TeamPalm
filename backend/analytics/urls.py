@@ -6,7 +6,8 @@ from .views import (
     AnalyticsPostByNumApiView,
     AnalyticsPostByAuthorApiView,
     AnalyticsPostByTimeframeApiView,
-    AnalyticsUnansweredPostsApiView
+    AnalyticsUnansweredPostsApiView,
+    AnalyticsMostViewedPostsApiView
 )
 
 urlpatterns = [

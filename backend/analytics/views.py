@@ -74,7 +74,7 @@ class AnalyticsUnansweredPostsApiView(APIView):
 class AnalyticsMostViewedPostsApiView(APIView):
   # Retrieves top ten most viewed posts
   def get(self, request):
-     Post_instance = Post.objects.all().order_by('-viewsCount')
+     Post_instance = Post.objects.all().order_by('-viewsCount')[:10]
      if not Post_instance:
         return Response(
            {"res": "No posts in database"},
