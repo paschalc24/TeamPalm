@@ -23,10 +23,15 @@ def populateDatabase():
         insertPost(post)     
 
 def insertAuthor(author: dict):
+    mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
+                "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", "Michael Gay", 
+                "Mark Baker", "Bill Green", "Erica Brown"}
+    is_mod = (author["firstName"] + ' ' + author["lastName"]) in mod_list
     new_row = Author(
         slug=author["slug"], 
         firstName=author["firstName"],
-        lastName=author["lastName"]
+        lastName=author["lastName"],
+        moderator=is_mod
     )
 
     new_row.save()
