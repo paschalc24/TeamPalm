@@ -24,8 +24,8 @@ def populateDatabase():
 
 def insertAuthor(author: dict):
     mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
-                "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", "Michael Gay", 
-                "Mark Baker", "Bill Green", "Erica Brown"}
+                "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", 
+                "Michael Gay", "Mark Baker", "Bill Green"}
     is_mod = (author["firstName"] + ' ' + author["lastName"]) in mod_list
     new_row = Author(
         slug=author["slug"], 
