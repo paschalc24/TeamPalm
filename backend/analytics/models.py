@@ -4,6 +4,7 @@ class Author(models.Model):
     slug = models.CharField(max_length=9, primary_key=True)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
+    moderator = models.BooleanField(default=False)
 
 class Post(models.Model):
     author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE)
