@@ -8,6 +8,7 @@ from .views import (
     AnalyticsPostByTimeframeApiView,
     AnalyticsUnansweredPostsApiView,
     AnalyticsMostViewedPostsApiView,
+    AnalyticsMostAnsweredPostsApiView,
     AnalyticsForumTraffic,
 )
 
@@ -19,5 +20,6 @@ urlpatterns = [
     path('postsbytimeframe/<str:start_time>/<str:end_time>/', AnalyticsPostByTimeframeApiView.as_view()),
     path('unansweredposts/', AnalyticsUnansweredPostsApiView.as_view()),
     path('mostviewedposts/', AnalyticsMostViewedPostsApiView.as_view()),
+    path('mostansweredposts/', AnalyticsMostAnsweredPostsApiView.as_view()),
     path('forumtraffic/', AnalyticsForumTraffic.as_view()),
 ]
