@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface Prop {}
+interface Prop {
+  title: string;
+}
 
 const Placeholder2 = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("option1");
-  const [data, setData] = useState([]);
+  const [selectedOption, setSelectedOption] =
+    useState<string>("mostviewedposts");
+  const [data, setData] = useState<Prop[]>([]);
 
   const getData = (option: string) => {
     axios
       .get(`http://127.0.0.1:8000/${option}`)
       .then((response) => setData(response.data))
-      .catch((error) => console.log(error))
-      .finally();
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -25,14 +27,14 @@ const Placeholder2 = () => {
         value={selectedOption}
         onChange={(event) => setSelectedOption(event.target.value)}
       >
-        <option value="mostviewedposts/">Option 1</option>
-        <option value="unansweredposts/">Option 2</option>
-        <option value="posts">Option 3</option>
+        <option value="mostviewedposts/">Most Viewed Posts</option>
+        <option value="unansweredposts/">Unanswered Posts</option>
+        <option value="posts/">Posts</option>
       </select>
       <ul>
-        {data.slice(0, 10).map((item) => (
+        {data.slice(0, 10).map((entry) => (
           <li key={0}>
-            <h2>{item.name}</h2>
+            <h2>{entry.title}</h2>
             {/* Render any additional properties as needed */}
           </li>
         ))}

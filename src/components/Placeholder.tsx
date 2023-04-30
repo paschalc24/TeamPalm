@@ -4,20 +4,19 @@ import axios from "axios";
 const Placeholder = () => {
   const [data, setData] = useState([]);
 
-  axios
-    .get("http://127.0.0.1:8000/authors/")
-    .then(function (response) {
-      // handle success
-      console.log(response);
-      setData(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .finally(function () {
-      // always executed
-    });
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/authors/")
+      .then(function (response) {
+        // handle success
+        console.log(response);
+        setData(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -27,7 +26,7 @@ const Placeholder = () => {
   // each entry has form {"slug": ..., "posts": [...], "firstName": ..., "lastName": ...}
   let totalUsers = data.length;
 
-  return <div>Placeholder</div>;
+  return <div>{totalUsers}</div>;
 };
 
 export default Placeholder;

@@ -7,6 +7,7 @@ import OverlayHub from "./components/OverlayHub";
 import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
 import Placeholder from "./components/Placeholder";
+import Placeholder2 from "./components/Placeholder2";
 
 //import './App.css'
 const theme = {
@@ -45,7 +46,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <NavBar />
       <OverlayHub courses={courseObjects} />
-      <Placeholder></Placeholder>
+      <Placeholder2></Placeholder2>
     </ThemeProvider>
   );
 }
