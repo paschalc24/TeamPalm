@@ -10,7 +10,8 @@ from .views import (
     AnalyticsMostViewedPostsApiView,
     AnalyticsMostAnsweredPostsApiView,
     AnalyticsForumTraffic,
-    AnalyticsResponseTimeApiView
+    AnalyticsResponseTimeApiView,
+    StudentVsModPostsApiView,
 )
 
 urlpatterns = [
@@ -23,5 +24,6 @@ urlpatterns = [
     path('mostviewedposts/', AnalyticsMostViewedPostsApiView.as_view()),
     path('mostansweredposts/', AnalyticsMostAnsweredPostsApiView.as_view()),
     path('forumtraffic/', AnalyticsForumTraffic.as_view()),
-    path('responsetime/', AnalyticsResponseTimeApiView.as_view())
+    path('responsetime/', AnalyticsResponseTimeApiView.as_view()),
+    path('posts/<str:student_or_mod>/', StudentVsModPostsApiView.as_view()),
 ]
