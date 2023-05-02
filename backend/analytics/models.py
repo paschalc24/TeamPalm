@@ -20,3 +20,4 @@ class Post(models.Model):
     read = models.BooleanField(default=False)
     modAnsweredAt = models.DateTimeField(null=True)
     answersCount = models.IntegerField(default=0)
+    likesCount = models.IntegerField(default=0)
