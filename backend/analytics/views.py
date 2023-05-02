@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Author, Post
-from .serializers import AuthorSerializer, PostSerializer  
+from .serializers import AuthorSerializer, PostSerializer, ResponseTimeSerializer  
 from datetime import datetime, timedelta
 from collections import defaultdict
 
@@ -124,3 +124,15 @@ class AnalyticsForumTraffic(APIView):
         curr_week += week_delta       
 
     return Response(num_posts, status=status.HTTP_200_OK)
+
+class AnalyticsResponseTimeApiView(APIView):
+  # Retrieves top ten most commented/answered posts
+  def get(self, request):
+    Post_instance = Post.objects.all()
+    if not Post_instance:
+        return Response(
+          {"res": "No posts in database"},
+          status = status.HTTP_400_BAD_REQUEST
+        )
+    serializer = ResponseTimeSerializer(Post_instance, many=True)
+    return Response(serializer.data, status = status.HTTP_200_OK)
