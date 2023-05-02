@@ -8,6 +8,7 @@ import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
 import Placeholder from "./components/Placeholder";
 import Placeholder2 from "./components/Placeholder2";
+import EnhancedTable from "./components/EnhancedTable";
 
 //import './App.css'
 const theme = {
@@ -46,7 +47,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <NavBar />
       <OverlayHub courses={courseObjects} />
-      <Placeholder2></Placeholder2>
+      <body>
+        <Placeholder2 />
+      </body>
     </ThemeProvider>
   );
 }

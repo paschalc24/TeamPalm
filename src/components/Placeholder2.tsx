@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import EnhancedTable from "./EnhancedTable";
 
 interface Prop {
   title: string;
+  number: number;
+  viewsCount: number;
+  uniqueViewsCount: number;
 }
 
 const Placeholder2 = () => {
   const [selectedOption, setSelectedOption] =
-    useState<string>("mostviewedposts");
+    useState<string>("mostviewedposts/");
   const [data, setData] = useState<Prop[]>([]);
-
   const getData = (option: string) => {
     axios
       .get(`http://127.0.0.1:8000/${option}`)
-      .then((response) => setData(response.data))
+      .then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -32,12 +38,7 @@ const Placeholder2 = () => {
         <option value="posts/">Posts</option>
       </select>
       <ul>
-        {data.slice(0, 10).map((entry) => (
-          <li key={0}>
-            <h2>{entry.title}</h2>
-            {/* Render any additional properties as needed */}
-          </li>
-        ))}
+        <EnhancedTable key={selectedOption} rows={data.slice(0, 10)} />
       </ul>
     </div>
   );
