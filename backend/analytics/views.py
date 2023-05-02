@@ -145,3 +145,16 @@ class StudentVsModPostsApiView(APIView):
       return Response(serializer.data, status = status.HTTP_200_OK)
     
     return Response({"res": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
+  
+class AnalyticsViewsByTimeframeApiView(APIView):
+  # Retrieves the number of views within given time-frame
+  def get(self, request, start_time, end_time):
+    start_time = datetime.strptime(start_time, "%Y-%m-%d")
+    end_time = datetime.strptime(end_time, "%Y-%m-%d")
+    views, unique_views = 0, 0
+    for post in Post.objects.all():
+      if post.publishedAt and start_time <= post.publishedAt <= end_time:
+        views += post.viewsCount if post.viewsCount else 0
+        unique_views += post.uniqueViewsCount if post.uniqueViewsCount else 0
+
+    return Response({"views": views, "unique_views": unique_views}, status=status.HTTP_200_OK)
