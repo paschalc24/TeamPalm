@@ -98,7 +98,7 @@ class AnalyticsMostUniqueViewedPostsApiView(APIView):
       return Response(serializer.data, status = status.HTTP_200_OK)
    
 class AnalyticsMostLikedPostsApiView(APIView):
-   # Retrieves top ten most uniquely viewed posts
+   # Retrieves top ten most liked posts
    def get(self, request):
       Post_instance = Post.objects.all().order_by('-likesCount')[:10]
       if not Post_instance:
