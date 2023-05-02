@@ -84,6 +84,30 @@ class AnalyticsMostViewedPostsApiView(APIView):
         )
      serializer = PostSerializer(Post_instance, many=True)
      return Response(serializer.data, status = status.HTTP_200_OK)
+  
+class AnalyticsMostUniqueViewedPostsApiView(APIView):
+   # Retrieves top ten most uniquely viewed posts
+   def get(self, request):
+      Post_instance = Post.objects.all().order_by('-uniqueViewsCount')[:10]
+      if not Post_instance:
+        return Response(
+           {"res": "No posts in database"},
+           status = status.HTTP_400_BAD_REQUEST
+        )
+      serializer = PostSerializer(Post_instance, many=True)
+      return Response(serializer.data, status = status.HTTP_200_OK)
+   
+class AnalyticsMostLikedPostsApiView(APIView):
+   # Retrieves top ten most uniquely viewed posts
+   def get(self, request):
+      Post_instance = Post.objects.all().order_by('-likesCount')[:10]
+      if not Post_instance:
+        return Response(
+           {"res": "No posts in database"},
+           status = status.HTTP_400_BAD_REQUEST
+        )
+      serializer = PostSerializer(Post_instance, many=True)
+      return Response(serializer.data, status = status.HTTP_200_OK)
 
 class AnalyticsMostAnsweredPostsApiView(APIView):
   # Retrieves top ten most commented/answered posts
