@@ -11,7 +11,7 @@ interface Prop {
 
 const Placeholder2 = () => {
   const [selectedOption, setSelectedOption] =
-    useState<string>("mostviewedposts/");
+    useState<string>("unansweredposts/");
   const [data, setData] = useState<Prop[]>([]);
   const getData = (option: string) => {
     axios
@@ -27,7 +27,8 @@ const Placeholder2 = () => {
     getData(selectedOption);
   }, [selectedOption]);
 
-  return (
+  // Do we want to display more types of posts
+  /* return (
     <div>
       <select
         value={selectedOption}
@@ -38,8 +39,17 @@ const Placeholder2 = () => {
         <option value="posts/">Posts</option>
       </select>
       <ul>
-        <EnhancedTable key={selectedOption} rows={data.slice(0, 10)} />
+        <EnhancedTable key={selectedOption} rows={data} />
       </ul>
+    </div>
+  ); */
+
+  return (
+    <div>
+      <EnhancedTable
+        key={data.map((row) => row.number).join(",")}
+        rows={data}
+      />
     </div>
   );
 };
