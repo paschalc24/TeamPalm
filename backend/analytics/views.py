@@ -126,7 +126,7 @@ class AnalyticsForumTraffic(APIView):
     return Response(num_posts, status=status.HTTP_200_OK)
 
 class AnalyticsResponseTimeApiView(APIView):
-  # Retrieves top ten most commented/answered posts
+  # Retrieves publishedAt/modAnsweredAt fields of the data
   def get(self, request):
     Post_instance = Post.objects.all()
     if not Post_instance:
