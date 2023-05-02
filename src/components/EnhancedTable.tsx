@@ -20,10 +20,10 @@ import Switch from "@mui/material/Switch";
 import { visuallyHidden } from "@mui/utils";
 
 interface Data {
-  title: string;
-  number: number;
-  viewsCount: number;
-  uniqueViewsCount: number;
+  slug: string;
+  postsNum: number;
+  name: string;
+  moderator: boolean;
 }
 
 interface Props {
@@ -82,13 +82,13 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: "title",
+    id: "name",
     numeric: false,
     disablePadding: true,
     label: "Title",
   },
   {
-    id: "viewsCount",
+    id: "postsNum",
     numeric: true,
     disablePadding: false,
     label: "Views",

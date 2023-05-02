@@ -3,32 +3,62 @@ import axios from "axios";
 import EnhancedTable from "./EnhancedTable";
 
 interface Prop {
-  title: string;
-  number: number;
-  viewsCount: number;
-  uniqueViewsCount: number;
+  slug: string;
+  posts: number[];
+  firstName: string;
+  lastName: string;
+  moderator: boolean;
+}
+
+interface Author {
+  slug: string;
+  postsNum: number;
+  name: string;
+  moderator: boolean;
 }
 
 const Placeholder2 = () => {
-  const [selectedOption, setSelectedOption] =
-    useState<string>("unansweredposts/");
-  const [data, setData] = useState<Prop[]>([]);
+  const [selectedOption, setSelectedOption] = useState<string>("authors/");
+  const [authorData, setData] = useState<Author[]>([]);
   const getData = (option: string) => {
     axios
       .get(`http://127.0.0.1:8000/${option}`)
       .then((response) => {
-        setData(response.data);
-        console.log(response.data);
+        const authorData = response.data.map((prop: Prop) =>
+          convertPropToAuthor(prop)
+        );
+        setData(authorData);
       })
       .catch((error) => console.log(error));
+  };
+
+  const convertPropToAuthor = (prop: Prop): Author => {
+    return {
+      slug: prop.slug,
+      postsNum: prop.posts.length,
+      name: `${prop.firstName} ${prop.lastName}`,
+      moderator: prop.moderator,
+    };
   };
 
   useEffect(() => {
     getData(selectedOption);
   }, [selectedOption]);
 
-  // Do we want to display more types of posts
-  /* return (
+  return (
+    <div>
+      <EnhancedTable
+        key={authorData.map((row) => row.slug).join(",")}
+        rows={authorData}
+      />
+    </div>
+  );
+};
+
+export default Placeholder2;
+
+// Do we want to display more types of posts
+/* return (
     <div>
       <select
         value={selectedOption}
@@ -43,15 +73,3 @@ const Placeholder2 = () => {
       </ul>
     </div>
   ); */
-
-  return (
-    <div>
-      <EnhancedTable
-        key={data.map((row) => row.number).join(",")}
-        rows={data}
-      />
-    </div>
-  );
-};
-
-export default Placeholder2;
