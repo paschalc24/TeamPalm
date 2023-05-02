@@ -160,3 +160,12 @@ class AnalyticsResponseTimeApiView(APIView):
         )
     serializer = ResponseTimeSerializer(Post_instance, many=True)
     return Response(serializer.data, status = status.HTTP_200_OK)
+
+class StudentVsModPostsApiView(APIView):
+  # Retrieves posts categorized by student and moderator
+  def get(self, request, student_or_mod):
+    if student_or_mod in {'student', 'moderator'}:
+      serializer = PostSerializer(Post.objects.all().filter(author__moderator=student_or_mod=='moderator'), many=True)
+      return Response(serializer.data, status = status.HTTP_200_OK)
+    
+    return Response({"res": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
