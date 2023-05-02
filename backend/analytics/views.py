@@ -182,3 +182,15 @@ class AnalyticsViewsByTimeframeApiView(APIView):
         unique_views += post.uniqueViewsCount if post.uniqueViewsCount else 0
 
     return Response({"views": views, "unique_views": unique_views}, status=status.HTTP_200_OK)
+
+class AnalyticsPostsUnansweredByModApiView(APIView):
+  # Retrieves all posts unanswered by mods
+  def get(self, request):
+    Post_instance = Post.objects.filter(modAnsweredAt=None, answersCount__gt=0)
+    if not Post_instance:
+        return Response(
+            {"res": "Object does not exists"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    serializer = PostSerializer(Post_instance, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
