@@ -43,7 +43,7 @@ def insertPost(post: dict):
         public=post["visibility"]=="member",
     )
     other_attrs = ["number", "title", "body", "type", "publishedAt", "viewsCount", 
-                   "uniqueViewsCount", "read", "modAnsweredAt", "answersCount"]
+                   "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"]
     for attr in other_attrs:
         if attr in post:
             setattr(new_row, attr, post[attr])
