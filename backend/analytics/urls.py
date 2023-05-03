@@ -15,7 +15,8 @@ from .views import (
     AnalyticsResponseTimeApiView,
     StudentVsModPostsApiView,
     AnalyticsViewsByTimeframeApiView,
-    AnalyticsPostsUnansweredByModApiView
+    AnalyticsPostsUnansweredByModApiView,
+    AnalyticsViewsTraffic,
 )
 
 urlpatterns = [
@@ -33,5 +34,6 @@ urlpatterns = [
     path('responsetime/', AnalyticsResponseTimeApiView.as_view()),
     path('posts/<str:student_or_mod>/', StudentVsModPostsApiView.as_view()),
     path('viewsbytimeframe/<str:start_time>/<str:end_time>/', AnalyticsViewsByTimeframeApiView.as_view()),
-    path('unansweredbymod/', AnalyticsPostsUnansweredByModApiView.as_view())
+    path('unansweredbymod/', AnalyticsPostsUnansweredByModApiView.as_view()),
+    path('viewstraffic/', AnalyticsViewsTraffic.as_view()),
 ]
