@@ -17,3 +17,5 @@ You can customize the server's port or IP through commandline arguments:
 python backend\manage.py runserver 8080
 python backend\manage.py runserver 0.0.0.0:8080
 ```
+
+To end the server you can kill the process with Ctrl + C.
