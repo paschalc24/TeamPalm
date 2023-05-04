@@ -37,7 +37,7 @@ const List = () => {
   // Use the retrieved data in your component
   return (
     <div className="list-group" >
-      <h3 className="card-title">Top 10 Unanswered Posts</h3>
+      <h3 className="card-title" style={{paddingBottom: "20px"}}>Top 10 Unanswered Posts</h3>
       {topTenData.map((item) => (
         <div
           key={item.number}

@@ -16,7 +16,7 @@ const Grid = () => {
       <div>
         <Raw />
       </div>
-      <div className="row" style={{ height: "500px", overflowY: "auto" }}>
+      <div className="row" style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}>
         <List />
       </div>
       <div className="col">

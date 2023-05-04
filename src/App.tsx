@@ -7,14 +7,24 @@ import OverlayHub from "./components/OverlayHub";
 import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
 import Card from "./components/Card";
+import styled from 'styled-components';
+
 
 //import './App.css'
 const theme = {
   colors: {
     blue: "#0070f3",
     white: "#ffffff",
+    light_grey: "#F8FAFB",
+    purple: "#9925BE"
   },
 };
+
+const FullScreenDiv = styled.div`
+  margin: 0;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.light_grey};
+`;
 
 var courseObjects = [
   {
@@ -42,9 +52,10 @@ var courseObjects = [
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <NavBar />
-      <OverlayHub courses={courseObjects} />
+    <ThemeProvider theme={theme} >
+      <FullScreenDiv>
+        <OverlayHub courses={courseObjects}/>
+      </FullScreenDiv>
     </ThemeProvider>
   );
 }
