@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import Grid from "./Grid"
+import Raw from "./Raw"
 
 interface CourseProps {
   course: string;
@@ -15,8 +17,10 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse }) => {
     return (
       (course == activeCourse ? 
       <>
-        <div  style={{ flex: 1 }}></div>
+        <div  style={{ flex: 8}}></div>
         <h1 className={course}>{course}</h1>
+        {/* <Raw /> */}
+        <Grid />
       </>
       :
       <></>
