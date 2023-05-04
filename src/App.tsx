@@ -6,8 +6,6 @@ import Grid from "./components/Grid";
 import OverlayHub from "./components/OverlayHub";
 import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
-import Placeholder2 from "./components/Placeholder2";
-import EnhancedTable from "./components/EnhancedTable";
 import Card from "./components/Card";
 
 //import './App.css'

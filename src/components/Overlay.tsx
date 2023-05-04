@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import Placeholder2 from "./Placeholder2";
-import Card from "./Card";
-
+import AuthorTable from "./AuthorTable";
 interface CourseProps {
   course: string;
   activeCourse: string;
@@ -18,9 +16,7 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse }) => {
     <>
       <div style={{ flex: 1 }}></div>
       <h1 className={course}>{course}</h1>
-      <Card>
-        <Placeholder2 />
-      </Card>
+      <AuthorTable />
     </>
   ) : (
     <></>

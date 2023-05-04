@@ -12,18 +12,12 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
 import { visuallyHidden } from "@mui/utils";
 
 interface Data {
   slug: string;
   postsNum: number;
   name: string;
-  moderator: boolean;
 }
 
 interface Props {
@@ -84,20 +78,32 @@ const headCells: readonly HeadCell[] = [
   {
     id: "name",
     numeric: false,
-    disablePadding: true,
-    label: "Title",
+    disablePadding: false,
+    label: "Name",
   },
   {
     id: "postsNum",
     numeric: true,
     disablePadding: false,
-    label: "Views",
+    label: "Number of Posts",
   },
   {
-    id: "uniqueViewsCount",
+    id: "postsNum",
     numeric: true,
     disablePadding: false,
-    label: "Unique Views",
+    label: "Number of Posts",
+  },
+  {
+    id: "postsNum",
+    numeric: true,
+    disablePadding: false,
+    label: "Number of Posts",
+  },
+  {
+    id: "postsNum",
+    numeric: true,
+    disablePadding: false,
+    label: "Number of Posts",
   },
 ];
 
@@ -107,21 +113,13 @@ interface EnhancedTableProps {
     event: React.MouseEvent<unknown>,
     property: keyof Data
   ) => void;
-  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
   rowCount: number;
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const {
-    onSelectAllClick,
-    order,
-    orderBy,
-    numSelected,
-    rowCount,
-    onRequestSort,
-  } = props;
+  const { order, orderBy, rowCount, onRequestSort } = props;
   const createSortHandler =
     (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
@@ -130,17 +128,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              "aria-label": "select all",
-            }}
-          />
-        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
@@ -204,7 +191,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           id="tableTitle"
           component="div"
         >
-          Post Statistics
+          Students
         </Typography>
       )}
     </Toolbar>
@@ -213,10 +200,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 
 export default function EnhancedTable({ rows }: Props) {
   const [order, setOrder] = React.useState<Order>("desc");
-  const [orderBy, setOrderBy] = React.useState<keyof Data>("viewsCount");
+  const [orderBy, setOrderBy] = React.useState<keyof Data>("postsNum");
   const [selected, setSelected] = React.useState<readonly string[]>([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (
@@ -226,15 +212,6 @@ export default function EnhancedTable({ rows }: Props) {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
-
-  const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      const newSelected = rows.map((n) => n.title);
-      setSelected(newSelected);
-      return;
-    }
-    setSelected([]);
   };
 
   const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
@@ -268,10 +245,6 @@ export default function EnhancedTable({ rows }: Props) {
     setPage(0);
   };
 
-  const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDense(event.target.checked);
-  };
-
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
@@ -292,61 +265,40 @@ export default function EnhancedTable({ rows }: Props) {
       <Paper sx={{ width: "100%", mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size={dense ? "small" : "medium"}
-          >
+          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
             <EnhancedTableHead
               numSelected={selected.length}
               order={order}
               orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
             />
             <TableBody>
               {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.title);
-                const labelId = `enhanced-table-checkbox-${index}`;
-
+                const isItemSelected = isSelected(row.name);
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.title)}
-                    role="checkbox"
-                    aria-checked={isItemSelected}
+                    onClick={(event) => handleClick(event, row.name)}
                     tabIndex={-1}
-                    key={row.title}
+                    key={row.name}
                     selected={isItemSelected}
                     sx={{ cursor: "pointer" }}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        color="primary"
-                        checked={isItemSelected}
-                        inputProps={{
-                          "aria-labelledby": labelId,
-                        }}
-                      />
+                    <TableCell component="th" scope="row" padding="normal">
+                      {row.name}
                     </TableCell>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="none"
-                    >
-                      {row.title}
-                    </TableCell>
-                    <TableCell align="right">{row.viewsCount}</TableCell>
-                    <TableCell align="right">{row.uniqueViewsCount}</TableCell>
+                    <TableCell align="right">{row.postsNum}</TableCell>
+                    <TableCell align="right">{row.postsNum}</TableCell>
+                    <TableCell align="right">{row.postsNum}</TableCell>
+                    <TableCell align="right">{row.postsNum}</TableCell>
                   </TableRow>
                 );
               })}
               {emptyRows > 0 && (
                 <TableRow
                   style={{
-                    height: (dense ? 33 : 53) * emptyRows,
+                    height: 55 * emptyRows,
                   }}
                 >
                   <TableCell colSpan={6} />
@@ -365,10 +317,6 @@ export default function EnhancedTable({ rows }: Props) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
     </Box>
   );
 }

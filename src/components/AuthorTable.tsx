@@ -14,10 +14,9 @@ interface Author {
   slug: string;
   postsNum: number;
   name: string;
-  moderator: boolean;
 }
 
-const Placeholder2 = () => {
+const AuthorTable = () => {
   const [selectedOption, setSelectedOption] = useState<string>("authors/");
   const [authorData, setData] = useState<Author[]>([]);
   const getData = (option: string) => {
@@ -37,7 +36,6 @@ const Placeholder2 = () => {
       slug: prop.slug,
       postsNum: prop.posts.length,
       name: `${prop.firstName} ${prop.lastName}`,
-      moderator: prop.moderator,
     };
   };
 
@@ -55,7 +53,7 @@ const Placeholder2 = () => {
   );
 };
 
-export default Placeholder2;
+export default AuthorTable;
 
 // Do we want to display more types of posts
 /* return (
