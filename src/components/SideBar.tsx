@@ -13,7 +13,7 @@ interface SidebarProps {
 
 const SidebarWrapper = styled.div`
   position: fixed;
-  top: 60px; /* adjust as necessary */
+  top: 70px; /* adjust as necessary */
   left: 0;
   bottom: 0;
   width: 80px;
@@ -45,6 +45,7 @@ const ScrollViewContainer = styled.div`
 `;
 
 const CourseButtonContainer = styled.div`
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
