@@ -6,7 +6,7 @@ import Grid from "./components/Grid";
 import OverlayHub from "./components/OverlayHub";
 import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
-
+import Card from "./components/Card";
 
 //import './App.css'
 const theme = {
@@ -16,25 +16,37 @@ const theme = {
   },
 };
 
-var courseObjects = [ {imageSrc: 'src/assets/course_img.png', 
-                tooltipText: "CS-320",
-                onClick: () => {console.log("320!")}},
-                {imageSrc: 'src/assets/course_img2.png', 
-                tooltipText: "CS-383",
-                onClick: () => {console.log("383!")}},
-                {imageSrc: 'src/assets/course_img3.png', 
-                tooltipText: "CS-240",
-                onClick: () => {console.log("240!")}}
-              ]
+var courseObjects = [
+  {
+    imageSrc: "src/assets/course_img.png",
+    tooltipText: "CS-320",
+    onClick: () => {
+      console.log("320!");
+    },
+  },
+  {
+    imageSrc: "src/assets/course_img2.png",
+    tooltipText: "CS-383",
+    onClick: () => {
+      console.log("383!");
+    },
+  },
+  {
+    imageSrc: "src/assets/course_img3.png",
+    tooltipText: "CS-240",
+    onClick: () => {
+      console.log("240!");
+    },
+  },
+];
 
-              function App() {
-                return (
-                  <ThemeProvider theme={theme}>
-                    <NavBar />
-                    <OverlayHub courses={courseObjects}/>
-                  </ThemeProvider>
-                );
-              }
-              
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <NavBar />
+      <OverlayHub courses={courseObjects} />
+    </ThemeProvider>
+  );
+}
 
 export default App;
