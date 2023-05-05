@@ -10,14 +10,22 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Roboto Flex", "sans-serif"].join(","),
+    fontWeightBold: 700,
+  },
+});
 
 interface Data {
   slug: string;
   postsNum: number;
   name: string;
+  title: string;
 }
 
 interface Props {
@@ -134,6 +142,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{ fontWeight: "bold", fontSize: 20 }}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -174,27 +183,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
             ),
         }),
       }}
-    >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: "1 1 100%" }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: "1 1 100%" }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Students
-        </Typography>
-      )}
-    </Toolbar>
+    ></Toolbar>
   );
 }
 
@@ -261,11 +250,21 @@ export default function EnhancedTable({ rows }: Props) {
   );
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      sx={{
+        width: "100%",
+        boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
+    >
       <Paper sx={{ width: "100%", mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
+          <Table
+            sx={{ minWidth: 750, borderCollapse: "collapse" }}
+            aria-labelledby="tableTitle"
+          >
             <EnhancedTableHead
               numSelected={selected.length}
               order={order}
@@ -283,7 +282,10 @@ export default function EnhancedTable({ rows }: Props) {
                     tabIndex={-1}
                     key={row.name}
                     selected={isItemSelected}
-                    sx={{ cursor: "pointer" }}
+                    sx={{
+                      cursor: "pointer",
+                      "&:nth-child(even)": { backgroundColor: "#f2f2f2" },
+                    }}
                   >
                     <TableCell component="th" scope="row" padding="normal">
                       {row.name}

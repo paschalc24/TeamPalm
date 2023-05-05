@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EnhancedTable from "./EnhancedTable";
 
+interface TableType {
+  isMod: boolean;
+}
+
 interface Prop {
   slug: string;
   posts: number[];
@@ -14,18 +18,19 @@ interface Author {
   slug: string;
   postsNum: number;
   name: string;
+  title: string;
 }
 
-const AuthorTable = () => {
+const AuthorTable = ({ isMod }: TableType) => {
   const [selectedOption, setSelectedOption] = useState<string>("authors/");
   const [authorData, setData] = useState<Author[]>([]);
   const getData = (option: string) => {
     axios
       .get(`http://127.0.0.1:8000/${option}`)
       .then((response) => {
-        const authorData = response.data.map((prop: Prop) =>
-          convertPropToAuthor(prop)
-        );
+        const authorData = response.data
+          .filter((prop: Prop) => (isMod ? prop.moderator : !prop.moderator))
+          .map((prop: Prop) => convertPropToAuthor(prop));
         setData(authorData);
       })
       .catch((error) => console.log(error));
@@ -36,6 +41,7 @@ const AuthorTable = () => {
       slug: prop.slug,
       postsNum: prop.posts.length,
       name: `${prop.firstName} ${prop.lastName}`,
+      title: isMod ? "Student Name" : "Staff Name",
     };
   };
 

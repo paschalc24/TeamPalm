@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import logo from "../assets/Filigree_Logo_With_Name.png";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import '../fonts.css';
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import "../fonts.css";
 import {
   Navbar,
   Nav,
@@ -12,7 +12,7 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface NavBarProps {
   course: string;
@@ -22,7 +22,7 @@ interface NavBarProps {
 }
 
 const GoodMorningDiv = styled.div`
-  font-family: 'Roboto Flex';
+  font-family: "Roboto Flex";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -38,7 +38,7 @@ const VerticalLine = styled.div`
   height: 0px;
   left: 721px;
   top: 36px;
-  border: 2px solid #D9DEF1;
+  border: 2px solid #d9def1;
   transform: rotate(90deg);
 `;
 
@@ -48,101 +48,77 @@ const CourseNameDiv = styled.div`
   left: 747px;
   top: 35px;
 
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 700;
   font-size: 44px;
-  color: ${({ theme }) => theme.colors.purple};;
+  color: ${({ theme }) => theme.colors.purple};
   line-height: 60px;
   /* identical to box height */
 
   letter-spacing: 0.01em;
 `;
 
-
-const NavBar: FC<NavBarProps> = ({course, activeCourse, activeMode, setSelectedMode}) => {
-  const [alignment, setAlignment] = React.useState('home');
+const NavBar: FC<NavBarProps> = ({
+  course,
+  activeCourse,
+  activeMode,
+  setSelectedMode,
+}) => {
+  const [alignment, setAlignment] = React.useState("home");
   const [noneSelected, setNoneSelected] = React.useState(true);
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
-    newAlignment: string,
+    newAlignment: string
   ) => {
     setAlignment(newAlignment);
-    setSelectedMode(newAlignment)
+    setSelectedMode(newAlignment);
   };
 
+  return course == activeCourse ? (
+    <>
+      <Navbar expand="lg">
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src={logo}
+            width="auto"
+            height="70"
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <GoodMorningDiv>Good morning Matthew!</GoodMorningDiv>
 
-  return (
+        <VerticalLine />
+        <CourseNameDiv>{course}</CourseNameDiv>
 
-    ( course == activeCourse ?
-      <>
-        <Navbar  expand="lg">
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src={logo}
-              width='auto'
-              height= "70"
-              className="d-inline-block align-top"
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <GoodMorningDiv>
-            Good morning Matthew!
-          </GoodMorningDiv>
-          
-          <VerticalLine/>
-          <CourseNameDiv>
-            {course}
-          </CourseNameDiv>
-
-          { activeCourse != "" ?
+        {activeCourse != "" ? (
           <>
             <ToggleButtonGroup
               color="secondary"
               value={alignment}
-              exclusive= {true}
+              exclusive={true}
               onChange={handleChange}
               aria-label="Platform"
-              style={{"padding-left": "50px", "padding-right": "50px"}}
+              style={{ "padding-left": "50px", "padding-right": "50px" }}
             >
               <ToggleButton value="home">Home</ToggleButton>
               <ToggleButton value="students">Students</ToggleButton>
               <ToggleButton value="staff">Staff</ToggleButton>
             </ToggleButtonGroup>
-            </>
-            :
-            <>
-            </>
-          } 
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto" />
-            <Form className="d-flex flex-grow-1">
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-2 flex-grow-1"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-            <Dropdown>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                Login
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Logout</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Navbar.Collapse>
-        </Navbar>
-      </>
-      :
-      <>
-      </>
-    )
+          </>
+        ) : (
+          <></>
+        )}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto" />
+        </Navbar.Collapse>
+      </Navbar>
+    </>
+  ) : (
+    <></>
   );
-
-}
+};
 
 export default NavBar;

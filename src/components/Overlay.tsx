@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from "react";
 import Grid from "./Grid";
 import Raw from "./Raw";
-import List from './List';
-import AuthorTable from './AuthorTable';
+import List from "./List";
+import AuthorTable from "./AuthorTable";
+import Card from "./Card";
 
 interface CourseProps {
   course: string;
@@ -17,35 +18,42 @@ function Overlay<CourseProps>({course}) {
 */
 
 const Overlay: FC<CourseProps> = ({ course, activeCourse, activeMode }) => {
-  const [currMode, setCurrMode] = useState("")
+  const [currMode, setCurrMode] = useState("");
 
   useEffect(() => {
     setCurrMode(activeMode);
   }, [activeMode]);
 
-
   return course == activeCourse ? (
     <>
-      <div  style={{ flex: 1 }}></div>
+      <div style={{ flex: 1 }}></div>
       {/* <h1 className={course}>{course + currMode}</h1> */}
 
-      { currMode == "home" ?
+      {currMode == "home" ? (
         <>
-          <Grid/>
-        </> 
-        : 
+          <Grid />
+        </>
+      ) : (
         <></>
-      }
-      { currMode == "students" ?
-        <><AuthorTable /></> 
-        : 
+      )}
+      {currMode == "students" ? (
+        <>
+          <AuthorTable isMod={false} />
+        </>
+      ) : (
         <></>
-      }
-      
+      )}
+      {currMode == "staff" ? (
+        <>
+          <AuthorTable isMod={true} />
+        </>
+      ) : (
+        <></>
+      )}
     </>
   ) : (
     <></>
-  )
+  );
 };
 
 export default Overlay;
