@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import Card from "./Card";
 import List from "./List";
 import Raw from "./Raw";
+import TrafficGraph from "./TrafficGraph";
 
 interface Props {
   data: ReactNode;
@@ -14,19 +15,26 @@ const Grid = () => {
     <div className="row g-4 mt-4">
       {/* <div className="row" style={{height: "500px", overflowY: 'auto'}}>*/}
       <div>
+        <Card>
         <Raw />
+        </Card>
       </div>
-      <div className="row" style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}>
+      <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto"}}>
+        <div className="col">
+        <Card>
+        <TrafficGraph urlParam="http://127.0.0.1:8000/forumtraffic/" dataDescriptor="Posts"/>
+        </Card>
+        </div>
+        <div className="col">
+        <Card>
+        <TrafficGraph urlParam="http://127.0.0.1:8000/viewstraffic/" dataDescriptor="Views"/>
+        </Card>
+        </div>
+      </div>
+      <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}>
+        <Card>
         <List />
-      </div>
-      <div className="col">
-        <Card heading={heading} />
-      </div>
-      <div className="col">
-        <Card heading={heading} />
-      </div>
-      <div className="col">
-        <Card heading={heading} />
+        </Card>
       </div>
     </div>
   );
