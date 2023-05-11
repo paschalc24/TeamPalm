@@ -19,45 +19,80 @@ interface IData {
 }
 
 const List = () => {
+  const [selectedOption, setSelectedOption] =
+    useState<string>("unansweredposts/");
   const [data, setData] = useState<IData[]>([]);
 
-  useEffect(() => {
+  const getData = (option: string) => {
     axios
-      .get("http://127.0.0.1:8000/unansweredposts/")
+      .get(`http://127.0.0.1:8000/${option}`)
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
-  const topTenData = data.sort((a, b) => b.viewsCount - a.viewsCount).slice(0, 10);
+  useEffect(() => {
+    getData(selectedOption);
+  }, [selectedOption]);
 
   // Use the retrieved data in your component
   return (
-    <div className="list-group" >
-      <h3 className="card-title" style={{paddingBottom: "20px"}}>Top 10 Unanswered Posts</h3>
-      {topTenData.map((item) => (
-        <div
-          key={item.number}
-        >
-          <a
-            href="#"
-            className="list-group-item list-group-item-action flex-column align-items-start"
-          >
-            <div className="d-flex w-100 justify-content-between">
-              <h5 className="mb-1">{item.title}</h5>
-              <small>{item.publishedAt}</small>
-            </div>
-            <p>Author: {item.author}</p>
-            <p className="mb-1">{item.body}</p>
-            <small>Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}</small>
-          </a>
-        </div>
-      ))}
+    <div>
+      <select
+        value={selectedOption}
+        onChange={(event) => setSelectedOption(event.target.value)}
+        style={{}}
+      >
+        <option value="mostviewedposts/">Most Viewed Posts</option>
+        <option value="unansweredposts/">Unanswered Posts</option>
+        <option value="mostlikedposts/">Most Liked Posts</option>
+        <option value="mostansweredposts/">Most Answered Posts</option>
+      </select>
+      <div className="list-group">
+        <h3 className="card-title" style={{ paddingBottom: "20px" }}>
+          Top 10 Unanswered Posts
+        </h3>
+        {data.map((item) => (
+          <div key={item.number}>
+            <a
+              href="#"
+              className="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">{item.title}</h5>
+                <small>{item.publishedAt}</small>
+              </div>
+              <p>Author: {item.author}</p>
+              <p className="mb-1">{item.body}</p>
+              <small>
+                Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}
+              </small>
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default List;
+
+// Do we want to display more types of posts
+/* return (
+    <div>
+      <select
+        value={selectedOption}
+        onChange={(event) => setSelectedOption(event.target.value)}
+      >
+        <option value="mostviewedposts/">Most Viewed Posts</option>
+        <option value="unansweredposts/">Unanswered Posts</option>
+        <option value="posts/">Posts</option>
+      </select>
+      <ul>
+        <EnhancedTable key={selectedOption} rows={data} />
+      </ul>
+    </div>
+  ); */

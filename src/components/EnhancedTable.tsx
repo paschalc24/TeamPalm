@@ -163,30 +163,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-interface EnhancedTableToolbarProps {
-  numSelected: number;
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props;
-
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(
-              theme.palette.primary.main,
-              theme.palette.action.activatedOpacity
-            ),
-        }),
-      }}
-    ></Toolbar>
-  );
-}
-
 export default function EnhancedTable({ rows }: Props) {
   const [order, setOrder] = React.useState<Order>("desc");
   const [orderBy, setOrderBy] = React.useState<keyof Data>("postsNum");
@@ -253,13 +229,11 @@ export default function EnhancedTable({ rows }: Props) {
     <Box
       sx={{
         width: "100%",
-        boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
         borderRadius: "12px",
         overflow: "hidden",
       }}
     >
       <Paper sx={{ width: "100%", mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table
             sx={{ minWidth: 750, borderCollapse: "collapse" }}
@@ -317,6 +291,10 @@ export default function EnhancedTable({ rows }: Props) {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
+          sx={{
+            borderBottom: "none",
+            overflow: "hidden",
+          }}
         />
       </Paper>
     </Box>
