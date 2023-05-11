@@ -23,15 +23,16 @@ def populateDatabase():
         insertPost(post)     
 
 def insertAuthor(author: dict):
-    mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
-                "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", 
+    mod_list = {"Jacob Friedman", "Lisa Mccormick", "William Gonzalez", "Elizabeth Boyd", 
+                "Sherri Horton", "Erica Brown", "James Martinez", 
                 "Michael Gay", "Mark Baker", "Bill Green"}
     is_mod = (author["firstName"] + ' ' + author["lastName"]) in mod_list
     new_row = Author(
         slug=author["slug"], 
         firstName=author["firstName"],
         lastName=author["lastName"],
-        moderator=is_mod
+        moderator=is_mod,
+        username=(author["firstName"][0] + author["lastName"]).lower() if is_mod else None
     )
 
     new_row.save()
@@ -41,6 +42,7 @@ def insertPost(post: dict):
         author=Author.objects.get(slug=post["author"]["slug"]),
         post_slug=post["slug"],
         public=post["visibility"]=="member",
+        course_id=1
     )
     other_attrs = ["number", "title", "body", "type", "publishedAt", "viewsCount", 
                    "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"]
@@ -50,5 +52,11 @@ def insertPost(post: dict):
 
     new_row.save()
 
+# new_course = Course(
+#     course_id=1,
+#     title='CompSci 320'
+# )
+
+# new_course.save()
 # Uncomment below line to populate the database
 # populateDatabase()
