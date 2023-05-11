@@ -18,7 +18,7 @@ class AnalyticsApiAllAuthorsView(APIView):
 class AnalyticsApiAllPostsView(APIView):      
     # List all Posts
     def get(self, request):
-      posts = Post.objects.all()
+      posts = Post.objects.all()[1:]
       serializer = PostSerializer(posts, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
 
