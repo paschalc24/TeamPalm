@@ -87,18 +87,26 @@ const SettingsIcon = styled.img`
   margin-top: 5px;
 `;
 
-const Sidebar: React.FC<SidebarProps> = ({ courses, username, selectedCourse, setSelectedCourse }) => {
-
+const Sidebar: React.FC<SidebarProps> = ({
+  courses,
+  username,
+  selectedCourse,
+  setSelectedCourse,
+}) => {
   return (
     <SidebarWrapper>
       <ScrollViewContainer>
         <CourseButtonContainer>
           {courses.map((course) => (
-            <CourseButton {...course} selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse}/>
+            <CourseButton
+              {...course}
+              selectedCourse={selectedCourse}
+              setSelectedCourse={setSelectedCourse}
+            />
           ))}
         </CourseButtonContainer>
       </ScrollViewContainer>
-      <ProfileSection style={{display: "-webkit-flex"}}>
+      <ProfileSection style={{ display: "-webkit-flex" }}>
         <ProfilePic src={userIcon} />
         <Name>{username}</Name>
         <SettingsIcon src={settingsIcon} />
@@ -207,5 +215,3 @@ export default Sidebar;
 // };
 
 // export default Sidebar;
-
-

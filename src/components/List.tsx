@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Roboto Flex", "sans-serif"].join(","),
+    fontWeightBold: 700,
+  },
+});
 
 interface IData {
   // Define the structure of your data
@@ -38,41 +46,78 @@ const List = () => {
     getData(selectedOption);
   }, [selectedOption]);
 
+  // Helper function to format the selected option
+  const formatOption = (option: string) => {
+    switch (option) {
+      case "mostviewedposts/":
+        return "Most Viewed Posts";
+        break;
+      case "unansweredposts/":
+        return "Unanswered Posts";
+        break;
+      case "mostlikedposts/":
+        return "Most Liked Posts";
+        break;
+      case "mostansweredposts/":
+        return "Most Answered Posts";
+        break;
+      default:
+        break;
+    }
+  };
+
   // Use the retrieved data in your component
   return (
-    <div>
-      <select
-        value={selectedOption}
-        onChange={(event) => setSelectedOption(event.target.value)}
-        style={{}}
+    <div style={{ overflow: "auto" }}>
+      <div
+        style={{
+          overflow: "auto",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
       >
-        <option value="mostviewedposts/">Most Viewed Posts</option>
-        <option value="unansweredposts/">Unanswered Posts</option>
-        <option value="mostlikedposts/">Most Liked Posts</option>
-        <option value="mostansweredposts/">Most Answered Posts</option>
-      </select>
-      <div className="list-group">
-        <h3 className="card-title" style={{ paddingBottom: "20px" }}>
-          Top 10 Unanswered Posts
-        </h3>
-        {data.map((item) => (
-          <div key={item.number}>
-            <a
-              href="#"
-              className="list-group-item list-group-item-action flex-column align-items-start"
-            >
-              <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1">{item.title}</h5>
-                <small>{item.publishedAt}</small>
-              </div>
-              <p>Author: {item.author}</p>
-              <p className="mb-1">{item.body}</p>
-              <small>
-                Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}
-              </small>
-            </a>
-          </div>
-        ))}
+        <select
+          value={selectedOption}
+          onChange={(event) => setSelectedOption(event.target.value)}
+          style={{
+            backgroundColor: "lightgray",
+            color: "blue",
+            fontSize: "16px",
+            padding: "8px",
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <option value="mostviewedposts/">Most Viewed Posts</option>
+          <option value="unansweredposts/">Unanswered Posts</option>
+          <option value="mostlikedposts/">Most Liked Posts</option>
+          <option value="mostansweredposts/">Most Answered Posts</option>
+        </select>
+      </div>
+      <div style={{ overflow: "auto" }}>
+        <div className="list-group">
+          <h3 className="card-title" style={{ paddingBottom: "20px" }}>
+            {formatOption(selectedOption)}
+          </h3>
+          {data.map((item) => (
+            <div key={item.number}>
+              <a
+                href="#"
+                className="list-group-item list-group-item-action flex-column align-items-start"
+              >
+                <div className="d-flex w-100 justify-content-between">
+                  <h5 className="mb-1">{item.title}</h5>
+                  <small>{item.publishedAt}</small>
+                </div>
+                <p>Author: {item.author}</p>
+                <p className="mb-1">{item.body}</p>
+                <small>
+                  Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}
+                </small>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
