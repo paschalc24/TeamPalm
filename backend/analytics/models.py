@@ -21,3 +21,12 @@ class Post(models.Model):
     modAnsweredAt = models.DateTimeField(null=True)
     answersCount = models.IntegerField(default=0)
     likesCount = models.IntegerField(default=0)
+
+class Comment(models.Model):
+    author = models.ForeignKey(Author, related_name='comments', on_delete=models.CASCADE)
+    comment_id = models.CharField(max_length=50, primary_key=True)
+    post = models.ForeignKey(Post, related_name='post', on_delete=models.CASCADE)
+    endorsed = models.BooleanField(default=False)
+    is_answer = models.BooleanField(default=False)
+    body = models.CharField(max_length=200)
+    publishedAt = models.DateTimeField(null=True)
