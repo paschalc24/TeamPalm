@@ -13,6 +13,9 @@ class AnalyticsApiAllAuthorsView(APIView):
     def get(self, request):
       authors = Author.objects.all()
       serializer = AuthorSerializer(authors, many=True)
+      for author in serializer.data:
+        author["endorsed_comments"] = [c.comment_id for c in Comment.objects.filter(author=author["slug"], endorsed=True)]
+        author["answered_posts"] = list(set(c.post.number for c in Comment.objects.filter(author=author["slug"])))
       return Response(serializer.data, status=status.HTTP_200_OK)
       
 class AnalyticsApiAllPostsView(APIView):      

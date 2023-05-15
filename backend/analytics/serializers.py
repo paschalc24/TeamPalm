@@ -4,6 +4,7 @@ from analytics.models import *
 class AuthorSerializer(serializers.ModelSerializer):
     posts = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    
     class Meta:
         model = Author
         fields = '__all__'
