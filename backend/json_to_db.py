@@ -14,12 +14,8 @@ cursor = conn.cursor()
 all_posts = json.load(open('cw_posts_scrubbed.json'))
 
 def populateDatabase():
-    all_authors = set()
     for post in all_posts:
-        if post["author"]["slug"] not in all_authors:
-            insertAuthor(post["author"]) 
-            all_authors.add(post["author"]["slug"])  
-
+        insertAuthor(post["author"]) 
         insertPost(post)     
         for comment in post["comments"]:
             insertComment(post["number"], comment)
@@ -72,4 +68,4 @@ def insertComment(post_num: int, comment: dict):
     new_row.save()
 
 # Uncomment below line to populate the database
-populateDatabase()
+# populateDatabase()
