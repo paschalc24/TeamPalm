@@ -64,7 +64,7 @@ class AnalyticsPostByTimeframeApiView(APIView):
 class AnalyticsUnansweredPostsApiView(APIView):
   # Retrieves all unanswered posts
   def get(self, request):
-    Post_instance = Post.objects.filter(modAnsweredAt=None)[1:]
+    Post_instance = Post.objects.filter(answersCount=0)
     if not Post_instance:
         return Response(
             {"res": "Object with Author id does not exists"},
