@@ -39,9 +39,7 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse, activeMode }) => {
       {currMode == "students" ? (
         <>
           <div style={{ paddingRight: "50px" }}>
-            <Card>
               <AuthorTable isMod={false} />
-            </Card>
           </div>
         </>
       ) : (
@@ -50,9 +48,7 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse, activeMode }) => {
       {currMode == "staff" ? (
         <>
           <div style={{ paddingRight: "50px" }}>
-            <Card>
               <AuthorTable isMod={true} />
-            </Card>
           </div>
         </>
       ) : (

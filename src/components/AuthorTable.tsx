@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EnhancedTable from "./EnhancedTable";
+import RawStudentStats from "./RawStudentStats";
+import Card from "./Card"
 
 // NOTE: Posts by timeframe functionality has been SCRAPPED
 // Leaving the functions here incase we decide to reimplement
@@ -97,11 +99,16 @@ const AuthorTable = ({ isMod }: TableType) => {
   }, [setTimeFrame]);
 
   return (
-    <div>
+    <div className="row g-4 mt-4">
+      <Card>
+      <RawStudentStats mod={isMod} />
+      </Card>
+      <Card>
       <EnhancedTable
         key={authorData.map((row) => row.slug).join(",")}
         rows={authorData}
       />
+      </Card>
     </div>
   );
 };

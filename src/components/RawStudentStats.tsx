@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 
+
 interface IData {
   // Define the structure of your data
   number: number;
@@ -27,9 +28,11 @@ interface IData3 {
   moderator: boolean;
 }
 
-const Raw = () => {
-    const w = 2;
+interface Props {
+  mod: boolean;
+}
 
+const RawStudentStats = ({ mod }: Props) => {
   const [data1, setData1] = useState<IData[]>([]);
   const [data2, setData2] = useState<IData[]>([]);
   const [data3, setData3] = useState<IData3[]>([]);
@@ -37,35 +40,36 @@ const Raw = () => {
   const posts_generated = () => {
     let c = 0;
     for (let i = 0; i < data3.length; i++) {
-      c = c + data3[i].posts.length;
-    }
-    return c;
-  };
-
-  const active_students = () => {
-    let s = new Set<string>();
-    for (let i = 0; i < data3.length; i++) {
-      s.add(data2[i].author);
-    }
-    return s.size;
-  };
-
-  const active_staff = () => {
-    let c = 0;
-    for (let i = 0; i < data3.length; i++) {
-      if (data3[i].moderator) {
-        c++;
+      if (data3[i].moderator == mod) {
+        c = c + data3[i].posts.length;
       }
     }
     return c;
+  };
+
+  const average_engagement = () => {
+    let c = 0;
+    for (let i = 0; i < data2.length; i++) {
+      c = c + data2[i].uniqueViewsCount;
+    }
+    return Math.round(c / data2.length);
   };
 
   const average_response_time = () => {
     let diff = 0;
+
+    if (mod) {
+      return "No Data";
+    }
+
     for (let i = 0; i < data2.length; i++) {
       if (data2[i].modAnsweredAt == null || data2[i].publishedAt == null) {
         continue;
       }
+      if (data2[i].public == false) {
+        continue;
+      }
+
       let published_at = new Date(data2[i].publishedAt);
       let mod_answered_at = new Date(data2[i].modAnsweredAt);
 
@@ -84,7 +88,7 @@ const Raw = () => {
     const remainingHours = hours % 24;
 
     let str = `${days} days\n ${remainingHours} hours\n ${remainingMinutes} minutes\n ${remainingSeconds} seconds`;
-    return days + " days";
+    return days + " day " + remainingHours + " hours";
   };
 
   useEffect(() => {
@@ -96,7 +100,9 @@ const Raw = () => {
     };
 
     const fetchData2 = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/posts/");
+      let option = "";
+      mod ? (option = "moderator/") : (option = "student/");
+      const response = await axios.get(`http://127.0.0.1:8000/posts/${option}`);
       setData2(response.data);
     };
 
@@ -112,28 +118,27 @@ const Raw = () => {
 
   return (
     <Row>
-      <Col xs={w}>
+      <Col xs={3}>
+        <h5>Average Response Time</h5>
+        <h2>{average_response_time()}</h2>
+        <h2>{}</h2>
+      </Col>
+      <Col xs={3}>
         <h5>Posts Generated</h5>
         <h2>{posts_generated()}</h2>
       </Col>
-      <Col xs={w}>
-        <h5>Unanswered Posts</h5>
-        <h2>{data1.length}</h2>
+      <Col xs={3}>
+        <h5>% Total Traffic</h5>
+        {/* some hard coding going on here */}
+        <h2>{((posts_generated() / 617) * 100).toFixed(4)}</h2>
       </Col>
-      <Col xs={w}>
-        <h5>Avg. Response Time</h5>
-        <h2>{average_response_time()}</h2>
-      </Col>
-      <Col xs={w}>
-        <h5>Active Students</h5>
-        <h2>{active_students()}</h2>
-      </Col>
-      <Col xs={w}>
-        <h5>Active Staff</h5>
-        <h2>{active_staff()}</h2>
+      <Col xs={3}>
+        <h5>Average Engagement</h5>
+          <h2 style={{display: 'inline'}}>{average_engagement() + ' '}</h2>
+          <p style={{display: 'inline'}}>(Unique Views per Post)</p>
       </Col>
     </Row>
   );
 };
 
-export default Raw;
+export default RawStudentStats;
