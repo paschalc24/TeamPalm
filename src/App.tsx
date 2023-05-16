@@ -1,34 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import SideBar from "./components/SideBar";
+import NavBar from "./components/NavBar";
+import Grid from "./components/Grid";
+import OverlayHub from "./components/OverlayHub";
+import CourseButton from "./components/CourseButton";
+import { ThemeProvider } from "styled-components";
+import Card from "./components/Card";
+import styled from 'styled-components';
+
+
+//import './App.css'
+const theme = {
+  colors: {
+    blue: "#0070f3",
+    white: "#ffffff",
+    light_grey: "#F8FAFB",
+    purple: "#9925BE"
+  },
+};
+
+const FullScreenDiv = styled.div`
+  margin: 0;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.light_grey};
+`;
+
+var courseObjects = [
+  {
+    imageSrc: "src/assets/course_img.png",
+    tooltipText: "CS-320",
+    onClick: () => {
+      console.log("320!");
+    },
+  },
+  {
+    imageSrc: "src/assets/course_img2.png",
+    tooltipText: "CS-383",
+    onClick: () => {
+      console.log("383!");
+    },
+  },
+  {
+    imageSrc: "src/assets/course_img3.png",
+    tooltipText: "CS-240",
+    onClick: () => {
+      console.log("240!");
+    },
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <ThemeProvider theme={theme} >
+      <FullScreenDiv>
+        <OverlayHub courses={courseObjects}/>
+      </FullScreenDiv>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

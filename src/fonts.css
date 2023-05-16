@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Roboto Flex';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@700&display=swap') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap') format('truetype');
+    font-weight: 700;
+}
+
