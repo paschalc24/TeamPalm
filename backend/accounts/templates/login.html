@@ -1,6 +1,140 @@
-<h1>Login</h1>
-<form class="site-form" action="/accounts/login/" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Login">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    
+    #root {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .logo {
+      height: 6em;
+      padding: 1.5em;
+      will-change: filter;
+      transition: filter 300ms;
+    }
+    
+    .logo:hover {
+      filter: drop-shadow(0 0 2em #646cffaa);
+    }
+    
+    .logo.react:hover {
+      filter: drop-shadow(0 0 2em #61dafbaa);
+    }
+
+    @keyframes logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+      }
+    }
+
+    .card {
+      padding: 2em;
+    }
+
+    .read-the-docs {
+      color: #888;
+    }
+
+    /* Additional styles for login page */
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: rgb(153, 37, 190);;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .error_messages {
+      color: rgb(203, 60, 60);
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <a href="#" class="logo">
+      <img src="static/Filigree_Logo_With_Name.png" alt="Logo">
+    </a>
+    <div class="container">
+      <h1>Login</h1>
+      <form class="site-form" action="/" method="post">
+        {% csrf_token %}
+        <div class="form-group error_messages">
+          {{ error_messages }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.username.id_for_label }}">Username:</label>
+          {{ form.username }}
+        </div>
+      
+        <div class="form-group">
+          <label for="{{ form.password.id_for_label }}">Password:</label>
+          {{ form.password }}
+        </div>
+        <button class="btn" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

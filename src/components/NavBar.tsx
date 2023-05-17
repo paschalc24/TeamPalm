@@ -13,6 +13,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
+import axios from 'axios';
 
 interface NavBarProps {
   course: string;
@@ -58,6 +59,15 @@ const CourseNameDiv = styled.div`
   letter-spacing: 0.01em;
 `;
 
+const LogoutButton = styled(Button)`
+  margin-left: auto; /* Right-align the button */
+  @media (max-width: 600px) {
+    margin-left: 0; /* Remove the left margin for smaller screens */
+    margin-top: 10px; /* Add top margin for spacing */
+    width: 100%; /* Make the button fill the container width */
+  }
+`;
+
 const NavBar: FC<NavBarProps> = ({
   course,
   activeCourse,
@@ -75,7 +85,16 @@ const NavBar: FC<NavBarProps> = ({
     setSelectedMode(newAlignment);
   };
 
-  return course == activeCourse ? (
+  async function handleLogout() {
+    try {
+      await axios.post('http://127.0.0.1:8000/logout/');
+      window.location.href = 'http://127.0.0.1:8000/';
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return course === activeCourse ? (
     <>
       <Navbar expand="lg">
         <Navbar.Brand href="#home">
@@ -93,7 +112,7 @@ const NavBar: FC<NavBarProps> = ({
         <VerticalLine />
         <CourseNameDiv>{course}</CourseNameDiv>
 
-        {activeCourse != "" ? (
+        {activeCourse !== "" ? (
           <>
             <ToggleButtonGroup
               color="secondary"
@@ -101,7 +120,7 @@ const NavBar: FC<NavBarProps> = ({
               exclusive={true}
               onChange={handleChange}
               aria-label="Platform"
-              style={{ "padding-left": "50px", "padding-right": "50px" }}
+              style={{ paddingLeft: "50px", paddingRight: "50px" }}
             >
               <ToggleButton value="home">Home</ToggleButton>
               <ToggleButton value="students">Students</ToggleButton>
@@ -111,8 +130,14 @@ const NavBar: FC<NavBarProps> = ({
         ) : (
           <></>
         )}
+
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto" />
+        <Nav className="mr-auto" />
+          <Nav>
+            <LogoutButton variant="outline-primary" onClick={handleLogout}>
+              Logout
+            </LogoutButton>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </>
