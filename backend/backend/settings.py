@@ -25,8 +25,15 @@ SECRET_KEY = 'django-insecure-j7ckg@oqbdwn$8-(^o-kc!lmf@)!dbvrl^)39#ej=4gx$i%%ku
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+    'http://0.0.0.0',
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -39,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'user_api.apps.UserApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -88,6 +96,9 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
+## User model
+AUTH_USER_MODEL = 'user_api.AppUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
