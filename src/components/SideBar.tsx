@@ -108,6 +108,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
               setSelectedMode={setSelectedMode}
+              key={Math.random()}
             />
           ))}
         </CourseButtonContainer>

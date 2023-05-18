@@ -109,7 +109,7 @@ const NavBar: FC<NavBarProps> = ({
               exclusive={true}
               onChange={handleChange}
               aria-label="Platform"
-              style={{ "padding-left": "50px", "padding-right": "50px" }}
+              style={{ "paddingLeft": "50px", "paddingRight": "50px" }}
             >
               <ToggleButton value="home">Home</ToggleButton>
               <ToggleButton value="students">Students</ToggleButton>

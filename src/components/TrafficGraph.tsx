@@ -3,7 +3,7 @@ import axios from "axios";
 import Plotly from 'plotly.js';
 import Plot from 'react-plotly.js';
 import Spinner from 'react-bootstrap/Spinner';
-
+import '../fonts.css'
 
 interface Props {
   urlParam: string;
@@ -161,7 +161,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
             <button onClick={handleTimePeriodChange} value="per_hour">Hour</button>
           </div>
           <Plot
-            data={graphData}
+            data={graphData} 
             layout={graphLayout}
             style={{ width: "100%", height: "100%" }}
           />
