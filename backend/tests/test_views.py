@@ -95,9 +95,94 @@ class ViewsTestOracle(TestCase):
         request = HttpRequest()
         unanswered_posts_view = AnalyticsUnansweredPostsApiView()
         response = unanswered_posts_view.get(request)
+        for post in response.data:
+            self.assertNotIn('answeredAt', post)
+
+    def testMostViewedPosts(self):
+        request = HttpRequest()
+        most_viewed_posts_view = AnalyticsMostViewedPostsApiView()
+        response = most_viewed_posts_view.get(request)
+        self.assertEqual(len(response.data), 10)
+        response = most_viewed_posts_view.get(request)
+        for i in range(1, 10):
+            self.assertTrue(response.data[i]['viewsCount'] <= response.data[i - 1]['viewsCount'])
+
+    def testMostUniqueViewedPosts(self):
+        request = HttpRequest()
+        most_unique_viewed_posts_view = AnalyticsMostUniqueViewedPostsApiView()
+        response = most_unique_viewed_posts_view.get(request)
+        self.assertEqual(len(response.data), 10)
+        for i in range(1, 10):
+            self.assertTrue(response.data[i]['uniqueViewsCount'] <= response.data[i - 1]['uniqueViewsCount'])
         
-            
+    def testMostLikedPosts(self):
+        request = HttpRequest()
+        most_liked_posts_view = AnalyticsMostLikedPostsApiView()
+        response = most_liked_posts_view.get(request)
+        self.assertEqual(len(response.data), 10)
+        for i in range(1, 10):
+            self.assertTrue(response.data[i]['likesCount'] <= response.data[i - 1]['likesCount'])
+        
+    def testMostAnsweredPosts(self):
+        request = HttpRequest()
+        most_answered_posts_view = AnalyticsMostAnsweredPostsApiView()
+        response = most_answered_posts_view.get(request)
+        self.assertEqual(len(response.data), 10)
+        for i in range(1, 10):
+            self.assertTrue(response.data[i]['answersCount'] <= response.data[i - 1]['answersCount'])
 
+    def testResponseTime(self):
+        request = HttpRequest()
+        response_time_view = AnalyticsResponseTimeApiView()
+        response = response_time_view.get(request)
+        for obj in response.data:
+            self.assertIn('number', obj)
+            self.assertIn('publishedAt', obj)
+            self.assertIn('modAnsweredAt', obj)
 
-    
-    
+    def testStudentModPosts(self):
+        request = HttpRequest()
+        student_mod_posts_view = StudentVsModPostsApiView()
+
+        mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
+                    "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", 
+                    "Michael Gay", "Mark Baker", "Bill Green"}
+
+        response1 = student_mod_posts_view.get(request, 'student')
+        for post in response1.data:
+            author = Author.objects.get(slug=post['author'])
+            self.assertNotIn(author.firstName + ' ' + author.lastName, mod_list)
+
+        response2 = student_mod_posts_view.get(request, 'moderator')
+        for post in response2.data:
+            author = Author.objects.get(slug=post['author'])
+            self.assertIn(author.firstName + ' ' + author.lastName, mod_list)
+        
+        response3 = student_mod_posts_view.get(request, 'professor')
+        self.assertEqual(response3.status_code, HTTP_400_BAD_REQUEST)
+
+    def testViewsByTimeframe(self):
+        request = HttpRequest()
+        views_by_timeframe_view = AnalyticsViewsByTimeframeApiView()
+        response1 = views_by_timeframe_view.get(request, '2022-09-07', '2022-12-20')
+        self.assertEqual(response1.status_code, HTTP_200_OK)
+        self.assertEqual(response1.data['views'], 
+                         sum(res['viewsCount'] for res in self.posts))
+        self.assertEqual(response1.data['unique_views'], 
+                         sum(res['uniqueViewsCount'] for res in self.posts))
+
+        response2 = views_by_timeframe_view.get(request, '2022-10-10', '2022-11-01')
+        self.assertEqual(response2.status_code, HTTP_200_OK)
+        self.assertEqual(response2.data['views'], 1649)
+        self.assertEqual(response2.data['unique_views'], 705)
+
+        response3 = views_by_timeframe_view.get(request, '2023-10-10', '2023-11-01')
+        self.assertEqual(response3.status_code, HTTP_400_BAD_REQUEST)
+
+    def testPostsUnansweredByMod(self):
+        request = HttpRequest()
+        unanswered_by_mod_view = AnalyticsPostsUnansweredByModApiView()
+        response = unanswered_by_mod_view.get(request)
+        for post in response.data:
+            self.assertIs(post['modAnsweredAt'], None)
+            self.assertTrue(post['answersCount'] > 0)
