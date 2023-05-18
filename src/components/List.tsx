@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import '../fonts.css'
+import "../fonts.css";
+import { FaEye, FaThumbsUp, FaComment } from "react-icons/fa"; // Assuming you are using React Icons library
 
 const theme = createTheme({
   typography: {
@@ -11,7 +12,6 @@ const theme = createTheme({
 });
 
 interface IData {
-  // Define the structure of your data
   number: number;
   post_slug: string;
   title: string;
@@ -24,6 +24,7 @@ interface IData {
   read: boolean;
   modAnsweredAt: string | null;
   answersCount: number;
+  likesCount: number;
   author: string;
 }
 
@@ -52,76 +53,120 @@ const List = () => {
     switch (option) {
       case "mostviewedposts/":
         return "Most Viewed Posts";
-        break;
       case "unansweredposts/":
         return "Unanswered Posts";
-        break;
       case "mostlikedposts/":
         return "Most Liked Posts";
-        break;
       case "mostansweredposts/":
         return "Most Answered Posts";
-        break;
       default:
         break;
     }
   };
 
-  // Use the retrieved data in your component
+  // Use the retrieved data
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
-        <select
-          value={selectedOption}
-          onChange={(event) => setSelectedOption(event.target.value)}
+    <div style={{ overflow: "auto" }}>
+      <div style={{ overflow: "auto" }}>
+        <div
           style={{
-            backgroundColor: "lightgray",
-            color: "#0070f3",
-            fontSize: "16px",
-            padding: "8px",
-            border: "none",
-            borderRadius: "4px",
+            overflow: "auto",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <option value="mostviewedposts/">Most Viewed Posts</option>
-          <option value="unansweredposts/">Unanswered Posts</option>
-          <option value="mostlikedposts/">Most Liked Posts</option>
-          <option value="mostansweredposts/">Most Answered Posts</option>
-        </select>
-      </div>
-      <div style={{ overflow: "auto", maxHeight: "399px" }}>
-        {/* Apply the maxHeight CSS property to limit the height of the container */}
-        <div className="list-group">
-          <h3 className="card-title" style={{ paddingBottom: "20px" }}>
+          <h3
+            className="card-title"
+            style={{
+              margin: "0",
+              flex: "1",
+              alignItems: "center",
+              verticalAlign: "middle",
+            }}
+          >
             {formatOption(selectedOption)}
           </h3>
-          {data.map((item) => (
-            <div key={item.number}>
-              <a
-                href="#"
-                className="list-group-item list-group-item-action flex-column align-items-start"
+          <select
+            value={selectedOption}
+            onChange={(event) => setSelectedOption(event.target.value)}
+            style={{
+              backgroundColor: "lightgray",
+              color: "blue",
+              fontSize: "16px",
+              padding: "8px",
+              border: "none",
+              borderRadius: "4px",
+              verticalAlign: "middle",
+            }}
+          >
+            <option value="mostviewedposts/">Most Viewed Posts</option>
+            <option value="unansweredposts/">Unanswered Posts</option>
+            <option value="mostlikedposts/">Most Liked Posts</option>
+            <option value="mostansweredposts/">Most Answered Posts</option>
+          </select>
+        </div>
+      </div>
+      <div style={{ overflow: "auto", maxHeight: "400px" }}>
+        <div className="list-group">
+          {data.map((item, index) => (
+            <div
+              key={item.number}
+              className={`list-group-item${
+                index !== data.length - 1 ? " mb-3" : ""
+              }`}
+              style={{ border: "none" }}
+            >
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">{item.title}</h5>
+                <small>{item.publishedAt?.slice(0, 10)}</small>
+              </div>
+              <p>Author: {item.author}</p>
+              <p
+                className="mb-1"
+                style={{
+                  height: "100px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
               >
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{item.title}</h5>
-                  <small>{item.publishedAt}</small>
-                </div>
-                <p>Author: {item.author}</p>
-                <p className="mb-1">{item.body}</p>
-                <small>
-                  Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}
-                </small>
-              </a>
+                {item.body}
+              </p>
+              <small style={{ alignItems: "right", color: "gray" }}>
+                <FaEye
+                  style={{
+                    verticalAlign: "middle",
+                    marginRight: "10px",
+                    marginLeft: "10px",
+                  }}
+                />
+                {item.viewsCount}
+                <FaThumbsUp
+                  style={{
+                    verticalAlign: "middle",
+                    marginRight: "10px",
+                    marginLeft: "10px",
+                  }}
+                />
+                {item.likesCount}
+                <FaComment
+                  style={{
+                    verticalAlign: "middle",
+                    marginRight: "10px",
+                    marginLeft: "10px",
+                  }}
+                />
+                {item.answersCount}
+              </small>
+              {index !== data.length - 1 && (
+                <hr style={{ borderStyle: "dotted" }} />
+              )}
             </div>
           ))}
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default List;
