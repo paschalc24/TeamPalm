@@ -67,7 +67,7 @@ def insertComment(post_num: int, comment: dict):
     new_row.save()
 
 def create_test_data(main_file, test_file, data_len):
-    all_posts, test_json = open(main_file, 'r'), open(test_file, 'w')
+    all_posts, test_json = json.load(open(main_file, 'r')), open(test_file, 'w')
     attrs = {"slug", "visibility", "number", "title", "body", "type", "publishedAt", "viewsCount", 
              "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"}
     author_attrs = {"firstName", "lastName", "slug"}
@@ -89,10 +89,9 @@ def create_test_data(main_file, test_file, data_len):
     
     test_json.write(json.dumps(new_data))
     test_json.close()
-    all_posts.close()
 
 # Uncomment below line to populate the database
 # populateDatabase('cw_posts_scrubbed.json', 'db.sqlite3')
 
 # Uncomment below line to generate test data
-# create_test_data('cw_posts_scrubbed.json', 'analytics/tests/test_data.json', 25)
+create_test_data('cw_posts_scrubbed.json', 'tests/test_data.json', 50)
