@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import SideBar from "./components/SideBar";
 import NavBar from "./components/NavBar";
@@ -8,7 +8,10 @@ import CourseButton from "./components/CourseButton";
 import { ThemeProvider } from "styled-components";
 import Card from "./components/Card";
 import styled from 'styled-components';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 //import './App.css'
 const theme = {
@@ -50,13 +53,169 @@ var courseObjects = [
   },
 ];
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
+const client = axios.create({
+  baseURL: "http://127.0.0.1:8000"
+});
+
 function App() {
-  return (
-    <ThemeProvider theme={theme} >
-      <FullScreenDiv>
-        <OverlayHub courses={courseObjects}/>
-      </FullScreenDiv>
+  const [currentUser, setCurrentUser] = useState<boolean | undefined>();
+  const [registrationToggle, setRegistrationToggle] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  useEffect(() => {
+    client.get("/user")
+      .then(function (res) {
+        setCurrentUser(true);
+      })
+      .catch(function (error) {
+        setCurrentUser(false);
+      });
+  }, []);
+
+  function update_form_btn() {
+    if (registrationToggle) {
+      document.getElementById("form_btn")!.innerHTML = "Register";
+      setRegistrationToggle(false);
+    } else {
+      document.getElementById("form_btn")!.innerHTML = "Log in";
+      setRegistrationToggle(true);
+    }
+  }
+
+  function submitRegistration(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    client.post(
+      "/register",
+      {
+        email: email,
+        username: username,
+        password: password
+      }
+    ).then(function (res) {
+      client.post(
+        "/login",
+        {
+          email: email,
+          password: password
+        }
+      ).then(function (res) {
+        setCurrentUser(true);
+      });
+    });
+  }
+
+  function submitLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    client.post(
+      "/login",
+      {
+        email: email,
+        password: password
+      }
+    ).then(function (res) {
+      setCurrentUser(true);
+    });
+  }
+
+  function submitLogout(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    client.post(
+      "/logout",
+      { withCredentials: true }
+    ).then(function (res) {
+      setCurrentUser(false);
+    });
+  }
+  
+  if (currentUser) {
+    return (
+      <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<FullScreenDiv><OverlayHub submitLogout={submitLogout} courses={courseObjects} /></FullScreenDiv>} />
+        </Routes>
+      </Router>
     </ThemeProvider>
+    );
+  }
+
+  return (
+    <div>
+      {registrationToggle ? (
+        <div className="center">
+          <Form onSubmit={submitRegistration}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Register
+            </Button>
+          </Form>
+        </div>
+      ) : (
+        <div className="center">
+          <Form onSubmit={submitLogin}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Log in
+            </Button>
+          </Form>
+        </div>
+      )}
+    </div>
   );
 }
 
