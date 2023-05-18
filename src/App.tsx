@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
+import logo from "./assets/Filigree_Logo.png";
+import title from "./assets/Filigree_Text.png";
 import SideBar from "./components/SideBar";
 import NavBar from "./components/NavBar";
 import Grid from "./components/Grid";
@@ -12,8 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './App.css'
 
-//import './App.css'
 const theme = {
   colors: {
     blue: "#0070f3",
@@ -187,32 +188,45 @@ function App() {
         </div>
       ) : (
         <div className="center">
-          <Form onSubmit={submitLogin}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Log in
-            </Button>
-          </Form>
+          <div className="login-container">
+            <div className="logo-container">
+              <img alt="" src={logo} width="auto" height="80" className="logo"/>
+            </div>
+            <div className="logo-container">
+              <img alt="" src={title} width="auto" height="30" className="title"/>
+            </div>
+            <div className="card">
+            <div className="card-body">
+            <h2 className="login-title">Login</h2>
+            <Form onSubmit={submitLogin}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Log in
+              </Button>
+            </Form>
+          </div>
+          </div>
+        </div>
         </div>
       )}
     </div>
