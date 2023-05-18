@@ -68,4 +68,4 @@ def insertComment(post_num: int, comment: dict):
     new_row.save()
 
 # Uncomment below line to populate the database
-populateDatabase()
+# populateDatabase()
