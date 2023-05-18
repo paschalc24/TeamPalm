@@ -8,12 +8,10 @@ django.setup()
 
 from analytics.models import *
 
-conn = sqlite3.connect('db.sqlite3')
-cursor = conn.cursor()
-
-all_posts = json.load(open('cw_posts_scrubbed.json'))
-
-def populateDatabase():
+def populateDatabase(filename: str, db: str):
+    all_posts = json.load(open(filename))
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
     for post in all_posts:
         insertAuthor(post["author"]) 
         insertPost(post)     
@@ -46,7 +44,8 @@ def insertPost(post: dict):
         if attr in post:
             setattr(new_row, attr, post[attr])
 
-    new_row.save()
+    if new_row.number != 0:
+        new_row.save()
 
 def insertComment(post_num: int, comment: dict):
     try:
@@ -67,8 +66,8 @@ def insertComment(post_num: int, comment: dict):
 
     new_row.save()
 
-def create_test_data(data_len):
-    test_json = open('analytics/tests/test_data.json', 'w')
+def create_test_data(main_file, test_file, data_len):
+    all_posts, test_json = open(main_file, 'r'), open(test_file, 'w')
     attrs = {"slug", "visibility", "number", "title", "body", "type", "publishedAt", "viewsCount", 
              "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"}
     author_attrs = {"firstName", "lastName", "slug"}
@@ -90,9 +89,10 @@ def create_test_data(data_len):
     
     test_json.write(json.dumps(new_data))
     test_json.close()
+    all_posts.close()
 
 # Uncomment below line to populate the database
-# populateDatabase()
+# populateDatabase('cw_posts_scrubbed.json', 'db.sqlite3')
 
 # Uncomment below line to generate test data
-# create_test_data(25)
+# create_test_data('cw_posts_scrubbed.json', 'analytics/tests/test_data.json', 25)
