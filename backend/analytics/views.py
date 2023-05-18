@@ -6,6 +6,7 @@ from .models import *
 from .serializers import *
 from datetime import datetime, timedelta
 from collections import defaultdict
+import pytz
 
 
 class AnalyticsApiAllAuthorsView(APIView):
@@ -35,37 +36,44 @@ class AnalyticsApiAllCommentsView(APIView):
 class AnalyticsPostByNumApiView(APIView):
   # Retrieves the Post with given post_id
   def get(self, request, post_id):
-    Post_instance = Post.objects.get(number=post_id)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Post id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
+    try:
+      post_instance = Post.objects.get(number=post_id)
+    except:
+      return Response(
+          {"res": "Object with Post id does not exists"},
+          status=status.HTTP_400_BAD_REQUEST
+      )
 
-    serializer = PostSerializer(Post_instance)
+    serializer = PostSerializer(post_instance)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AnalyticsPostByAuthorApiView(APIView):
   # Retrieves the Post with given author_id
   def get(self, request, author_id):
-    Post_instance = Post.objects.filter(author=author_id)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Author id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    serializer = PostSerializer(Post_instance, many=True)
+    post_instance = Post.objects.filter(author=author_id)
+    if not post_instance:
+      return Response(
+        {"res": "Object with Author id does not exists"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+    serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AnalyticsPostByTimeframeApiView(APIView):
   # Retrieves the post within given time-frame
   def get(self, request, start_time, end_time):
-    start_time = datetime.strptime(start_time, "%Y-%m-%d")
-    end_time = datetime.strptime(end_time, "%Y-%m-%d")
+    start_time = pytz.timezone('UTC').localize(datetime.strptime(start_time, "%Y-%m-%d"))
+    end_time = pytz.timezone('UTC').localize(datetime.strptime(end_time, "%Y-%m-%d"))
     posts = set()
     for post in Post.objects.all():
       if post.publishedAt and start_time <= post.publishedAt <= end_time:
         posts.add(post.number)
+
+    if not posts: 
+      return Response(
+        {"res": "No posts exist within given time-frame"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
 
     response = Post.objects.filter(number__in=posts)
     serializer = PostSerializer(response, many=True)
@@ -74,13 +82,14 @@ class AnalyticsPostByTimeframeApiView(APIView):
 class AnalyticsUnansweredPostsApiView(APIView):
   # Retrieves all unanswered posts
   def get(self, request):
-    Post_instance = Post.objects.filter(answersCount=0)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Author id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    serializer = PostSerializer(Post_instance, many=True)
+    try:
+      post_instance = Post.objects.filter(answersCount=0)
+    except:
+      return Response(
+        {"res": "Object with Author id does not exists"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+    serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
   
 class AnalyticsMostViewedPostsApiView(APIView):

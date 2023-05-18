@@ -16,7 +16,7 @@ class ModelsTestOracle(TestCase):
                 self.authors.append(post['author'])
             for comment in post['comments']:
                 self.comments.append(comment)
-                if post['author'] not in self.authors:
+                if comment['author'] not in self.authors:
                     self.authors.append(comment['author'])
 
         populateDatabase('tests/test_data.json', 'test_db.sqlite3')
