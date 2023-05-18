@@ -30,9 +30,11 @@ const Overlay: FC<CourseProps> = ({ course, activeCourse, activeMode }) => {
       {/* <h1 className={course}>{course + currMode}</h1> */}
 
       {currMode == "home" ? (
-        <>
-          <Grid />
-        </>
+        <div style= {{ paddingRight: "50px"}}>
+          <>
+            <Grid />
+          </>
+        </div>
       ) : (
         <></>
       )}

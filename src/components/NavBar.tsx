@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import logo from "../assets/Filigree_Logo_With_Name.png";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -64,8 +64,13 @@ const NavBar: FC<NavBarProps> = ({
   activeMode,
   setSelectedMode,
 }) => {
-  const [alignment, setAlignment] = React.useState("home");
+  const [alignment, setAlignment] = React.useState("home"); //Last change on default mode alignment
   const [noneSelected, setNoneSelected] = React.useState(true);
+
+  useEffect(() => {
+    // Reset alignment to 'left' every time the component re-renders
+    setAlignment('home');
+  }, []);
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,

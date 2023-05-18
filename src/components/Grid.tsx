@@ -22,13 +22,13 @@ const Grid = () => {
       <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto"}}>
         <div className="col">
         <Card>
-        <TrafficGraph urlParam="http://127.0.0.1:8000/forumtraffic/" dataDescriptor="Posts"/>
+          <TrafficGraph urlParam="http://127.0.0.1:8000/forumtraffic/" dataDescriptor="Posts"/>
         </Card>
         </div>
         <div className="col">
-        <Card>
-        <TrafficGraph urlParam="http://127.0.0.1:8000/viewstraffic/" dataDescriptor="Views"/>
-        </Card>
+          <Card>
+            <TrafficGraph urlParam="http://127.0.0.1:8000/viewstraffic/" dataDescriptor="Views"/>
+          </Card>
         </div>
       </div>
       <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}>

@@ -9,6 +9,7 @@ interface SidebarProps {
   username: string;
   selectedCourse: string;
   setSelectedCourse: (course: string) => void;
+  setSelectedMode: (course: string) => void;
 }
 
 const SidebarWrapper = styled.div`
@@ -92,6 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   username,
   selectedCourse,
   setSelectedCourse,
+  setSelectedMode
 }) => {
   return (
     <SidebarWrapper>
@@ -102,6 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               {...course}
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
+              setSelectedMode={setSelectedMode}
             />
           ))}
         </CourseButtonContainer>

@@ -27,7 +27,7 @@ interface OverlayHubProps {
         <div>
             {selectedCourse != "" ?
                 (courses.map((course, index) => (
-                    <NavBar key={index} course={course.tooltipText} activeCourse={selectedCourse} activeMode={selectedMode} setSelectedMode={setSelectedMode}/>
+                    <NavBar key={index} course={course.tooltipText} activeCourse={selectedCourse} activeMode={"home"} setSelectedMode={setSelectedMode}/>
                 )))
                 :
                 <NavBar course={""} activeCourse={""} activeMode={""} setSelectedMode={setSelectedMode}/>
@@ -36,7 +36,7 @@ interface OverlayHubProps {
             <div style={{ display: 'flex' }}>
                 <div style={{ width: '250px' }}>
                     <SideBar courses={courses} username="Matthew Rattigan"
-                    selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} />
+                    selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} setSelectedMode={modeHandler}/>
                 </div>
                 <div style={{flex:1}}>
                     {courses.map((course, index) => (

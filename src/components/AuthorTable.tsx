@@ -16,16 +16,21 @@ interface TableType {
 interface Prop {
   slug: string;
   posts: number[];
+  comments: string[];
   firstName: string;
   lastName: string;
   moderator: boolean;
+  endorsed_comments: number[];
+  answered_posts: number[];
 }
 
 // define interface for data used by EnhancedTable
 interface Author {
   slug: string;
   postsNum: number;
-  posts: number[];
+  commentsNum: number;
+  endorsedCommentsNum: number;
+  answeredPostsNum: number;
   name: string;
   title: string;
 }
@@ -45,6 +50,7 @@ const AuthorTable = ({ isMod }: TableType) => {
     axios
       .get(`http://127.0.0.1:8000/authors/`)
       .then((response) => {
+        console.log(response);
         // convert data into our Author prop, simplifies implementation
         const authorData = response.data
           .filter((prop: Prop) => (isMod ? prop.moderator : !prop.moderator))
@@ -56,10 +62,17 @@ const AuthorTable = ({ isMod }: TableType) => {
 
   // Convert raw data pulled into new datatype
   const convertPropToAuthor = (prop: Prop): Author => {
+    console.log("posts:" + prop.posts);
+    console.log("comments" + prop.comments);
+    console.log("endorsed" + prop.endorsed_comments);
+    console.log("answered" + prop.answered_posts);
+
     return {
       slug: prop.slug,
       postsNum: prop.posts.length,
-      posts: prop.posts,
+      commentsNum: prop.comments.length,
+      endorsedCommentsNum: prop.endorsed_comments.length,
+      answeredPostsNum: prop.answered_posts.length,
       name: `${prop.firstName} ${prop.lastName}`,
       title: isMod ? "Student Name" : "Staff Name",
     };

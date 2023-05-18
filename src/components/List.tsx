@@ -68,10 +68,9 @@ const List = () => {
 
   // Use the retrieved data in your component
   return (
-    <div style={{ overflow: "auto" }}>
+    <div>
       <div
         style={{
-          overflow: "auto",
           display: "flex",
           justifyContent: "flex-end",
         }}
@@ -81,7 +80,7 @@ const List = () => {
           onChange={(event) => setSelectedOption(event.target.value)}
           style={{
             backgroundColor: "lightgray",
-            color: "blue",
+            color: "#0070f3",
             fontSize: "16px",
             padding: "8px",
             border: "none",
@@ -94,7 +93,8 @@ const List = () => {
           <option value="mostansweredposts/">Most Answered Posts</option>
         </select>
       </div>
-      <div style={{ overflow: "auto" }}>
+      <div style={{ overflow: "auto", maxHeight: "399px" }}>
+        {/* Apply the maxHeight CSS property to limit the height of the container */}
         <div className="list-group">
           <h3 className="card-title" style={{ paddingBottom: "20px" }}>
             {formatOption(selectedOption)}
@@ -120,7 +120,7 @@ const List = () => {
         </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default List;

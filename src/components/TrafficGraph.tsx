@@ -2,6 +2,8 @@ import React, { FC, useState, useEffect } from 'react';
 import axios from "axios";
 import Plotly from 'plotly.js';
 import Plot from 'react-plotly.js';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 interface Props {
   urlParam: string;
@@ -26,7 +28,24 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
   const [data, setData] = useState<Data | null>(null); //data fetched from server
   const [graphData, setGraphData] = useState<any[]>([]); //data processed to put in graph
   const [timePeriod, setTimePeriod] = useState<string>("per_day"); // current time period
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await axios.get<Data>(`${urlParam}`);
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [urlParam]);
+
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,53 +85,55 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
       title: {
         text: `${dataDescriptor} by ${timeUnitName.get(timePeriod)}`,
         font: {
-          family: 'Arial',
+          family: 'Roboto',
           size: 24,
-          color: '#333333'
+          color: '#000000'
         }
       },
       xaxis: {
         title: {
           text: timeUnitName.get(timePeriod),
           font: {
-            family: 'Arial',
+            family: 'Roboto',
             size: 16,
-            color: '#333333'
+            color: '#000000'
           }
         },
         gridcolor: '#FFFFFF',
         showgrid: false,
         tickfont: {
-          family: 'Arial',
+          family: 'Roboto',
           size: 14,
-          color: '#333333'
+          color: '#000000'
         }
       },
       yaxis: {
         title: {
           text: '# of Posts',
           font: {
-            family: 'Arial',
+            family: 'Roboto',
             size: 16,
-            color: '#333333'
+            color: '#000000'
           }
         },
         gridcolor: '#FFFFFF',
         showgrid: false,
         tickfont: {
-          family: 'Arial',
+          family: 'Roboto',
           size: 14,
-          color: '#333333'
+          color: '#000000'
         }
       },
-      plot_bgcolor: '#F5F5F5',
-      paper_bgcolor: '#F5F5F5',
-      margin: {
-        l: 50,
-        r: 50,
-        t: 50,
-        b: 50
+      plot_bgcolor: '#FFFFFF',
+      paper_bgcolor: '#FFFFFF',
+      autosize: true,
+      showlegend: false,
+      hovermode: 'closest',
+      transition: {
+        duration: 500,
+        easing: 'cubic-in-out'
       }
+
     };    
   }
 
@@ -122,7 +143,17 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
 
   return (
     <div>
-      {data && graphData && graphLayout && (
+      {isLoading ? (
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '60vh' 
+        }}>
+          <Spinner animation="border" role="status">
+          </Spinner>
+        </div>
+      ) : data && graphData && graphLayout && (
         <div>
           <div>
             <button onClick={handleTimePeriodChange} value="per_day">Day</button>
@@ -132,12 +163,13 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
           <Plot
             data={graphData}
             layout={graphLayout}
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
       )}
     </div>
   );
-};
+}
 
 export default TrafficGraph;
 
