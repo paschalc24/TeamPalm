@@ -25,7 +25,7 @@ const theme = {
 
 const FullScreenDiv = styled.div`
   margin: 0;
-  height: 120vh;
+  height: 110vh;
   background-color: ${({ theme }) => theme.colors.light_grey};
 `;
 
