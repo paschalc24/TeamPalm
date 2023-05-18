@@ -6,6 +6,7 @@ import NavBar from "./NavBar"
 
 
 interface OverlayHubProps {
+    submitLogout: (e: React.FormEvent<HTMLFormElement>) => void
     courses: {
       imageSrc: string;
       tooltipText: string;
@@ -13,7 +14,7 @@ interface OverlayHubProps {
     }[];
   }
   
-  const OverlayHub: FC<OverlayHubProps> = ({ courses }) => {
+  const OverlayHub: FC<OverlayHubProps> = ({ courses, submitLogout }) => {
     const [selectedCourse, setSelectedCourse] = useState("");
     const [selectedMode, setSelectedMode] = useState("home");
     //const [selectedMode, setSelectedMode] = useState("");
@@ -27,10 +28,10 @@ interface OverlayHubProps {
         <div>
             {selectedCourse != "" ?
                 (courses.map((course, index) => (
-                    <NavBar key={index} course={course.tooltipText} activeCourse={selectedCourse} activeMode={selectedMode} setSelectedMode={setSelectedMode}/>
+                    <NavBar submitLogout={submitLogout} key={index} course={course.tooltipText} activeCourse={selectedCourse} activeMode={selectedMode} setSelectedMode={setSelectedMode}/>
                 )))
                 :
-                <NavBar course={""} activeCourse={""} activeMode={""} setSelectedMode={setSelectedMode}/>
+                <NavBar submitLogout={submitLogout} course={""} activeCourse={""} activeMode={""} setSelectedMode={setSelectedMode}/>
             }
             
             <div style={{ display: 'flex' }}>
