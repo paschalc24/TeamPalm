@@ -81,7 +81,7 @@ const Name = styled.span`
   font-size: 14px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.darkBlue};
-  text-align: center;
+  text-align: center; 
   line-height: 1.2;
 `;
 
