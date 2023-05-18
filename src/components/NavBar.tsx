@@ -13,10 +13,10 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
-import { submitLogout } from "../App"
 import App from "../App"
 
 interface NavBarProps {
+  submitLogout: (e: React.FormEvent<HTMLFormElement>) => void
   course: string;
   activeCourse: string;
   activeMode: string;
@@ -61,6 +61,7 @@ const CourseNameDiv = styled.div`
 `;
 
 const NavBar: FC<NavBarProps> = ({
+  submitLogout,
   course,
   activeCourse,
   activeMode,

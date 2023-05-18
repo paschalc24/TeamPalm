@@ -61,17 +61,6 @@ const client = axios.create({
   baseURL: "http://127.0.0.1:8000"
 });
 
-function submitLogout(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  client.post(
-    "/logout",
-    { withCredentials: true }
-  ).then(function (res) {
-    // Redirect to the login page
-    window.location.href = "/login";
-  });
-}
-
 function App() {
   const [currentUser, setCurrentUser] = useState<boolean | undefined>();
   const [registrationToggle, setRegistrationToggle] = useState<boolean>(false);
@@ -134,13 +123,22 @@ function App() {
     });
   }
 
+  function submitLogout(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    client.post(
+      "/logout",
+      { withCredentials: true }
+    ).then(function (res) {
+      setCurrentUser(false);
+    });
+  }
   
   if (currentUser) {
     return (
       <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          <Route path="/" element={<FullScreenDiv><OverlayHub courses={courseObjects} /></FullScreenDiv>} />
+          <Route path="/" element={<FullScreenDiv><OverlayHub submitLogout={submitLogout} courses={courseObjects} /></FullScreenDiv>} />
         </Routes>
       </Router>
     </ThemeProvider>
@@ -221,5 +219,4 @@ function App() {
   );
 }
 
-export { submitLogout };
 export default App;
