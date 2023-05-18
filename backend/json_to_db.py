@@ -14,13 +14,11 @@ cursor = conn.cursor()
 all_posts = json.load(open('cw_posts_scrubbed.json'))
 
 def populateDatabase():
-    all_authors = set()
     for post in all_posts:
-        if post["author"]["slug"] not in all_authors:
-            insertAuthor(post["author"]) 
-            all_authors.add(post["author"]["slug"])  
-
+        insertAuthor(post["author"]) 
         insertPost(post)     
+        for comment in post["comments"]:
+            insertComment(post["number"], comment)
 
 def insertAuthor(author: dict):
     mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
@@ -47,6 +45,25 @@ def insertPost(post: dict):
     for attr in other_attrs:
         if attr in post:
             setattr(new_row, attr, post[attr])
+
+    new_row.save()
+
+def insertComment(post_num: int, comment: dict):
+    try:
+        author = Author.objects.get(slug=comment["author"]["slug"])
+    except:
+        insertAuthor(comment["author"])
+        author = Author.objects.get(slug=comment["author"]["slug"])
+
+    new_row = Comment(
+        author=author,
+        post=Post.objects.get(number=post_num),
+        comment_id=comment["id"],
+        endorsed=comment["endorsed"],
+        is_answer=("answer" in comment),
+        body=comment["body"],
+        publishedAt=comment["publishedAt"]
+    )
 
     new_row.save()
 

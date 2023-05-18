@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Author, Post
-from .serializers import AuthorSerializer, PostSerializer, ResponseTimeSerializer  
+from .models import *
+from .serializers import *
 from datetime import datetime, timedelta
 from collections import defaultdict
 
@@ -13,6 +13,9 @@ class AnalyticsApiAllAuthorsView(APIView):
     def get(self, request):
       authors = Author.objects.all()
       serializer = AuthorSerializer(authors, many=True)
+      for author in serializer.data:
+        author["endorsed_comments"] = [c.comment_id for c in Comment.objects.filter(author=author["slug"], endorsed=True)]
+        author["answered_posts"] = list(set(c.post.number for c in Comment.objects.filter(author=author["slug"])))
       return Response(serializer.data, status=status.HTTP_200_OK)
       
 class AnalyticsApiAllPostsView(APIView):      
@@ -20,6 +23,13 @@ class AnalyticsApiAllPostsView(APIView):
     def get(self, request):
       posts = Post.objects.all()
       serializer = PostSerializer(posts, many=True)
+      return Response(serializer.data, status=status.HTTP_200_OK)
+  
+class AnalyticsApiAllCommentsView(APIView):
+    # List all Comments
+    def get(self, request):
+      comments = Comment.objects.all()
+      serializer = CommentSerializer(comments, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AnalyticsPostByNumApiView(APIView):
