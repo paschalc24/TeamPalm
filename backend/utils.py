@@ -67,5 +67,32 @@ def insertComment(post_num: int, comment: dict):
 
     new_row.save()
 
+def create_test_data(data_len):
+    test_json = open('analytics/tests/test_data.json', 'w')
+    attrs = {"slug", "visibility", "number", "title", "body", "type", "publishedAt", "viewsCount", 
+             "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"}
+    author_attrs = {"firstName", "lastName", "slug"}
+    comment_attrs = {"id", "body", "answer", "publishedAt", "endorsed"}
+    
+    new_data = []
+    for pos in range(0, len(all_posts), len(all_posts) // data_len):
+        post = all_posts[pos]
+        new_post = { "author": { attr: post["author"][attr] for attr in post["author"] if attr in author_attrs } }
+        comments = []
+        for c in post["comments"]:
+            new_comment = { "author": { attr: c["author"][attr] for attr in c["author"] if attr in author_attrs } }
+            new_comment.update({ attr: c[attr] for attr in c if attr in comment_attrs })
+            comments.append(new_comment)
+
+        new_post.update({ attr: post[attr] for attr in post if attr in attrs})
+        new_post["comments"] = comments
+        new_data.append(new_post)
+    
+    test_json.write(json.dumps(new_data))
+    test_json.close()
+
 # Uncomment below line to populate the database
 # populateDatabase()
+
+# Uncomment below line to generate test data
+# create_test_data(25)
