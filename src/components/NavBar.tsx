@@ -13,6 +13,8 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
+import { submitLogout } from "../App"
+import App from "../App"
 
 interface NavBarProps {
   course: string;
@@ -111,6 +113,13 @@ const NavBar: FC<NavBarProps> = ({
         ) : (
           <></>
         )}
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            <form onSubmit={e => submitLogout(e)}>
+              <Button type="submit" variant="light">Log out</Button>
+            </form>
+          </Navbar.Text>
+        </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" />
         </Navbar.Collapse>
