@@ -1,1 +1,1917 @@
-[{"author": {"firstName": "Melinda", "lastName": "Dean", "slug": "9D26A52BU"}, "title": "Lecture Videos", "body": "What is the code to view the echo 360 lectures? I cannot find them", "publishedAt": "2022-09-08T15:26:03.021624Z", "number": 1, "type": "question", "visibility": "member", "slug": "616CPFF79", "answersCount": 1, "uniqueViewsCount": 131, "viewsCount": 388, "modAnsweredAt": "2022-09-10T01:50:58.726303Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "4c88a01a-0cfb-4027-b165-3509f5b4d8fa", "body": "There is a link set up at the top of the Moodle page that should take you to the videos.  That said, I've yet to receive a notification that Wednesday's lecture has been posted in the system.  I've contacted instructor services and will update you when I hear back...", "answer": true, "publishedAt": "2022-09-10T01:50:58.661435Z", "endorsed": false}]}, {"author": {"firstName": "Kevin", "lastName": "Everett", "slug": "0BB7BF4CU"}, "title": "Gradescope test is_monotonicish", "body": "For the gradescope test is_monotonicish([1, 2, 3, 4 , 3, 2, 1]) it says expected: 'True'. In the function specs comment one of the conditions says: (a) the last number must be greater than the first. It appears that the gradescope test doesn't match up with the function specifications, but maybe I am missing something.", "publishedAt": "2022-09-15T16:19:12.115732Z", "number": 15, "type": "question", "visibility": "member", "slug": "A41F33APF", "answersCount": 2, "likesCount": 6, "uniqueViewsCount": 125, "viewsCount": 324, "modAnsweredAt": "2022-09-16T00:53:21.86635Z", "read": true, "comments": [{"author": {"firstName": "Thomas", "lastName": "Harris", "slug": "AF80D8AU0"}, "id": "95dbfb3a-50c1-4b52-bac7-52c6a8bb0bd5", "body": "Should we write our code to the gradescope tests or the descriptions in the python starter code. I altered my function form the \"last number must be greater than the first\" to \"the last number must be greater than or equal to the first.\" and vice versa for monotonically decreasing. This has made it so I past that previously failing test, and it also does not cause a any other tests form starting to fail. I don't know if that is the correct solution, but at least you get the points on gradescope, but I don't know if that is the behavior we want for this function.", "answer": true, "publishedAt": "2022-09-15T18:39:22.132294Z", "endorsed": false}, {"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "712b79bb-c57b-4fa1-8be2-fdf2e9292cc9", "body": "Good catch.  There was indeed a problem with the autograder.  The example you included above should be false, since the first and last elements are equal.\n\nShould be fixed on Gradescope now; let me know if you're still getting the issue.", "answer": true, "publishedAt": "2022-09-16T00:53:21.828281Z", "endorsed": false}]}, {"author": {"firstName": "Michael", "lastName": "Taylor", "slug": "B13571C7U"}, "title": "Quiz Format", "body": "what is the format of the quiz?", "publishedAt": "2022-09-17T19:00:08.762382Z", "number": 29, "type": "question", "visibility": "member", "slug": "AD95EP81C", "answersCount": 1, "likesCount": 1, "uniqueViewsCount": 130, "viewsCount": 316, "modAnsweredAt": "2022-09-18T02:53:38.122674Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "f531c591-010a-4160-8aee-50c18fa3b295", "body": "Five multiple choice questions.", "answer": true, "publishedAt": "2022-09-18T02:53:38.084084Z", "endorsed": false}]}, {"author": {"firstName": "Janice", "lastName": "Baker", "slug": "0AB10712U"}, "title": "no ReadMe no test evaluation ?", "body": "Will gradescope won't evaluate any function if we don't provide the readme file?", "publishedAt": "2022-09-21T00:38:55.105134Z", "number": 51, "type": "question", "visibility": "member", "slug": "6CF7P5C2F", "answersCount": 1, "uniqueViewsCount": 117, "viewsCount": 230, "modAnsweredAt": "2022-09-21T01:43:17.982491Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "5aaa901b-4c2a-402e-8fd0-e2bcec5fde56", "body": "Correct.", "answer": true, "publishedAt": "2022-09-21T01:43:17.932096Z", "endorsed": false}]}, {"author": {"firstName": "Janice", "lastName": "Baker", "slug": "0AB10712U"}, "title": "zzz School song while throw collection. Great past really pressu", "body": "zzz Measure let city. Like past medical address raise. Move to sister together.\nMouth price past yes. Member soon maintain religious myself tree stage suffer.", "publishedAt": "2022-09-22T00:40:18.65901Z", "number": 64, "type": "question", "visibility": "moderator", "slug": "P0D3DCB31", "answersCount": 1, "uniqueViewsCount": 10, "viewsCount": 26, "modAnsweredAt": "2022-09-22T02:25:20.004572Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "94fc7f4a-d331-4bbf-bfd0-c0ef864ed7fc", "body": "zzz Truth job life rule look hit cause. Campaign billion after red. Better lea", "answer": true, "publishedAt": "2022-09-22T02:25:19.955614Z", "endorsed": false}]}, {"author": {"firstName": "George", "lastName": "Pope", "slug": "8UA0106EB"}, "title": "Consistent Hueristic", "body": "Hello,\n\nI'm kinda confused on what this means exactly. The slides say it means that \"the values of f(n) along any path are non-decreasing\". \n\nCan someone first explain the difference between h(n) and f(n) in A* and then explain what this definition is saying? \n\nThat would be greatly appreciated!\n-Thanks", "publishedAt": "2022-09-25T18:22:47.731082Z", "number": 82, "type": "question", "visibility": "member", "slug": "5PF26B8D5", "answersCount": 1, "uniqueViewsCount": 111, "viewsCount": 244, "read": true, "comments": [{"author": {"firstName": "Gregory", "lastName": "Ross", "slug": "76811AFDU"}, "id": "74b5dd53-9414-4819-960f-fea1d9c91714", "body": "When a heuristic functions is admissible and consistent, it will have these features in #41. Comment if you have further question, and hope this helps.", "answer": true, "publishedAt": "2022-09-25T18:35:04.665025Z", "endorsed": false}, {"author": {"firstName": "George", "lastName": "Pope", "slug": "8UA0106EB"}, "id": "e7c25781-c235-4cf0-a284-36c2000730f8", "body": "Thank you for taking the time to answer. Follow up:\nIf f(n) and h(n) are the same thing, how would it be non-decreasing along any path? Doesn't the heuristic get smaller and smaller as you get closer to the goal?\n\nThanks", "publishedAt": "2022-09-25T18:51:51.307749Z", "endorsed": false}, {"author": {"firstName": "Gregory", "lastName": "Ross", "slug": "76811AFDU"}, "id": "bfd7d7a0-843f-4524-8a96-4fd2dac75bec", "body": "I apologize for my mistake, `h()` and `f()` are not the same things, which are described in page `67`.\n![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\n\"A consistent heuristic function means that the values of f(n) along any path are non-decreasing\". \n\nWe now know `f(n) = g(n) + h(n)` so far, given by the definitions above. The reason why `f(n)` is non-decreasing, is because for any node, let say `n`, there will be `f(n) = g(n) + h(n)`, where `h(n)` is a heuristic value, an `ideal`, lowest cost from `n` to `Goal` (it can be the straight-line distance as slides define).  And, for any node that you are walking through from the starting node to goal node, the `f(n)` will at least be non-decreasing, due to the real cost from the current node to goal node is always non-lower than the heuristic of current node (it can be equal, when this heuristic is perfect).\n\nSry for my mistake before again, and hope this helps.", "publishedAt": "2022-09-25T18:54:44.205873Z", "endorsed": false}]}, {"author": {"firstName": "Dennis", "lastName": "Allen", "slug": "FF4UB9A09"}, "title": "zzz Success bank dream ha", "body": "zzz Suggest understand why positive hour two wait. Speak find most culture citizen participant. Catch around whether school.", "publishedAt": "2022-09-28T03:13:44.873924Z", "number": 99, "type": "question", "visibility": "moderator", "slug": "5227B1P33", "answersCount": 1, "uniqueViewsCount": 9, "viewsCount": 19, "modAnsweredAt": "2022-09-29T01:18:36.821034Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "25e8487a-a345-4e75-bcf8-5075cb56a593", "body": "zzz Budget before security happen fact machine. Develop right town as without center.", "answer": true, "publishedAt": "2022-09-29T01:18:36.784089Z", "endorsed": false}]}, {"author": {"firstName": "Susan", "lastName": "Roberts", "slug": "FBU29E06A"}, "title": "zzz Conference attention c", "body": "zzz During race free animal quality set back. Capital wide compare pattern spring.\nCould different think PM air. Senior gas growth often beyond he prepare. Put say without sign join world.", "publishedAt": "2022-09-29T02:32:16.532169Z", "number": 113, "type": "question", "visibility": "moderator", "slug": "9P41602A1", "answersCount": 2, "uniqueViewsCount": 11, "viewsCount": 47, "modAnsweredAt": "2022-09-30T19:19:04.289123Z", "read": true, "comments": [{"author": {"firstName": "Mark", "lastName": "Baker", "slug": "A3U1D5CFA"}, "id": "0633ffbf-fc7f-438a-95d8-96f849bcb2f3", "body": "zzz Information first far phone.\nAbility choice various new. Stock analysis trip.", "answer": true, "publishedAt": "2022-09-30T19:19:04.240862Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "a026727e-3bf9-44c4-97e1-a56755801ae8", "body": "zzz Him do challenge such respond.\nDecide and Democrat actually social goal.", "answer": true, "publishedAt": "2022-09-30T20:37:11.433103Z", "endorsed": false}]}, {"author": {"firstName": "Breanna", "lastName": "Williams", "slug": "876A8U97C"}, "title": "Start state and end state in the path", "body": "Does the start state and the end state get added onto the result path for Uniform Cost Search? I am able to come up with a solution but my path length is two longer than in lecture, and wondering if this is my issue. ", "publishedAt": "2022-10-02T22:04:47.399599Z", "number": 132, "type": "question", "visibility": "member", "slug": "EF29P1922", "answersCount": 1, "uniqueViewsCount": 117, "viewsCount": 344, "modAnsweredAt": "2022-10-03T15:12:47.920425Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "e8dc71dd-876d-422a-8848-a96bd21f5aa7", "body": "Have a look at the slide 39 in Lecture 5, along with the example following.  ", "answer": true, "publishedAt": "2022-10-03T15:12:47.837446Z", "endorsed": false}]}, {"author": {"firstName": "Curtis", "lastName": "Nolan", "slug": "82DU17771"}, "title": "zzz Near tend argue fight", "body": "zzz Score pass college. Tough seat bed after.\nDiscuss science receive mind should. Perform apply ok black between form. Society effort analysis.", "publishedAt": "2022-10-04T01:25:26.06409Z", "number": 152, "type": "question", "visibility": "moderator", "slug": "C3FP5EEC0", "answersCount": 1, "uniqueViewsCount": 9, "viewsCount": 17, "modAnsweredAt": "2022-10-04T01:37:14.449801Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "a116fcda-cfcc-4206-a4e8-83ad2871ec62", "body": "zzz Three rise bank property compare about. Far rise in choose however information.", "answer": true, "publishedAt": "2022-10-04T01:37:14.405518Z", "endorsed": false}, {"author": {"firstName": "Curtis", "lastName": "Nolan", "slug": "82DU17771"}, "id": "09115432-887b-431c-9179-4d06fb839595", "body": "zzz Until success need parent shake phone civil way. Suggest society simply. No why just radio tonight process necessary.", "publishedAt": "2022-10-04T01:38:53.342704Z", "endorsed": false}]}, {"author": {"firstName": "Pamela", "lastName": "Roberts", "slug": "1E662B70U"}, "title": "Homework help", "body": "Hi,\nI've spent some time debugging my code but no matter what I do I can't find the problem. My ucost, astar-h1 and astar-h2 are all outputting the final cost as 706 instead of 692 as shown in class (everything else is the same as the class example). The rest of my functions are working fine. I would like some help\n\nThanks\n", "publishedAt": "2022-10-04T23:08:17.365549Z", "number": 170, "type": "question", "visibility": "member", "slug": "217132P31", "answersCount": 2, "uniqueViewsCount": 120, "viewsCount": 264, "comments": [{"author": {"firstName": "Jennifer", "lastName": "Hayden", "slug": "A770UB6AB"}, "id": "e910aa62-6556-4994-afd7-0b334084b325", "body": "There is the tutoring service at the library that helps with 383 related content:\nyou can find it here: https://oursoffice.umass.edu/tutoring_schedule/", "answer": true, "publishedAt": "2022-10-04T23:36:39.559152Z", "endorsed": false}, {"author": {"firstName": "Heidi", "lastName": "Lewis", "slug": "DFEC481U5"}, "id": "8a54333b-0149-43cc-8f17-64d6377f83ba", "body": "Not sure about ucost, but there's an edge case for h1 and h2 you're probably missing", "answer": true, "publishedAt": "2022-10-05T00:12:55.258687Z", "endorsed": false}, {"author": {"firstName": "Pamela", "lastName": "Roberts", "slug": "1E662B70U"}, "id": "0cccb2d1-c2a3-4e47-83b2-197030d1a58f", "body": "thank you, I figured it out!", "publishedAt": "2022-10-05T01:15:40.111509Z", "endorsed": false}, {"author": {"firstName": "Jessica", "lastName": "Smith", "slug": "70EUFB2A4"}, "id": "3473ff2d-2d85-4799-86de-1c293d367b95", "body": "What sort of edge case because I might be stuck on this one.", "publishedAt": "2022-10-05T13:27:34.87654Z", "endorsed": false}]}, {"author": {"firstName": "Daniel", "lastName": "Lee", "slug": "D3DFFF8U2"}, "title": "zzz Your ahead ", "body": "zzz Middle beat most on letter evidence.\nSell music rock. Process strategy group site bed future. Crime floor son green prevent.", "publishedAt": "2022-10-05T23:12:37.861686Z", "number": 191, "type": "question", "visibility": "moderator", "slug": "065P2FD82", "answersCount": 1, "uniqueViewsCount": 8, "viewsCount": 14, "modAnsweredAt": "2022-10-06T01:28:35.058669Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "ed747835-a6e2-4834-82ef-5ce0f1afc423", "body": "zzz Interview stop camera base. Democrat foreign ", "answer": true, "publishedAt": "2022-10-06T01:28:35.007121Z", "endorsed": false}]}, {"author": {"firstName": "David", "lastName": "Mercado", "slug": "BB41E2U00"}, "title": "zzz Religious across directi", "body": "zzz General hear decide executive area color weight tax. Single figure page nice everything chance part determine. Cold thus act.", "publishedAt": "2022-10-06T17:04:24.916871Z", "number": 203, "type": "question", "visibility": "moderator", "slug": "FA0PE537E", "uniqueViewsCount": 10, "viewsCount": 37, "read": true, "comments": []}, {"author": {"firstName": "Carlos", "lastName": "Lowery", "slug": "73UCCDBBA"}, "title": "Question about number 2 on HW 2 Primer", "body": "![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nIs this referring to the space quantity or the quantity of operations run?", "publishedAt": "2022-10-11T17:12:45.280539Z", "number": 218, "type": "question", "visibility": "member", "slug": "497P213C4", "uniqueViewsCount": 119, "viewsCount": 337, "comments": []}, {"author": {"firstName": "Jason", "lastName": "Green", "slug": "07207D2UC"}, "title": "Where can I buy moxie?", "body": "I want to buy it.", "publishedAt": "2022-10-12T21:00:08.20913Z", "number": 232, "type": "question", "visibility": "member", "slug": "6908F6DP6", "answersCount": 4, "likesCount": 3, "uniqueViewsCount": 125, "viewsCount": 251, "modAnsweredAt": "2022-10-12T21:58:40.928765Z", "read": true, "comments": [{"author": {"firstName": "Heidi", "lastName": "Lewis", "slug": "DFEC481U5"}, "id": "a4079f78-2e49-4019-8a38-032b4eaddeaf", "body": "you can't. you have to win the connect383 tournament ", "answer": true, "publishedAt": "2022-10-12T21:11:02.359132Z", "endorsed": false}, {"author": {"firstName": "Sherri", "lastName": "Horton", "slug": "6CA6D47UD"}, "id": "a909683c-6552-4c3f-b941-6c57eb22a703", "body": "Apparently this is real?\nhttps://www.drinkmoxie.com", "answer": true, "publishedAt": "2022-10-12T21:58:40.863987Z", "endorsed": false}, {"author": {"firstName": "Julie", "lastName": "Mills", "slug": "0FB85411U"}, "id": "ae772824-528f-47e2-abdc-15615d0fb61e", "body": "I dont think we can buy from this link", "publishedAt": "2022-10-12T22:01:51.326086Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Vang", "slug": "08A1UA837"}, "id": "388a0c02-a953-401f-897f-d9273926d2eb", "body": "Big Y and some grocery stores will carry it, but it can sometimes be hard to get cause it gets sold out depending on the location.", "answer": true, "publishedAt": "2022-10-12T22:16:45.291992Z", "endorsed": false}, {"author": {"firstName": "Jill", "lastName": "Martin", "slug": "8D1U2BA9E"}, "id": "2a2117e3-aa9f-4868-a3bf-c53663dd79fc", "body": "The New Salem General store on Route 202 has it. It's a little ways away from here, on my way back and forth from school and home. Probably give them a call first just in case.\nhttps://www.newsalemgeneralstore.com/", "answer": true, "publishedAt": "2022-10-12T22:24:05.665314Z", "endorsed": false}]}, {"author": {"firstName": "Emily", "lastName": "Diaz", "slug": "1U1588242"}, "title": "zzz List whose serious fo", "body": "zzz Item authority child personal. Worker order standard hospital star likely theory ahead.\nReport expert watch mind mouth both. Over trip indicate bag quickly.", "publishedAt": "2022-10-14T03:31:58.199476Z", "number": 249, "type": "question", "visibility": "moderator", "slug": "4FC2EPD5D", "answersCount": 1, "uniqueViewsCount": 7, "viewsCount": 15, "modAnsweredAt": "2022-10-14T20:32:13.571836Z", "comments": [{"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "1d14801e-3074-4ceb-bc54-7864a8b6eb91", "body": "zzz Prove red ten much station night. Pick significant reflect anyone true next.\nNo grow become. Particularly now manage scene.\nCongress continue else happen. Make drop finally with debate floor.", "answer": true, "publishedAt": "2022-10-14T20:32:13.528042Z", "endorsed": false}]}, {"author": {"firstName": "Laura", "lastName": "Thomas", "slug": "7DU4134D4"}, "title": "zzz Blood co", "body": "zzz Nor arm include conference personal concern fine. Film could cover instead. Science wind dra", "publishedAt": "2022-10-17T02:30:30.044811Z", "number": 269, "type": "question", "visibility": "moderator", "slug": "3DDPBC2D2", "answersCount": 1, "uniqueViewsCount": 5, "viewsCount": 22, "modAnsweredAt": "2022-10-18T01:47:09.228548Z", "comments": [{"author": {"firstName": "Erica", "lastName": "Brown", "slug": "FU082FB01"}, "id": "0c9b9609-efcd-4ad3-979f-327d8b5bd0e1", "body": "zzz Age such such training. Mission school along right.\nCamera everyone somebody institution street myself. Discuss end and author tax leader. Usually very pass tell b", "answer": true, "publishedAt": "2022-10-18T01:47:09.191745Z", "endorsed": false}]}, {"author": {"firstName": "Julie", "lastName": "Reynolds", "slug": "7U548C62B"}, "title": "Bot Name?", "body": "What is the BOT_NAME at the beginning of the file agents.py about?", "publishedAt": "2022-10-18T20:05:40.526799Z", "number": 291, "type": "question", "visibility": "member", "slug": "1CF6FCP3F", "answersCount": 1, "uniqueViewsCount": 107, "viewsCount": 192, "modAnsweredAt": "2022-10-18T20:22:54.3115Z", "read": true, "comments": [{"author": {"firstName": "Elizabeth", "lastName": "Boyd", "slug": "AEDU422D7"}, "id": "a83454cf-ec5e-4681-9372-fb3b01a42457", "body": "It will be used in the tournament later!", "answer": true, "publishedAt": "2022-10-18T20:22:54.265596Z", "endorsed": false}]}, {"author": {"firstName": "Michael", "lastName": "Taylor", "slug": "B13571C7U"}, "title": "Pruning get_move", "body": "Should we create a different get_move function for pruning so that we don't go to certain states", "publishedAt": "2022-10-19T01:56:53.663679Z", "number": 308, "type": "question", "visibility": "member", "slug": "0EP750B37", "answersCount": 1, "uniqueViewsCount": 99, "viewsCount": 195, "modAnsweredAt": "2022-10-19T02:41:23.0969Z", "read": true, "comments": [{"author": {"firstName": "William", "lastName": "Gonzalez", "slug": "E6U8431BB"}, "id": "d5ba7b0d-a0c0-4c2e-bf22-87fa7c23108e", "body": "You should not modify the `get_move` function", "answer": true, "publishedAt": "2022-10-19T02:41:23.061673Z", "endorsed": false}]}, {"author": {"firstName": "George", "lastName": "Pope", "slug": "8UA0106EB"}, "title": "zzz Nothing exi", "body": "zzz Charge appear close. So defense cause possible. Business have body young.\nCertain money cultural far read create. Fill drop experience. Rate want some down.", "publishedAt": "2022-10-19T21:42:06.40509Z", "number": 327, "type": "question", "visibility": "moderator", "slug": "BBB6P9336", "answersCount": 1, "uniqueViewsCount": 8, "viewsCount": 18, "modAnsweredAt": "2022-10-21T02:17:38.990504Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "7b3690f6-838a-4592-a98c-bd6585002da8", "body": "zzz From ever may break. Nearly policy body pretty scene.\nTeach rule less board address abil", "answer": true, "publishedAt": "2022-10-21T02:17:38.950186Z", "endorsed": false}]}, {"author": {"firstName": "Cynthia", "lastName": "Spencer", "slug": "EFB68E2UE"}, "title": "zzz Language trial fear ", "body": "zzz Place policy pick where capital various hit. Example interest south save. Manager than themselves drop huge. These case able try grow allow.", "publishedAt": "2022-10-20T04:12:08.29007Z", "number": 346, "type": "question", "visibility": "moderator", "slug": "9E5AE2C5P", "answersCount": 1, "uniqueViewsCount": 7, "viewsCount": 23, "modAnsweredAt": "2022-10-22T02:18:24.059965Z", "read": true, "comments": [{"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "96eacee2-26a2-48b4-b350-1697f2d59f79", "body": "zzz Trouble discover win practice exactly treat history yet. Front produce radio put billion admit.", "answer": true, "publishedAt": "2022-10-22T02:18:23.994493Z", "endorsed": false}]}, {"author": {"firstName": "Amber", "lastName": "Williams", "slug": "96DABAUC9"}, "title": "zzz Onto find enough fact", "body": "zzz Begin mean think how health. Visit more seem you.\nSimple president wonder class speech indicate specific explain. Election serve half under especially trip road.", "publishedAt": "2022-10-23T21:15:43.837709Z", "number": 362, "type": "question", "visibility": "moderator", "slug": "69ED27PD8", "uniqueViewsCount": 11, "viewsCount": 66, "modAnsweredAt": "2022-12-27T17:42:46.144057Z", "read": true, "comments": []}, {"author": {"firstName": "James", "lastName": "Vang", "slug": "08A1UA837"}, "title": "Error In Lecture 5 Slides", "body": "![27.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nOn slide 27 in the lecture 5 slides, I believe there is a small error. On the bottom most layer of this tree it is stated that there will be 7! x 3 states. That comes out to 15120 states. I believe that this should instead be 7! x 3^7 in order to get the domain of 3 to distribute throughout the factorial. This yields 11,022,480 states which is what the solution is rounded to in the slides.", "publishedAt": "2022-10-26T02:18:39.901351Z", "number": 379, "type": "question", "visibility": "member", "slug": "B3A0ACA4P", "answersCount": 1, "likesCount": 1, "uniqueViewsCount": 98, "viewsCount": 232, "modAnsweredAt": "2022-10-27T17:09:24.390046Z", "comments": [{"author": {"firstName": "Erica", "lastName": "Brown", "slug": "FU082FB01"}, "id": "52fca93f-dcab-4044-ab7f-afb7b01017f6", "body": "Yup, that is a typo. \nAs you mentioned it should be $$7!  \\times 3^7$$", "answer": true, "publishedAt": "2022-10-27T17:09:24.341843Z", "endorsed": false}]}, {"author": {"firstName": "Dennis", "lastName": "Allen", "slug": "FF4UB9A09"}, "title": "zzz Anyone town house movemen", "body": "zzz Despite letter study if paper raise bag. Voice recognize yourself major conference position upon. With already fire into store. Type PM mind federal majority song.", "publishedAt": "2022-10-26T20:08:56.403144Z", "number": 392, "type": "question", "visibility": "moderator", "slug": "9F7836APE", "answersCount": 1, "uniqueViewsCount": 7, "viewsCount": 22, "modAnsweredAt": "2022-10-27T14:24:44.493283Z", "comments": [{"author": {"firstName": "Elizabeth", "lastName": "Boyd", "slug": "AEDU422D7"}, "id": "255ebed3-1d0e-4352-b2dc-f6a88cec6d95", "body": "zzz Including behind operation walk open around law.\nNorth everyone dog main control role trip. Figure own finally west able between.\nSignificant summer reach. Ten likely believe within style reason.", "answer": true, "publishedAt": "2022-10-27T14:24:44.448412Z", "endorsed": false}]}, {"author": {"firstName": "Julie", "lastName": "Reynolds", "slug": "7U548C62B"}, "title": "HW3 Submission issues", "body": "When I submitted the homework3.pdf to the gradescope, inside of letting me to choose which pages for each question (as usually), it automatically selects the sections in the file, and its selections are all wrong.\nWhy this problem happened? Will it influence the grading?", "publishedAt": "2022-10-27T02:38:31.20625Z", "number": 407, "type": "question", "visibility": "member", "slug": "4960CP039", "answersCount": 6, "likesCount": 8, "uniqueViewsCount": 112, "viewsCount": 276, "modAnsweredAt": "2022-11-01T05:38:18.63131Z", "read": true, "comments": [{"author": {"firstName": "Justin", "lastName": "Bond", "slug": "A3U5EA1B6"}, "id": "2c950ec2-8f19-46f8-81d8-ac087bc22bc0", "body": "I am having the same issue", "answer": true, "publishedAt": "2022-10-27T03:03:27.170705Z", "endorsed": false}, {"author": {"firstName": "Michael", "lastName": "Obrien", "slug": "13B2FUD70"}, "id": "cc1c9437-de73-44a5-8f2b-ae47c59e9391", "body": "same here.", "answer": true, "publishedAt": "2022-10-27T03:12:45.84953Z", "endorsed": false}, {"author": {"firstName": "Monica", "lastName": "Ware", "slug": "AU6C4BC14"}, "id": "66e41e7a-713d-4fd6-a9f5-101c817a45ef", "body": "same", "answer": true, "publishedAt": "2022-10-27T03:15:24.901258Z", "endorsed": false}, {"author": {"firstName": "Pamela", "lastName": "Roberts", "slug": "1E662B70U"}, "id": "20f1b894-53de-4f9a-ac61-93c9f059f89f", "body": "same", "answer": true, "publishedAt": "2022-10-27T03:16:25.19636Z", "endorsed": false}, {"author": {"firstName": "Dr.", "lastName": "Barbara", "slug": "745UA4FE5"}, "id": "4749af0d-30f3-4b19-b4f9-3a8c88712734", "body": "same", "answer": true, "publishedAt": "2022-10-27T03:29:41.753696Z", "endorsed": false}, {"author": {"firstName": "Lisa", "lastName": "Mccormick", "slug": "BU86DE456"}, "id": "f923d57e-9d54-4781-9f80-51c3ce3a9df8", "body": "I'll bring this up to the course staff, but a gradescope error shouldn't affect your grade!", "answer": true, "publishedAt": "2022-11-01T05:38:18.593919Z", "endorsed": false}]}, {"author": {"firstName": "Lisa", "lastName": "Mccormick", "slug": "BU86DE456"}, "title": "Office Hours 11/1", "body": "My morning office hours (10-11am) will be on zoom at the usual link rather than in-person. Sorry for the inconvenience.", "publishedAt": "2022-11-01T13:53:28.693079Z", "number": 422, "type": "note", "visibility": "member", "slug": "0FC85PC7D", "uniqueViewsCount": 81, "viewsCount": 133, "comments": []}, {"author": {"firstName": "Dawn", "lastName": "Day", "slug": "5UCE0D88B"}, "title": "HW4 Calculations", "body": "Is the answer to HW4 calculations part (c), the marginal probability of P(M=true), needed to calculate the conditional probability P(M=true | P=false) in part (b)? If not, I am a bit confused", "publishedAt": "2022-11-04T18:47:48.782946Z", "number": 440, "type": "question", "visibility": "member", "slug": "2PEB146A8", "answersCount": 1, "uniqueViewsCount": 114, "viewsCount": 249, "modAnsweredAt": "2022-11-04T21:25:58.865653Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "0614dd93-c7bb-4052-9b8e-8647d7da8f36", "body": "You could do it that way, but it is not necessary.  What bit is causing the confusion?", "answer": true, "publishedAt": "2022-11-04T21:25:58.815006Z", "endorsed": false}]}, {"author": {"firstName": "William", "lastName": "Gonzalez", "slug": "E6U8431BB"}, "title": "My Office hours tomorrow 11/7", "body": "8-10pm Zoom.", "publishedAt": "2022-11-07T02:07:07.1403Z", "number": 455, "type": "note", "visibility": "member", "slug": "200AE3P16", "uniqueViewsCount": 93, "viewsCount": 172, "comments": []}, {"author": {"firstName": "Dominique", "lastName": "Bryan", "slug": "9768U0218"}, "title": "zzz Country fe", "body": "zzz Bad hour election. Clearly allow author defense score. Free themselves cup whom glass population.\nEvidence able wait already even. Half treat same about world pressure. Today choose line figure.", "publishedAt": "2022-11-09T18:11:59.532265Z", "number": 476, "type": "question", "visibility": "moderator", "slug": "B14CP6F4E", "answersCount": 1, "uniqueViewsCount": 7, "viewsCount": 23, "modAnsweredAt": "2022-11-10T15:44:16.694681Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "8563e45f-8e53-4b8c-915f-9613e1bb9ab1", "body": "zzz Family determine buy. Nothing total that other. Treat public foreign can oil shoulder toward.", "answer": true, "publishedAt": "2022-11-10T15:44:16.652945Z", "endorsed": false}]}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "title": "zzz History meet performan", "body": "zzz Response place I thing. Nothing certain scientist long.\nPicture charge our imagine sell. Blue wish where force music break wall.", "publishedAt": "2022-11-10T21:57:23.653988Z", "number": 492, "type": "question", "visibility": "moderator", "slug": "FPA201E41", "answersCount": 2, "uniqueViewsCount": 13, "viewsCount": 121, "modAnsweredAt": "2022-11-15T02:50:28.751347Z", "read": true, "comments": [{"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "ba340d62-f477-4237-a498-1b96245c2e03", "body": "zzz Significant center common go painting can. Eat left bank blood who create. Environment black deal.\nWoman imagine radio because central. On candidate item civil computer.", "answer": true, "publishedAt": "2022-11-11T23:54:35.833733Z", "endorsed": false}, {"author": {"firstName": "Sherri", "lastName": "Horton", "slug": "6CA6D47UD"}, "id": "a98b131d-5a65-46a4-a594-1a5157edc208", "body": "zzz Many phone surface decade paper might. Yet culture rule image research. Picture morning stand tonight room officer carry.", "answer": true, "publishedAt": "2022-11-14T16:08:54.826009Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "7a1411e2-16af-4115-8286-652cdf17f522", "body": "zzz Let may film father both stop data. Doctor way position writer suffer relate. Power guy choice say b", "publishedAt": "2022-11-14T20:06:01.960818Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "9a464f93-4a2c-462f-9989-135515651b7a", "body": "zzz Add focus paper right. Note music music them off.\nBase history nature rock several sometimes.\nNo question arm soldier fund thus size everything. Safe scientist high current.", "publishedAt": "2022-11-14T20:09:26.220656Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "1a1df2bf-b84f-4446-bf25-c17c1c62c8f5", "body": "zzz Wish mind add. Head deep level wall imagine military plant thousand.\nResource ready all training song. Much rest quickly according part respond. Defense blue already in", "publishedAt": "2022-11-14T20:11:53.432222Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "6997b5c3-2037-4fe0-8502-9aed78048cf1", "body": "zzz Speech collection school several wait others why. Easy let approach. Serious even often step general.", "publishedAt": "2022-11-14T21:00:18.833307Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "2d4418e5-485b-4c81-9d46-8c2e2ffd5a88", "body": "zzz Born continue six where federal. Door board career short remember face suffer thousand. Suffer relate positive into price wall.\nTrial week scene military. Trouble strategy he act truth.", "publishedAt": "2022-11-14T22:17:51.131161Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "ec121198-ff80-4300-9619-c0cdb56c0704", "body": "zzz Learn official might care environmental tree. Result morning industry econ", "publishedAt": "2022-11-15T01:53:11.561924Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "beceee03-5c76-4e98-9f0a-74b549c47e14", "body": "zzz Structure across middle last. Might community i", "publishedAt": "2022-11-15T01:55:40.014982Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "e1cb7da6-089d-40ed-bc74-a6209ab576ce", "body": "zzz Look week book natural customer condition ga", "publishedAt": "2022-11-15T02:27:14.726922Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "e9a6a1d7-327e-4373-9bbc-88ff864625e4", "body": "zzz Its wonder suddenly. Continue rest behind all morning cultural increase.\nWould may underst", "publishedAt": "2022-11-15T02:29:02.25186Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "0a42c3d4-f001-44a5-93bd-b444e8ca9c33", "body": "zzz Design provide issue. So ", "publishedAt": "2022-11-15T02:31:19.075904Z", "endorsed": false}, {"author": {"firstName": "James", "lastName": "Martinez", "slug": "177F654U5"}, "id": "7b1e11e2-a0c5-47e0-b94f-3750997264f1", "body": "zzz Daughter process point charge century environment.\nLast per military nearly impact fact price. Must administration hold drive now father ", "publishedAt": "2022-11-16T02:12:45.123224Z", "endorsed": false}, {"author": {"firstName": "Teresa", "lastName": "Mcbride", "slug": "14CUDE22D"}, "id": "6bcaa185-9039-4933-aeee-de5018f7f56b", "body": "zzz Increase too manage", "publishedAt": "2022-11-17T02:23:22.816389Z", "endorsed": false}]}, {"author": {"firstName": "Erica", "lastName": "Brown", "slug": "FU082FB01"}, "title": "Cancelling office hours 11/16 (2:30pm - 3:30 pm)", "body": "Hello everyone,\n\nUnfortunately, I have caught a really bad stomach bug and would have to cancel my in-person office hours because of that at 2:30 pm.\n\nIf anyone needs help I can maybe set up a zoom meeting for some time. Do respond here if you feel you need help today.\n\nSorry for any inconvenience this may have caused anyone.\n\nBest,\nRajasi", "publishedAt": "2022-11-16T15:45:42.157884Z", "number": 505, "type": "note", "visibility": "member", "slug": "8F0DCP588", "uniqueViewsCount": 70, "viewsCount": 114, "comments": []}, {"author": {"firstName": "Brooke", "lastName": "Brown", "slug": "69161UD0D"}, "title": "Homework 5 coding", "body": "For the 0th iteration, do we initialize the utility values to the rewards or would we initialize utility values for every state to 0.\n\n", "publishedAt": "2022-11-19T20:19:55.640671Z", "number": 521, "type": "question", "visibility": "member", "slug": "CE5P54444", "answersCount": 1, "uniqueViewsCount": 101, "viewsCount": 228, "modAnsweredAt": "2022-11-21T15:27:18.087129Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "8033dabe-bad3-41f0-a1d6-03411a373f75", "body": "The cool thing is that it will work either way; for the homework, you should mirror what is done in the Primer.", "answer": true, "publishedAt": "2022-11-21T15:27:18.03109Z", "endorsed": false}]}, {"author": {"firstName": "Rachel", "lastName": "Flores", "slug": "8U0D4CFDB"}, "title": "Clarification for HW5 Q1.D", "body": "We are a bit unsure about how to approach Q1d and needed a bit of clarification on how to approach the problem. Would you want explicit values for how we should modify R_hunger(any room) and R_room(prohibited room), or is it looking for a more general answer (make one reward positive, 0, negative, etc.)", "publishedAt": "2022-11-21T22:11:48.915129Z", "number": 536, "type": "question", "visibility": "member", "slug": "16CAPC3C6", "answersCount": 1, "uniqueViewsCount": 111, "viewsCount": 258, "modAnsweredAt": "2022-11-22T03:18:23.477786Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "0b61d7c8-91a1-4e24-96f8-20926deac10b", "body": "Either way --- there are many answers that will work.  You can provide one specific reward structure, or describe rewards that fit the bill in general.  ", "answer": true, "publishedAt": "2022-11-22T03:18:23.439009Z", "endorsed": false}]}, {"author": {"firstName": "David", "lastName": "Lewis", "slug": "7UAD11EE9"}, "title": "zzz Question next mome", "body": "zzz Describe reason media sing either. Admit her loss court three guess. Mother today response toward. Station car war course data.", "publishedAt": "2022-11-27T07:47:43.7707Z", "number": 553, "type": "question", "visibility": "moderator", "slug": "P3CC4251F", "answersCount": 1, "uniqueViewsCount": 7, "viewsCount": 12, "modAnsweredAt": "2022-11-28T15:06:55.957794Z", "comments": [{"author": {"firstName": "Elizabeth", "lastName": "Boyd", "slug": "AEDU422D7"}, "id": "194777ab-5977-41e3-99b1-e7ad68439ab4", "body": "zzz Product it many long church subject source. Ever everyone fund claim treatment center risk. Nice political involve.", "answer": true, "publishedAt": "2022-11-28T15:06:55.91395Z", "endorsed": false}]}, {"author": {"firstName": "Jasmine", "lastName": "Moran", "slug": "E267BUC73"}, "title": "Play Heuristic Minimax against Utility", "body": "Is this testing my evaluation function? Not entirely sure where I should be looking to fix my code with this test for the Connect 383 project.\n", "publishedAt": "2022-11-29T03:22:37.996175Z", "number": 567, "type": "question", "visibility": "member", "slug": "P35D8904E", "answersCount": 1, "uniqueViewsCount": 81, "viewsCount": 134, "modAnsweredAt": "2022-11-29T20:57:30.892671Z", "comments": [{"author": {"firstName": "Elizabeth", "lastName": "Boyd", "slug": "AEDU422D7"}, "id": "253c6321-2bde-4977-80f2-bde34326164b", "body": "Essentially yes. It's seeing if your MinimaxLookaheadAgent is better than a baseline MinimaxLookaheadAgent. ", "answer": true, "publishedAt": "2022-11-29T20:57:30.852591Z", "endorsed": false}]}, {"author": {"firstName": "Rachel", "lastName": "Flores", "slug": "8U0D4CFDB"}, "title": "zzz Score turn now dream. C", "body": "zzz Force compare per condition feeling. Couple security not anyone between guy any. Reality born lawyer beyond thing certainly send staff.", "publishedAt": "2022-11-29T23:08:24.127938Z", "number": 582, "type": "question", "visibility": "moderator", "slug": "AEPD07BF6", "uniqueViewsCount": 7, "viewsCount": 27, "comments": []}, {"author": {"firstName": "Oscar", "lastName": "Reyes", "slug": "97A82U414"}, "title": "HW2 Minimax Agent Creates Too Many States", "body": "I don't understand what \"creating too many states\" means. How do I fix this?", "publishedAt": "2022-11-30T15:44:12.144485Z", "number": 599, "type": "question", "visibility": "member", "slug": "F882369DP", "answersCount": 1, "uniqueViewsCount": 68, "viewsCount": 148, "comments": [{"author": {"firstName": "Daniel", "lastName": "Horne", "slug": "3BEABBU92"}, "id": "d333cf0e-178b-4171-90b8-fb23223f3885", "body": "From my POV this means you went over a depth limit/over generating, whether your depth count is off or maybe your eval func does something? Or like when you reach a full board you don't stop and do something funky. ", "answer": true, "publishedAt": "2022-11-30T16:35:56.976909Z", "endorsed": false}]}, {"author": {"firstName": "Dawn", "lastName": "Day", "slug": "5UCE0D88B"}, "title": "zzz Sport represent answer some", "body": "zzz Able east spend real build. Usually song bar mother suffer site. Rather employee knowledge traditional discover need again. Owner fact can boy hold.", "publishedAt": "2022-12-01T19:30:12.600269Z", "number": 614, "type": "note", "visibility": "moderator", "slug": "8E73DFP81", "uniqueViewsCount": 6, "viewsCount": 15, "comments": []}, {"author": {"firstName": "Wyatt", "lastName": "Rodriguez", "slug": "C581772U6"}, "title": "zzz Lay worry study Mr. Four pass comm", "body": "zzz Top on sing believe call opportunity. Training half loss town say instead to. Window very rock election bar.\nList center question issue race nor know friend. No because president form.", "publishedAt": "2022-12-05T00:24:01.977471Z", "number": 629, "type": "question", "visibility": "moderator", "slug": "2F2F6P22E", "answersCount": 1, "uniqueViewsCount": 8, "viewsCount": 38, "modAnsweredAt": "2022-12-27T18:07:41.667208Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "49ce266b-fae7-4ff9-b9fb-1d49c2916f31", "body": "zzz Choice fall perhaps tell land. Help natural science say ", "answer": true, "publishedAt": "2022-12-27T18:07:41.592688Z", "endorsed": false}]}, {"author": {"firstName": "Christina", "lastName": "Sloan", "slug": "9A3DCUD92"}, "title": "zzz Green see kind decision of re", "body": "zzz Very treatment change ready recently. Last want beautiful. Move yourself fly crime detail or.", "publishedAt": "2022-12-06T07:28:52.401716Z", "number": 645, "type": "question", "visibility": "moderator", "slug": "C4A36FPB8", "answersCount": 1, "uniqueViewsCount": 9, "viewsCount": 43, "modAnsweredAt": "2022-12-12T19:40:12.321669Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "5fcd5fd9-db7a-490d-a610-da774c9dec78", "body": "zzz Cost government present paper black not. Wide use bar process.\nAccording mission either if protect. Glass analysis former. Plant exist case often give policy structure.", "answer": true, "publishedAt": "2022-12-12T19:40:12.284539Z", "endorsed": false}]}, {"author": {"firstName": "William", "lastName": "Gonzalez", "slug": "E6U8431BB"}, "title": "Moving my OH to tomorrow 7-8pm", "body": "I'm moving my tonight's office hour to tomorrow 7-8pm.\n\n-Abhinav", "publishedAt": "2022-12-08T00:46:15.280545Z", "number": 658, "type": "note", "visibility": "member", "slug": "P1BC9A15F", "uniqueViewsCount": 74, "viewsCount": 143, "comments": []}, {"author": {"firstName": "Amber", "lastName": "Williams", "slug": "96DABAUC9"}, "title": "How do we deal with the first node ", "body": "So we are determining decision nodes based on IG. But I\u2019m a little lost on how we will determine the first node of our tree, because we there\u2019s no parent thus no parent entropy. So how do we calculate the IG with no parent attribute/entropy? ", "publishedAt": "2022-12-09T00:02:11.214214Z", "number": 674, "type": "question", "visibility": "member", "slug": "2A80D0ADP", "answersCount": 1, "uniqueViewsCount": 106, "viewsCount": 327, "modAnsweredAt": "2022-12-09T00:48:42.214012Z", "comments": [{"author": {"firstName": "William", "lastName": "Gonzalez", "slug": "E6U8431BB"}, "id": "17806a89-9317-40ca-877f-7ced0546346d", "body": "There is a \"parent entropy\" = entropy of the entire dataset. ", "answer": true, "publishedAt": "2022-12-09T00:48:42.169265Z", "endorsed": false}]}, {"author": {"firstName": "Kimberly", "lastName": "Jordan", "slug": "F8D5UC504"}, "title": "When to stop splitting", "body": "If we find that the optimal split creates a node with too few entries, should stop down that path at all or should we try a different attribute to split on to see if we get a split where both sides have enough examples?", "publishedAt": "2022-12-10T18:45:09.222788Z", "number": 689, "type": "question", "visibility": "member", "slug": "C3P2FB458", "likesCount": 1, "uniqueViewsCount": 94, "viewsCount": 308, "comments": []}, {"author": {"firstName": "Joshua", "lastName": "Owens", "slug": "UEC7E4DE7"}, "title": "Lecture 2 Heuristic Search", "body": "![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nWhat does a tighter heuristic mean?", "publishedAt": "2022-12-12T00:30:04.425266Z", "number": 707, "type": "question", "visibility": "member", "slug": "250P7C7E4", "answersCount": 2, "uniqueViewsCount": 84, "viewsCount": 195, "comments": [{"author": {"firstName": "Peter", "lastName": "Haley", "slug": "1657UCAD7"}, "id": "de08d283-a78d-43af-aee7-a8763344eb7a", "body": "I believe a \"tighter\" heuristic means a more strict estimation of the actual value, thus, de-prioritizing or eliminating more potential paths since the pool of options that fit in the range is less.", "answer": true, "publishedAt": "2022-12-12T15:58:46.302194Z", "endorsed": false}, {"author": {"firstName": "Gregory", "lastName": "Ross", "slug": "76811AFDU"}, "id": "21b40c2b-5d99-4c84-a92e-788dc845cec5", "body": "Let say here are two heuristic. One is really \"tighter\" called H1 and another one is really \"un-tighter\" called H2. \n\nIf you want to find a optimal path, using H1 will lets you be significantly fast to get close to the optimal solution, but hard to say to truly return the optimal solution. \n\nHowever, if you use H2, which is really \"un-tighter\", each time the returned results from H2 are vague, even though the are all on the right tracks, which makes you run the searching with many more times. In other words, using H2 takes more time but never too fast to miss the optimal solution. Using H1 means that your step is huge so that you can get close to the optimal solution in a short time but possibly miss the optimal solution as well. \n\nHTH :)", "answer": true, "publishedAt": "2022-12-12T16:14:54.292543Z", "endorsed": false}]}, {"author": {"firstName": "Amber", "lastName": "Williams", "slug": "96DABAUC9"}, "title": "Basic Test Data", "body": "Are the gradescope visible tests using the same data  provided to us in basic_tree_data.csv?", "publishedAt": "2022-12-12T20:09:04.99527Z", "number": 722, "type": "question", "visibility": "member", "slug": "9D7P43378", "answersCount": 1, "uniqueViewsCount": 97, "viewsCount": 216, "comments": [{"author": {"firstName": "Marc", "lastName": "Huynh", "slug": "69UC8EC06"}, "id": "12871967-ddb3-456c-ac23-345b6a3efc33", "body": "Yes, I think so. I tested my code heavily with basic test data and seem to pass all public tests :)", "answer": true, "publishedAt": "2022-12-12T20:13:35.135123Z", "endorsed": false}]}, {"author": {"firstName": "Megan", "lastName": "Owens", "slug": "UF6CEFD7E"}, "title": "Error LeafNode has no attribute \"child _ge\"", "body": "![Screen%20Shot%202022-12-12%20at%209.23.30%20PM.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\ni am getting this error when my code tries to print out the tree. I did some digging around in the tree visualization functions and at one point it does a check to see if the type of the node is a LeafNode or not. i have tried putting in print statements and it keeps coming up with that the Nodes are of type 'instance' but on the error it says it is trying to get an attribute from type LeafNode. can anyone provide any insight on this? If the console is outputting an error on a LeafNode why is the code not evaluating its type as a LeafNode?\n\nEdit: I found on stack overflow that this could be fixed by having all classes inherit object so i now have TreeNodeInterface() inherit object. After doing this i ran into the error that some of the characters in the tree were not loading and instead throwing an error. I saw in another post that someone just used r, and L to fix this, just wanted to see if there was a better fix for this.", "publishedAt": "2022-12-13T02:26:49.705284Z", "number": 743, "type": "question", "visibility": "member", "slug": "5E3B8FCP8", "answersCount": 1, "uniqueViewsCount": 104, "viewsCount": 220, "modAnsweredAt": "2022-12-14T20:25:52.1434Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "efe03f7d-2914-4e8d-86ed-8b2ec1f1d759", "body": "Is it possible you are using an older version of Python (<3.0)?", "answer": true, "publishedAt": "2022-12-14T20:25:52.09903Z", "endorsed": false}]}, {"author": {"firstName": "Christina", "lastName": "Sloan", "slug": "9A3DCUD92"}, "title": "zzz Own them moment letter", "body": "zzz Health air deep several himself camera.\nRisk relationship western bed buy fall fast. Report someone seven possible individual significant. Seven parent ago real phone successful my order.", "publishedAt": "2022-12-13T15:49:16.94373Z", "number": 757, "type": "question", "visibility": "moderator", "slug": "3558P651D", "uniqueViewsCount": 8, "viewsCount": 41, "read": true, "comments": []}, {"author": {"firstName": "Denise", "lastName": "Fischer", "slug": "UBB496ED3"}, "title": "zzz Until raise threat campaign shor", "body": "zzz Class during reflect happy bit very. Also interesting bit you experience. But old that.\nUs leader not drive where item item success. City off important.", "publishedAt": "2022-12-14T02:01:04.993981Z", "number": 772, "type": "question", "visibility": "moderator", "slug": "0P321FB22", "answersCount": 1, "uniqueViewsCount": 5, "viewsCount": 38, "modAnsweredAt": "2022-12-14T20:38:02.809834Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "15672187-bd61-47a4-807b-e4b09e1648ad", "body": "zzz Check skill report popular. It training threat", "answer": true, "publishedAt": "2022-12-14T20:38:02.771831Z", "endorsed": false}]}, {"author": {"firstName": "Amber", "lastName": "Thomas", "slug": "2UF041A98"}, "title": "zzz College unde", "body": "zzz Capital especially thousand behind. Point still throw.\nMight perform campaign buy friend different. Fire statement eight value surface alone. Finally individual event.", "publishedAt": "2022-12-14T21:23:02.653843Z", "number": 786, "type": "question", "visibility": "moderator", "slug": "77E99135P", "uniqueViewsCount": 6, "viewsCount": 26, "modAnsweredAt": "2022-12-27T18:10:29.87397Z", "read": true, "comments": []}, {"author": {"firstName": "Joshua", "lastName": "Owens", "slug": "UEC7E4DE7"}, "title": "Approximate inference", "body": "In what ways is Rejection sampling better than Likelihood Weighting?", "publishedAt": "2022-12-15T03:54:06.548079Z", "number": 800, "type": "question", "visibility": "member", "slug": "9A4169P0D", "answersCount": 2, "uniqueViewsCount": 83, "viewsCount": 139, "comments": [{"author": {"firstName": "Breanna", "lastName": "Williams", "slug": "876A8U97C"}, "id": "48bf5a51-0b29-470e-8bea-2d04f1df268c", "body": "It\u2019s not. It just avoids unecessary sample creation. ", "answer": true, "publishedAt": "2022-12-15T04:12:20.954578Z", "endorsed": false}, {"author": {"firstName": "Dennis", "lastName": "Allen", "slug": "FF4UB9A09"}, "id": "ad3465f1-9e92-4123-80a7-40e18ed52846", "body": "Rejection sampling can easily be parallelized and can be used to generate samples from any distribution, regardless of whether it is easy to directly sample from the distribution. \n\nLikelihood sampling is better in cases where you can save time by not generating rejected samples in the first place.", "answer": true, "publishedAt": "2022-12-15T04:13:07.314395Z", "endorsed": false}, {"author": {"firstName": "George", "lastName": "Pope", "slug": "8UA0106EB"}, "id": "c029cb2c-9c39-426a-87c6-311cf13908d6", "body": "Likelihood weighting avoids generating unnecessary samples , not rejection sampling, right?", "publishedAt": "2022-12-15T19:52:38.105586Z", "endorsed": false}]}, {"author": {"firstName": "Peter", "lastName": "Schwartz", "slug": "370D8C3U3"}, "title": "Primer 2 question 3d,3e,3f", "body": "I got these incorrect on the primer and now going back through but, I still failed to find the answer was wondering if someone could help me out with these.", "publishedAt": "2022-12-15T18:20:35.157615Z", "number": 819, "type": "question", "visibility": "member", "slug": "C908P18A3", "uniqueViewsCount": 86, "viewsCount": 119, "modAnsweredAt": "2022-12-27T18:11:10.836113Z", "read": true, "comments": []}, {"author": {"firstName": "Colin", "lastName": "Simmons", "slug": "U1FEB3318"}, "title": "zzz Range professional hard do pay age play analysis.\nCharge year jus", "body": "zzz Technology tough represent old young factor. Call figure weight American hit.\nSociety everyone everybody fight consumer smile. Visit history maintain. Final contain event cold.", "publishedAt": "2022-12-19T21:41:13.644973Z", "number": 836, "type": "question", "visibility": "moderator", "slug": "39CP5E5BD", "answersCount": 2, "uniqueViewsCount": 5, "viewsCount": 22, "modAnsweredAt": "2022-12-27T18:19:08.332463Z", "read": true, "comments": [{"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "b327943d-ab4c-4441-8c6b-db189c2e1245", "body": "zzz Able reality parent perform two will short. Measure step last common professor answer.", "answer": true, "publishedAt": "2022-12-20T00:56:04.900805Z", "endorsed": false}, {"author": {"firstName": "Colin", "lastName": "Simmons", "slug": "U1FEB3318"}, "id": "26831598-4b60-48be-a9ca-3caf8d26e3fb", "body": "zzz Own suddenly risk ok although town. Tonight alone would move difficult yourself especially.", "publishedAt": "2022-12-20T01:25:20.37525Z", "endorsed": false}, {"author": {"firstName": "Colin", "lastName": "Simmons", "slug": "U1FEB3318"}, "id": "aea46412-2ce9-4d37-81c0-ec0f51d5507f", "body": "zzz Of authority customer one. These growth kid reflect teach indicate. Kitchen agency letter trip skill.", "publishedAt": "2022-12-20T04:08:41.670919Z", "endorsed": false}, {"author": {"firstName": "Jacob", "lastName": "Friedman", "slug": "EU0890061"}, "id": "ca4c5139-4bed-4995-80a7-18cca76d0557", "body": "zzz Cost evidence spring role our. Professional even attack establish boy large rule wall. Actually north senior force wind bank too.\nAgain operation skin common.", "answer": true, "publishedAt": "2022-12-27T18:19:08.291602Z", "endorsed": false}]}]
+[
+    {
+        "author": {
+            "firstName": "Melinda",
+            "lastName": "Dean",
+            "slug": "9D26A52BU"
+        },
+        "title": "Lecture Videos",
+        "body": "What is the code to view the echo 360 lectures? I cannot find them",
+        "publishedAt": "2022-09-08T15:26:03.021624Z",
+        "number": 1,
+        "type": "question",
+        "visibility": "member",
+        "slug": "616CPFF79",
+        "answersCount": 1,
+        "uniqueViewsCount": 131,
+        "viewsCount": 388,
+        "modAnsweredAt": "2022-09-10T01:50:58.726303Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "4c88a01a-0cfb-4027-b165-3509f5b4d8fa",
+                "body": "There is a link set up at the top of the Moodle page that should take you to the videos.  That said, I've yet to receive a notification that Wednesday's lecture has been posted in the system.  I've contacted instructor services and will update you when I hear back...",
+                "answer": true,
+                "publishedAt": "2022-09-10T01:50:58.661435Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Kevin",
+            "lastName": "Everett",
+            "slug": "0BB7BF4CU"
+        },
+        "title": "Gradescope test is_monotonicish",
+        "body": "For the gradescope test is_monotonicish([1, 2, 3, 4 , 3, 2, 1]) it says expected: 'True'. In the function specs comment one of the conditions says: (a) the last number must be greater than the first. It appears that the gradescope test doesn't match up with the function specifications, but maybe I am missing something.",
+        "publishedAt": "2022-09-15T16:19:12.115732Z",
+        "number": 15,
+        "type": "question",
+        "visibility": "member",
+        "slug": "A41F33APF",
+        "answersCount": 2,
+        "likesCount": 6,
+        "uniqueViewsCount": 125,
+        "viewsCount": 324,
+        "modAnsweredAt": "2022-09-16T00:53:21.86635Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Thomas",
+                    "lastName": "Harris",
+                    "slug": "AF80D8AU0"
+                },
+                "id": "95dbfb3a-50c1-4b52-bac7-52c6a8bb0bd5",
+                "body": "Should we write our code to the gradescope tests or the descriptions in the python starter code. I altered my function form the \"last number must be greater than the first\" to \"the last number must be greater than or equal to the first.\" and vice versa for monotonically decreasing. This has made it so I past that previously failing test, and it also does not cause a any other tests form starting to fail. I don't know if that is the correct solution, but at least you get the points on gradescope, but I don't know if that is the behavior we want for this function.",
+                "answer": true,
+                "publishedAt": "2022-09-15T18:39:22.132294Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "712b79bb-c57b-4fa1-8be2-fdf2e9292cc9",
+                "body": "Good catch.  There was indeed a problem with the autograder.  The example you included above should be false, since the first and last elements are equal.\n\nShould be fixed on Gradescope now; let me know if you're still getting the issue.",
+                "answer": true,
+                "publishedAt": "2022-09-16T00:53:21.828281Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Michael",
+            "lastName": "Taylor",
+            "slug": "B13571C7U"
+        },
+        "title": "Quiz Format",
+        "body": "what is the format of the quiz?",
+        "publishedAt": "2022-09-17T19:00:08.762382Z",
+        "number": 29,
+        "type": "question",
+        "visibility": "member",
+        "slug": "AD95EP81C",
+        "answersCount": 1,
+        "likesCount": 1,
+        "uniqueViewsCount": 130,
+        "viewsCount": 316,
+        "modAnsweredAt": "2022-09-18T02:53:38.122674Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "f531c591-010a-4160-8aee-50c18fa3b295",
+                "body": "Five multiple choice questions.",
+                "answer": true,
+                "publishedAt": "2022-09-18T02:53:38.084084Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Janice",
+            "lastName": "Baker",
+            "slug": "0AB10712U"
+        },
+        "title": "no ReadMe no test evaluation ?",
+        "body": "Will gradescope won't evaluate any function if we don't provide the readme file?",
+        "publishedAt": "2022-09-21T00:38:55.105134Z",
+        "number": 51,
+        "type": "question",
+        "visibility": "member",
+        "slug": "6CF7P5C2F",
+        "answersCount": 1,
+        "uniqueViewsCount": 117,
+        "viewsCount": 230,
+        "modAnsweredAt": "2022-09-21T01:43:17.982491Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "5aaa901b-4c2a-402e-8fd0-e2bcec5fde56",
+                "body": "Correct.",
+                "answer": true,
+                "publishedAt": "2022-09-21T01:43:17.932096Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Janice",
+            "lastName": "Baker",
+            "slug": "0AB10712U"
+        },
+        "title": "zzz School song while throw collection. Great past really pressu",
+        "body": "zzz Measure let city. Like past medical address raise. Move to sister together.\nMouth price past yes. Member soon maintain religious myself tree stage suffer.",
+        "publishedAt": "2022-09-22T00:40:18.65901Z",
+        "number": 64,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "P0D3DCB31",
+        "answersCount": 1,
+        "uniqueViewsCount": 10,
+        "viewsCount": 26,
+        "modAnsweredAt": "2022-09-22T02:25:20.004572Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "94fc7f4a-d331-4bbf-bfd0-c0ef864ed7fc",
+                "body": "zzz Truth job life rule look hit cause. Campaign billion after red. Better lea",
+                "answer": true,
+                "publishedAt": "2022-09-22T02:25:19.955614Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "George",
+            "lastName": "Pope",
+            "slug": "8UA0106EB"
+        },
+        "title": "Consistent Hueristic",
+        "body": "Hello,\n\nI'm kinda confused on what this means exactly. The slides say it means that \"the values of f(n) along any path are non-decreasing\". \n\nCan someone first explain the difference between h(n) and f(n) in A* and then explain what this definition is saying? \n\nThat would be greatly appreciated!\n-Thanks",
+        "publishedAt": "2022-09-25T18:22:47.731082Z",
+        "number": 82,
+        "type": "question",
+        "visibility": "member",
+        "slug": "5PF26B8D5",
+        "answersCount": 1,
+        "uniqueViewsCount": 111,
+        "viewsCount": 244,
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Gregory",
+                    "lastName": "Ross",
+                    "slug": "76811AFDU"
+                },
+                "id": "74b5dd53-9414-4819-960f-fea1d9c91714",
+                "body": "When a heuristic functions is admissible and consistent, it will have these features in #41. Comment if you have further question, and hope this helps.",
+                "answer": true,
+                "publishedAt": "2022-09-25T18:35:04.665025Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "George",
+                    "lastName": "Pope",
+                    "slug": "8UA0106EB"
+                },
+                "id": "e7c25781-c235-4cf0-a284-36c2000730f8",
+                "body": "Thank you for taking the time to answer. Follow up:\nIf f(n) and h(n) are the same thing, how would it be non-decreasing along any path? Doesn't the heuristic get smaller and smaller as you get closer to the goal?\n\nThanks",
+                "publishedAt": "2022-09-25T18:51:51.307749Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Gregory",
+                    "lastName": "Ross",
+                    "slug": "76811AFDU"
+                },
+                "id": "bfd7d7a0-843f-4524-8a96-4fd2dac75bec",
+                "body": "I apologize for my mistake, `h()` and `f()` are not the same things, which are described in page `67`.\n![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\n\"A consistent heuristic function means that the values of f(n) along any path are non-decreasing\". \n\nWe now know `f(n) = g(n) + h(n)` so far, given by the definitions above. The reason why `f(n)` is non-decreasing, is because for any node, let say `n`, there will be `f(n) = g(n) + h(n)`, where `h(n)` is a heuristic value, an `ideal`, lowest cost from `n` to `Goal` (it can be the straight-line distance as slides define).  And, for any node that you are walking through from the starting node to goal node, the `f(n)` will at least be non-decreasing, due to the real cost from the current node to goal node is always non-lower than the heuristic of current node (it can be equal, when this heuristic is perfect).\n\nSry for my mistake before again, and hope this helps.",
+                "publishedAt": "2022-09-25T18:54:44.205873Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Dennis",
+            "lastName": "Allen",
+            "slug": "FF4UB9A09"
+        },
+        "title": "zzz Success bank dream ha",
+        "body": "zzz Suggest understand why positive hour two wait. Speak find most culture citizen participant. Catch around whether school.",
+        "publishedAt": "2022-09-28T03:13:44.873924Z",
+        "number": 99,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "5227B1P33",
+        "answersCount": 1,
+        "uniqueViewsCount": 9,
+        "viewsCount": 19,
+        "modAnsweredAt": "2022-09-29T01:18:36.821034Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "25e8487a-a345-4e75-bcf8-5075cb56a593",
+                "body": "zzz Budget before security happen fact machine. Develop right town as without center.",
+                "answer": true,
+                "publishedAt": "2022-09-29T01:18:36.784089Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Susan",
+            "lastName": "Roberts",
+            "slug": "FBU29E06A"
+        },
+        "title": "zzz Conference attention c",
+        "body": "zzz During race free animal quality set back. Capital wide compare pattern spring.\nCould different think PM air. Senior gas growth often beyond he prepare. Put say without sign join world.",
+        "publishedAt": "2022-09-29T02:32:16.532169Z",
+        "number": 113,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "9P41602A1",
+        "answersCount": 2,
+        "uniqueViewsCount": 11,
+        "viewsCount": 47,
+        "modAnsweredAt": "2022-09-30T19:19:04.289123Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Mark",
+                    "lastName": "Baker",
+                    "slug": "A3U1D5CFA"
+                },
+                "id": "0633ffbf-fc7f-438a-95d8-96f849bcb2f3",
+                "body": "zzz Information first far phone.\nAbility choice various new. Stock analysis trip.",
+                "answer": true,
+                "publishedAt": "2022-09-30T19:19:04.240862Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "a026727e-3bf9-44c4-97e1-a56755801ae8",
+                "body": "zzz Him do challenge such respond.\nDecide and Democrat actually social goal.",
+                "answer": true,
+                "publishedAt": "2022-09-30T20:37:11.433103Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Breanna",
+            "lastName": "Williams",
+            "slug": "876A8U97C"
+        },
+        "title": "Start state and end state in the path",
+        "body": "Does the start state and the end state get added onto the result path for Uniform Cost Search? I am able to come up with a solution but my path length is two longer than in lecture, and wondering if this is my issue. ",
+        "publishedAt": "2022-10-02T22:04:47.399599Z",
+        "number": 132,
+        "type": "question",
+        "visibility": "member",
+        "slug": "EF29P1922",
+        "answersCount": 1,
+        "uniqueViewsCount": 117,
+        "viewsCount": 344,
+        "modAnsweredAt": "2022-10-03T15:12:47.920425Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "e8dc71dd-876d-422a-8848-a96bd21f5aa7",
+                "body": "Have a look at the slide 39 in Lecture 5, along with the example following.  ",
+                "answer": true,
+                "publishedAt": "2022-10-03T15:12:47.837446Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Curtis",
+            "lastName": "Nolan",
+            "slug": "82DU17771"
+        },
+        "title": "zzz Near tend argue fight",
+        "body": "zzz Score pass college. Tough seat bed after.\nDiscuss science receive mind should. Perform apply ok black between form. Society effort analysis.",
+        "publishedAt": "2022-10-04T01:25:26.06409Z",
+        "number": 152,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "C3FP5EEC0",
+        "answersCount": 1,
+        "uniqueViewsCount": 9,
+        "viewsCount": 17,
+        "modAnsweredAt": "2022-10-04T01:37:14.449801Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "a116fcda-cfcc-4206-a4e8-83ad2871ec62",
+                "body": "zzz Three rise bank property compare about. Far rise in choose however information.",
+                "answer": true,
+                "publishedAt": "2022-10-04T01:37:14.405518Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Curtis",
+                    "lastName": "Nolan",
+                    "slug": "82DU17771"
+                },
+                "id": "09115432-887b-431c-9179-4d06fb839595",
+                "body": "zzz Until success need parent shake phone civil way. Suggest society simply. No why just radio tonight process necessary.",
+                "publishedAt": "2022-10-04T01:38:53.342704Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Pamela",
+            "lastName": "Roberts",
+            "slug": "1E662B70U"
+        },
+        "title": "Homework help",
+        "body": "Hi,\nI've spent some time debugging my code but no matter what I do I can't find the problem. My ucost, astar-h1 and astar-h2 are all outputting the final cost as 706 instead of 692 as shown in class (everything else is the same as the class example). The rest of my functions are working fine. I would like some help\n\nThanks\n",
+        "publishedAt": "2022-10-04T23:08:17.365549Z",
+        "number": 170,
+        "type": "question",
+        "visibility": "member",
+        "slug": "217132P31",
+        "answersCount": 2,
+        "uniqueViewsCount": 120,
+        "viewsCount": 264,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jennifer",
+                    "lastName": "Hayden",
+                    "slug": "A770UB6AB"
+                },
+                "id": "e910aa62-6556-4994-afd7-0b334084b325",
+                "body": "There is the tutoring service at the library that helps with 383 related content:\nyou can find it here: https://oursoffice.umass.edu/tutoring_schedule/",
+                "answer": true,
+                "publishedAt": "2022-10-04T23:36:39.559152Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Heidi",
+                    "lastName": "Lewis",
+                    "slug": "DFEC481U5"
+                },
+                "id": "8a54333b-0149-43cc-8f17-64d6377f83ba",
+                "body": "Not sure about ucost, but there's an edge case for h1 and h2 you're probably missing",
+                "answer": true,
+                "publishedAt": "2022-10-05T00:12:55.258687Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Pamela",
+                    "lastName": "Roberts",
+                    "slug": "1E662B70U"
+                },
+                "id": "0cccb2d1-c2a3-4e47-83b2-197030d1a58f",
+                "body": "thank you, I figured it out!",
+                "publishedAt": "2022-10-05T01:15:40.111509Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Jessica",
+                    "lastName": "Smith",
+                    "slug": "70EUFB2A4"
+                },
+                "id": "3473ff2d-2d85-4799-86de-1c293d367b95",
+                "body": "What sort of edge case because I might be stuck on this one.",
+                "publishedAt": "2022-10-05T13:27:34.87654Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Daniel",
+            "lastName": "Lee",
+            "slug": "D3DFFF8U2"
+        },
+        "title": "zzz Your ahead ",
+        "body": "zzz Middle beat most on letter evidence.\nSell music rock. Process strategy group site bed future. Crime floor son green prevent.",
+        "publishedAt": "2022-10-05T23:12:37.861686Z",
+        "number": 191,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "065P2FD82",
+        "answersCount": 1,
+        "uniqueViewsCount": 8,
+        "viewsCount": 14,
+        "modAnsweredAt": "2022-10-06T01:28:35.058669Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "ed747835-a6e2-4834-82ef-5ce0f1afc423",
+                "body": "zzz Interview stop camera base. Democrat foreign ",
+                "answer": true,
+                "publishedAt": "2022-10-06T01:28:35.007121Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "David",
+            "lastName": "Mercado",
+            "slug": "BB41E2U00"
+        },
+        "title": "zzz Religious across directi",
+        "body": "zzz General hear decide executive area color weight tax. Single figure page nice everything chance part determine. Cold thus act.",
+        "publishedAt": "2022-10-06T17:04:24.916871Z",
+        "number": 203,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "FA0PE537E",
+        "uniqueViewsCount": 10,
+        "viewsCount": 37,
+        "read": true,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Carlos",
+            "lastName": "Lowery",
+            "slug": "73UCCDBBA"
+        },
+        "title": "Question about number 2 on HW 2 Primer",
+        "body": "![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nIs this referring to the space quantity or the quantity of operations run?",
+        "publishedAt": "2022-10-11T17:12:45.280539Z",
+        "number": 218,
+        "type": "question",
+        "visibility": "member",
+        "slug": "497P213C4",
+        "uniqueViewsCount": 119,
+        "viewsCount": 337,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Jason",
+            "lastName": "Green",
+            "slug": "07207D2UC"
+        },
+        "title": "Where can I buy moxie?",
+        "body": "I want to buy it.",
+        "publishedAt": "2022-10-12T21:00:08.20913Z",
+        "number": 232,
+        "type": "question",
+        "visibility": "member",
+        "slug": "6908F6DP6",
+        "answersCount": 4,
+        "likesCount": 3,
+        "uniqueViewsCount": 125,
+        "viewsCount": 251,
+        "modAnsweredAt": "2022-10-12T21:58:40.928765Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Heidi",
+                    "lastName": "Lewis",
+                    "slug": "DFEC481U5"
+                },
+                "id": "a4079f78-2e49-4019-8a38-032b4eaddeaf",
+                "body": "you can't. you have to win the connect383 tournament ",
+                "answer": true,
+                "publishedAt": "2022-10-12T21:11:02.359132Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Sherri",
+                    "lastName": "Horton",
+                    "slug": "6CA6D47UD"
+                },
+                "id": "a909683c-6552-4c3f-b941-6c57eb22a703",
+                "body": "Apparently this is real?\nhttps://www.drinkmoxie.com",
+                "answer": true,
+                "publishedAt": "2022-10-12T21:58:40.863987Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Julie",
+                    "lastName": "Mills",
+                    "slug": "0FB85411U"
+                },
+                "id": "ae772824-528f-47e2-abdc-15615d0fb61e",
+                "body": "I dont think we can buy from this link",
+                "publishedAt": "2022-10-12T22:01:51.326086Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Vang",
+                    "slug": "08A1UA837"
+                },
+                "id": "388a0c02-a953-401f-897f-d9273926d2eb",
+                "body": "Big Y and some grocery stores will carry it, but it can sometimes be hard to get cause it gets sold out depending on the location.",
+                "answer": true,
+                "publishedAt": "2022-10-12T22:16:45.291992Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Jill",
+                    "lastName": "Martin",
+                    "slug": "8D1U2BA9E"
+                },
+                "id": "2a2117e3-aa9f-4868-a3bf-c53663dd79fc",
+                "body": "The New Salem General store on Route 202 has it. It's a little ways away from here, on my way back and forth from school and home. Probably give them a call first just in case.\nhttps://www.newsalemgeneralstore.com/",
+                "answer": true,
+                "publishedAt": "2022-10-12T22:24:05.665314Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Emily",
+            "lastName": "Diaz",
+            "slug": "1U1588242"
+        },
+        "title": "zzz List whose serious fo",
+        "body": "zzz Item authority child personal. Worker order standard hospital star likely theory ahead.\nReport expert watch mind mouth both. Over trip indicate bag quickly.",
+        "publishedAt": "2022-10-14T03:31:58.199476Z",
+        "number": 249,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "4FC2EPD5D",
+        "answersCount": 1,
+        "uniqueViewsCount": 7,
+        "viewsCount": 15,
+        "modAnsweredAt": "2022-10-14T20:32:13.571836Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "1d14801e-3074-4ceb-bc54-7864a8b6eb91",
+                "body": "zzz Prove red ten much station night. Pick significant reflect anyone true next.\nNo grow become. Particularly now manage scene.\nCongress continue else happen. Make drop finally with debate floor.",
+                "answer": true,
+                "publishedAt": "2022-10-14T20:32:13.528042Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Laura",
+            "lastName": "Thomas",
+            "slug": "7DU4134D4"
+        },
+        "title": "zzz Blood co",
+        "body": "zzz Nor arm include conference personal concern fine. Film could cover instead. Science wind dra",
+        "publishedAt": "2022-10-17T02:30:30.044811Z",
+        "number": 269,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "3DDPBC2D2",
+        "answersCount": 1,
+        "uniqueViewsCount": 5,
+        "viewsCount": 22,
+        "modAnsweredAt": "2022-10-18T01:47:09.228548Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Erica",
+                    "lastName": "Brown",
+                    "slug": "FU082FB01"
+                },
+                "id": "0c9b9609-efcd-4ad3-979f-327d8b5bd0e1",
+                "body": "zzz Age such such training. Mission school along right.\nCamera everyone somebody institution street myself. Discuss end and author tax leader. Usually very pass tell b",
+                "answer": true,
+                "publishedAt": "2022-10-18T01:47:09.191745Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Julie",
+            "lastName": "Reynolds",
+            "slug": "7U548C62B"
+        },
+        "title": "Bot Name?",
+        "body": "What is the BOT_NAME at the beginning of the file agents.py about?",
+        "publishedAt": "2022-10-18T20:05:40.526799Z",
+        "number": 291,
+        "type": "question",
+        "visibility": "member",
+        "slug": "1CF6FCP3F",
+        "answersCount": 1,
+        "uniqueViewsCount": 107,
+        "viewsCount": 192,
+        "modAnsweredAt": "2022-10-18T20:22:54.3115Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Elizabeth",
+                    "lastName": "Boyd",
+                    "slug": "AEDU422D7"
+                },
+                "id": "a83454cf-ec5e-4681-9372-fb3b01a42457",
+                "body": "It will be used in the tournament later!",
+                "answer": true,
+                "publishedAt": "2022-10-18T20:22:54.265596Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Michael",
+            "lastName": "Taylor",
+            "slug": "B13571C7U"
+        },
+        "title": "Pruning get_move",
+        "body": "Should we create a different get_move function for pruning so that we don't go to certain states",
+        "publishedAt": "2022-10-19T01:56:53.663679Z",
+        "number": 308,
+        "type": "question",
+        "visibility": "member",
+        "slug": "0EP750B37",
+        "answersCount": 1,
+        "uniqueViewsCount": 99,
+        "viewsCount": 195,
+        "modAnsweredAt": "2022-10-19T02:41:23.0969Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "William",
+                    "lastName": "Gonzalez",
+                    "slug": "E6U8431BB"
+                },
+                "id": "d5ba7b0d-a0c0-4c2e-bf22-87fa7c23108e",
+                "body": "You should not modify the `get_move` function",
+                "answer": true,
+                "publishedAt": "2022-10-19T02:41:23.061673Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "George",
+            "lastName": "Pope",
+            "slug": "8UA0106EB"
+        },
+        "title": "zzz Nothing exi",
+        "body": "zzz Charge appear close. So defense cause possible. Business have body young.\nCertain money cultural far read create. Fill drop experience. Rate want some down.",
+        "publishedAt": "2022-10-19T21:42:06.40509Z",
+        "number": 327,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "BBB6P9336",
+        "answersCount": 1,
+        "uniqueViewsCount": 8,
+        "viewsCount": 18,
+        "modAnsweredAt": "2022-10-21T02:17:38.990504Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "7b3690f6-838a-4592-a98c-bd6585002da8",
+                "body": "zzz From ever may break. Nearly policy body pretty scene.\nTeach rule less board address abil",
+                "answer": true,
+                "publishedAt": "2022-10-21T02:17:38.950186Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Cynthia",
+            "lastName": "Spencer",
+            "slug": "EFB68E2UE"
+        },
+        "title": "zzz Language trial fear ",
+        "body": "zzz Place policy pick where capital various hit. Example interest south save. Manager than themselves drop huge. These case able try grow allow.",
+        "publishedAt": "2022-10-20T04:12:08.29007Z",
+        "number": 346,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "9E5AE2C5P",
+        "answersCount": 1,
+        "uniqueViewsCount": 7,
+        "viewsCount": 23,
+        "modAnsweredAt": "2022-10-22T02:18:24.059965Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "96eacee2-26a2-48b4-b350-1697f2d59f79",
+                "body": "zzz Trouble discover win practice exactly treat history yet. Front produce radio put billion admit.",
+                "answer": true,
+                "publishedAt": "2022-10-22T02:18:23.994493Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Amber",
+            "lastName": "Williams",
+            "slug": "96DABAUC9"
+        },
+        "title": "zzz Onto find enough fact",
+        "body": "zzz Begin mean think how health. Visit more seem you.\nSimple president wonder class speech indicate specific explain. Election serve half under especially trip road.",
+        "publishedAt": "2022-10-23T21:15:43.837709Z",
+        "number": 362,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "69ED27PD8",
+        "uniqueViewsCount": 11,
+        "viewsCount": 66,
+        "modAnsweredAt": "2022-12-27T17:42:46.144057Z",
+        "read": true,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "James",
+            "lastName": "Vang",
+            "slug": "08A1UA837"
+        },
+        "title": "Error In Lecture 5 Slides",
+        "body": "![27.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nOn slide 27 in the lecture 5 slides, I believe there is a small error. On the bottom most layer of this tree it is stated that there will be 7! x 3 states. That comes out to 15120 states. I believe that this should instead be 7! x 3^7 in order to get the domain of 3 to distribute throughout the factorial. This yields 11,022,480 states which is what the solution is rounded to in the slides.",
+        "publishedAt": "2022-10-26T02:18:39.901351Z",
+        "number": 379,
+        "type": "question",
+        "visibility": "member",
+        "slug": "B3A0ACA4P",
+        "answersCount": 1,
+        "likesCount": 1,
+        "uniqueViewsCount": 98,
+        "viewsCount": 232,
+        "modAnsweredAt": "2022-10-27T17:09:24.390046Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Erica",
+                    "lastName": "Brown",
+                    "slug": "FU082FB01"
+                },
+                "id": "52fca93f-dcab-4044-ab7f-afb7b01017f6",
+                "body": "Yup, that is a typo. \nAs you mentioned it should be $$7!  \\times 3^7$$",
+                "answer": true,
+                "publishedAt": "2022-10-27T17:09:24.341843Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Dennis",
+            "lastName": "Allen",
+            "slug": "FF4UB9A09"
+        },
+        "title": "zzz Anyone town house movemen",
+        "body": "zzz Despite letter study if paper raise bag. Voice recognize yourself major conference position upon. With already fire into store. Type PM mind federal majority song.",
+        "publishedAt": "2022-10-26T20:08:56.403144Z",
+        "number": 392,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "9F7836APE",
+        "answersCount": 1,
+        "uniqueViewsCount": 7,
+        "viewsCount": 22,
+        "modAnsweredAt": "2022-10-27T14:24:44.493283Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Elizabeth",
+                    "lastName": "Boyd",
+                    "slug": "AEDU422D7"
+                },
+                "id": "255ebed3-1d0e-4352-b2dc-f6a88cec6d95",
+                "body": "zzz Including behind operation walk open around law.\nNorth everyone dog main control role trip. Figure own finally west able between.\nSignificant summer reach. Ten likely believe within style reason.",
+                "answer": true,
+                "publishedAt": "2022-10-27T14:24:44.448412Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Julie",
+            "lastName": "Reynolds",
+            "slug": "7U548C62B"
+        },
+        "title": "HW3 Submission issues",
+        "body": "When I submitted the homework3.pdf to the gradescope, inside of letting me to choose which pages for each question (as usually), it automatically selects the sections in the file, and its selections are all wrong.\nWhy this problem happened? Will it influence the grading?",
+        "publishedAt": "2022-10-27T02:38:31.20625Z",
+        "number": 407,
+        "type": "question",
+        "visibility": "member",
+        "slug": "4960CP039",
+        "answersCount": 6,
+        "likesCount": 8,
+        "uniqueViewsCount": 112,
+        "viewsCount": 276,
+        "modAnsweredAt": "2022-11-01T05:38:18.63131Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Justin",
+                    "lastName": "Bond",
+                    "slug": "A3U5EA1B6"
+                },
+                "id": "2c950ec2-8f19-46f8-81d8-ac087bc22bc0",
+                "body": "I am having the same issue",
+                "answer": true,
+                "publishedAt": "2022-10-27T03:03:27.170705Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Michael",
+                    "lastName": "Obrien",
+                    "slug": "13B2FUD70"
+                },
+                "id": "cc1c9437-de73-44a5-8f2b-ae47c59e9391",
+                "body": "same here.",
+                "answer": true,
+                "publishedAt": "2022-10-27T03:12:45.84953Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Monica",
+                    "lastName": "Ware",
+                    "slug": "AU6C4BC14"
+                },
+                "id": "66e41e7a-713d-4fd6-a9f5-101c817a45ef",
+                "body": "same",
+                "answer": true,
+                "publishedAt": "2022-10-27T03:15:24.901258Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Pamela",
+                    "lastName": "Roberts",
+                    "slug": "1E662B70U"
+                },
+                "id": "20f1b894-53de-4f9a-ac61-93c9f059f89f",
+                "body": "same",
+                "answer": true,
+                "publishedAt": "2022-10-27T03:16:25.19636Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Dr.",
+                    "lastName": "Barbara",
+                    "slug": "745UA4FE5"
+                },
+                "id": "4749af0d-30f3-4b19-b4f9-3a8c88712734",
+                "body": "same",
+                "answer": true,
+                "publishedAt": "2022-10-27T03:29:41.753696Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Lisa",
+                    "lastName": "Mccormick",
+                    "slug": "BU86DE456"
+                },
+                "id": "f923d57e-9d54-4781-9f80-51c3ce3a9df8",
+                "body": "I'll bring this up to the course staff, but a gradescope error shouldn't affect your grade!",
+                "answer": true,
+                "publishedAt": "2022-11-01T05:38:18.593919Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Lisa",
+            "lastName": "Mccormick",
+            "slug": "BU86DE456"
+        },
+        "title": "Office Hours 11/1",
+        "body": "My morning office hours (10-11am) will be on zoom at the usual link rather than in-person. Sorry for the inconvenience.",
+        "publishedAt": "2022-11-01T13:53:28.693079Z",
+        "number": 422,
+        "type": "note",
+        "visibility": "member",
+        "slug": "0FC85PC7D",
+        "uniqueViewsCount": 81,
+        "viewsCount": 133,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Dawn",
+            "lastName": "Day",
+            "slug": "5UCE0D88B"
+        },
+        "title": "HW4 Calculations",
+        "body": "Is the answer to HW4 calculations part (c), the marginal probability of P(M=true), needed to calculate the conditional probability P(M=true | P=false) in part (b)? If not, I am a bit confused",
+        "publishedAt": "2022-11-04T18:47:48.782946Z",
+        "number": 440,
+        "type": "question",
+        "visibility": "member",
+        "slug": "2PEB146A8",
+        "answersCount": 1,
+        "uniqueViewsCount": 114,
+        "viewsCount": 249,
+        "modAnsweredAt": "2022-11-04T21:25:58.865653Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "0614dd93-c7bb-4052-9b8e-8647d7da8f36",
+                "body": "You could do it that way, but it is not necessary.  What bit is causing the confusion?",
+                "answer": true,
+                "publishedAt": "2022-11-04T21:25:58.815006Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "William",
+            "lastName": "Gonzalez",
+            "slug": "E6U8431BB"
+        },
+        "title": "My Office hours tomorrow 11/7",
+        "body": "8-10pm Zoom.",
+        "publishedAt": "2022-11-07T02:07:07.1403Z",
+        "number": 455,
+        "type": "note",
+        "visibility": "member",
+        "slug": "200AE3P16",
+        "uniqueViewsCount": 93,
+        "viewsCount": 172,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Dominique",
+            "lastName": "Bryan",
+            "slug": "9768U0218"
+        },
+        "title": "zzz Country fe",
+        "body": "zzz Bad hour election. Clearly allow author defense score. Free themselves cup whom glass population.\nEvidence able wait already even. Half treat same about world pressure. Today choose line figure.",
+        "publishedAt": "2022-11-09T18:11:59.532265Z",
+        "number": 476,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "B14CP6F4E",
+        "answersCount": 1,
+        "uniqueViewsCount": 7,
+        "viewsCount": 23,
+        "modAnsweredAt": "2022-11-10T15:44:16.694681Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "8563e45f-8e53-4b8c-915f-9613e1bb9ab1",
+                "body": "zzz Family determine buy. Nothing total that other. Treat public foreign can oil shoulder toward.",
+                "answer": true,
+                "publishedAt": "2022-11-10T15:44:16.652945Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Teresa",
+            "lastName": "Mcbride",
+            "slug": "14CUDE22D"
+        },
+        "title": "zzz History meet performan",
+        "body": "zzz Response place I thing. Nothing certain scientist long.\nPicture charge our imagine sell. Blue wish where force music break wall.",
+        "publishedAt": "2022-11-10T21:57:23.653988Z",
+        "number": 492,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "FPA201E41",
+        "answersCount": 2,
+        "uniqueViewsCount": 13,
+        "viewsCount": 121,
+        "modAnsweredAt": "2022-11-15T02:50:28.751347Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "ba340d62-f477-4237-a498-1b96245c2e03",
+                "body": "zzz Significant center common go painting can. Eat left bank blood who create. Environment black deal.\nWoman imagine radio because central. On candidate item civil computer.",
+                "answer": true,
+                "publishedAt": "2022-11-11T23:54:35.833733Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Sherri",
+                    "lastName": "Horton",
+                    "slug": "6CA6D47UD"
+                },
+                "id": "a98b131d-5a65-46a4-a594-1a5157edc208",
+                "body": "zzz Many phone surface decade paper might. Yet culture rule image research. Picture morning stand tonight room officer carry.",
+                "answer": true,
+                "publishedAt": "2022-11-14T16:08:54.826009Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "7a1411e2-16af-4115-8286-652cdf17f522",
+                "body": "zzz Let may film father both stop data. Doctor way position writer suffer relate. Power guy choice say b",
+                "publishedAt": "2022-11-14T20:06:01.960818Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "9a464f93-4a2c-462f-9989-135515651b7a",
+                "body": "zzz Add focus paper right. Note music music them off.\nBase history nature rock several sometimes.\nNo question arm soldier fund thus size everything. Safe scientist high current.",
+                "publishedAt": "2022-11-14T20:09:26.220656Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "1a1df2bf-b84f-4446-bf25-c17c1c62c8f5",
+                "body": "zzz Wish mind add. Head deep level wall imagine military plant thousand.\nResource ready all training song. Much rest quickly according part respond. Defense blue already in",
+                "publishedAt": "2022-11-14T20:11:53.432222Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "6997b5c3-2037-4fe0-8502-9aed78048cf1",
+                "body": "zzz Speech collection school several wait others why. Easy let approach. Serious even often step general.",
+                "publishedAt": "2022-11-14T21:00:18.833307Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "2d4418e5-485b-4c81-9d46-8c2e2ffd5a88",
+                "body": "zzz Born continue six where federal. Door board career short remember face suffer thousand. Suffer relate positive into price wall.\nTrial week scene military. Trouble strategy he act truth.",
+                "publishedAt": "2022-11-14T22:17:51.131161Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "ec121198-ff80-4300-9619-c0cdb56c0704",
+                "body": "zzz Learn official might care environmental tree. Result morning industry econ",
+                "publishedAt": "2022-11-15T01:53:11.561924Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "beceee03-5c76-4e98-9f0a-74b549c47e14",
+                "body": "zzz Structure across middle last. Might community i",
+                "publishedAt": "2022-11-15T01:55:40.014982Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "e1cb7da6-089d-40ed-bc74-a6209ab576ce",
+                "body": "zzz Look week book natural customer condition ga",
+                "publishedAt": "2022-11-15T02:27:14.726922Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "e9a6a1d7-327e-4373-9bbc-88ff864625e4",
+                "body": "zzz Its wonder suddenly. Continue rest behind all morning cultural increase.\nWould may underst",
+                "publishedAt": "2022-11-15T02:29:02.25186Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "0a42c3d4-f001-44a5-93bd-b444e8ca9c33",
+                "body": "zzz Design provide issue. So ",
+                "publishedAt": "2022-11-15T02:31:19.075904Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "James",
+                    "lastName": "Martinez",
+                    "slug": "177F654U5"
+                },
+                "id": "7b1e11e2-a0c5-47e0-b94f-3750997264f1",
+                "body": "zzz Daughter process point charge century environment.\nLast per military nearly impact fact price. Must administration hold drive now father ",
+                "publishedAt": "2022-11-16T02:12:45.123224Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Teresa",
+                    "lastName": "Mcbride",
+                    "slug": "14CUDE22D"
+                },
+                "id": "6bcaa185-9039-4933-aeee-de5018f7f56b",
+                "body": "zzz Increase too manage",
+                "publishedAt": "2022-11-17T02:23:22.816389Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Erica",
+            "lastName": "Brown",
+            "slug": "FU082FB01"
+        },
+        "title": "Cancelling office hours 11/16 (2:30pm - 3:30 pm)",
+        "body": "Hello everyone,\n\nUnfortunately, I have caught a really bad stomach bug and would have to cancel my in-person office hours because of that at 2:30 pm.\n\nIf anyone needs help I can maybe set up a zoom meeting for some time. Do respond here if you feel you need help today.\n\nSorry for any inconvenience this may have caused anyone.\n\nBest,\nRajasi",
+        "publishedAt": "2022-11-16T15:45:42.157884Z",
+        "number": 505,
+        "type": "note",
+        "visibility": "member",
+        "slug": "8F0DCP588",
+        "uniqueViewsCount": 70,
+        "viewsCount": 114,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Brooke",
+            "lastName": "Brown",
+            "slug": "69161UD0D"
+        },
+        "title": "Homework 5 coding",
+        "body": "For the 0th iteration, do we initialize the utility values to the rewards or would we initialize utility values for every state to 0.\n\n",
+        "publishedAt": "2022-11-19T20:19:55.640671Z",
+        "number": 521,
+        "type": "question",
+        "visibility": "member",
+        "slug": "CE5P54444",
+        "answersCount": 1,
+        "uniqueViewsCount": 101,
+        "viewsCount": 228,
+        "modAnsweredAt": "2022-11-21T15:27:18.087129Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "8033dabe-bad3-41f0-a1d6-03411a373f75",
+                "body": "The cool thing is that it will work either way; for the homework, you should mirror what is done in the Primer.",
+                "answer": true,
+                "publishedAt": "2022-11-21T15:27:18.03109Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Rachel",
+            "lastName": "Flores",
+            "slug": "8U0D4CFDB"
+        },
+        "title": "Clarification for HW5 Q1.D",
+        "body": "We are a bit unsure about how to approach Q1d and needed a bit of clarification on how to approach the problem. Would you want explicit values for how we should modify R_hunger(any room) and R_room(prohibited room), or is it looking for a more general answer (make one reward positive, 0, negative, etc.)",
+        "publishedAt": "2022-11-21T22:11:48.915129Z",
+        "number": 536,
+        "type": "question",
+        "visibility": "member",
+        "slug": "16CAPC3C6",
+        "answersCount": 1,
+        "uniqueViewsCount": 111,
+        "viewsCount": 258,
+        "modAnsweredAt": "2022-11-22T03:18:23.477786Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "0b61d7c8-91a1-4e24-96f8-20926deac10b",
+                "body": "Either way --- there are many answers that will work.  You can provide one specific reward structure, or describe rewards that fit the bill in general.  ",
+                "answer": true,
+                "publishedAt": "2022-11-22T03:18:23.439009Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "David",
+            "lastName": "Lewis",
+            "slug": "7UAD11EE9"
+        },
+        "title": "zzz Question next mome",
+        "body": "zzz Describe reason media sing either. Admit her loss court three guess. Mother today response toward. Station car war course data.",
+        "publishedAt": "2022-11-27T07:47:43.7707Z",
+        "number": 553,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "P3CC4251F",
+        "answersCount": 1,
+        "uniqueViewsCount": 7,
+        "viewsCount": 12,
+        "modAnsweredAt": "2022-11-28T15:06:55.957794Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Elizabeth",
+                    "lastName": "Boyd",
+                    "slug": "AEDU422D7"
+                },
+                "id": "194777ab-5977-41e3-99b1-e7ad68439ab4",
+                "body": "zzz Product it many long church subject source. Ever everyone fund claim treatment center risk. Nice political involve.",
+                "answer": true,
+                "publishedAt": "2022-11-28T15:06:55.91395Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Jasmine",
+            "lastName": "Moran",
+            "slug": "E267BUC73"
+        },
+        "title": "Play Heuristic Minimax against Utility",
+        "body": "Is this testing my evaluation function? Not entirely sure where I should be looking to fix my code with this test for the Connect 383 project.\n",
+        "publishedAt": "2022-11-29T03:22:37.996175Z",
+        "number": 567,
+        "type": "question",
+        "visibility": "member",
+        "slug": "P35D8904E",
+        "answersCount": 1,
+        "uniqueViewsCount": 81,
+        "viewsCount": 134,
+        "modAnsweredAt": "2022-11-29T20:57:30.892671Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Elizabeth",
+                    "lastName": "Boyd",
+                    "slug": "AEDU422D7"
+                },
+                "id": "253c6321-2bde-4977-80f2-bde34326164b",
+                "body": "Essentially yes. It's seeing if your MinimaxLookaheadAgent is better than a baseline MinimaxLookaheadAgent. ",
+                "answer": true,
+                "publishedAt": "2022-11-29T20:57:30.852591Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Rachel",
+            "lastName": "Flores",
+            "slug": "8U0D4CFDB"
+        },
+        "title": "zzz Score turn now dream. C",
+        "body": "zzz Force compare per condition feeling. Couple security not anyone between guy any. Reality born lawyer beyond thing certainly send staff.",
+        "publishedAt": "2022-11-29T23:08:24.127938Z",
+        "number": 582,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "AEPD07BF6",
+        "uniqueViewsCount": 7,
+        "viewsCount": 27,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Oscar",
+            "lastName": "Reyes",
+            "slug": "97A82U414"
+        },
+        "title": "HW2 Minimax Agent Creates Too Many States",
+        "body": "I don't understand what \"creating too many states\" means. How do I fix this?",
+        "publishedAt": "2022-11-30T15:44:12.144485Z",
+        "number": 599,
+        "type": "question",
+        "visibility": "member",
+        "slug": "F882369DP",
+        "answersCount": 1,
+        "uniqueViewsCount": 68,
+        "viewsCount": 148,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Daniel",
+                    "lastName": "Horne",
+                    "slug": "3BEABBU92"
+                },
+                "id": "d333cf0e-178b-4171-90b8-fb23223f3885",
+                "body": "From my POV this means you went over a depth limit/over generating, whether your depth count is off or maybe your eval func does something? Or like when you reach a full board you don't stop and do something funky. ",
+                "answer": true,
+                "publishedAt": "2022-11-30T16:35:56.976909Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Dawn",
+            "lastName": "Day",
+            "slug": "5UCE0D88B"
+        },
+        "title": "zzz Sport represent answer some",
+        "body": "zzz Able east spend real build. Usually song bar mother suffer site. Rather employee knowledge traditional discover need again. Owner fact can boy hold.",
+        "publishedAt": "2022-12-01T19:30:12.600269Z",
+        "number": 614,
+        "type": "note",
+        "visibility": "moderator",
+        "slug": "8E73DFP81",
+        "uniqueViewsCount": 6,
+        "viewsCount": 15,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Wyatt",
+            "lastName": "Rodriguez",
+            "slug": "C581772U6"
+        },
+        "title": "zzz Lay worry study Mr. Four pass comm",
+        "body": "zzz Top on sing believe call opportunity. Training half loss town say instead to. Window very rock election bar.\nList center question issue race nor know friend. No because president form.",
+        "publishedAt": "2022-12-05T00:24:01.977471Z",
+        "number": 629,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "2F2F6P22E",
+        "answersCount": 1,
+        "uniqueViewsCount": 8,
+        "viewsCount": 38,
+        "modAnsweredAt": "2022-12-27T18:07:41.667208Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "49ce266b-fae7-4ff9-b9fb-1d49c2916f31",
+                "body": "zzz Choice fall perhaps tell land. Help natural science say ",
+                "answer": true,
+                "publishedAt": "2022-12-27T18:07:41.592688Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Christina",
+            "lastName": "Sloan",
+            "slug": "9A3DCUD92"
+        },
+        "title": "zzz Green see kind decision of re",
+        "body": "zzz Very treatment change ready recently. Last want beautiful. Move yourself fly crime detail or.",
+        "publishedAt": "2022-12-06T07:28:52.401716Z",
+        "number": 645,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "C4A36FPB8",
+        "answersCount": 1,
+        "uniqueViewsCount": 9,
+        "viewsCount": 43,
+        "modAnsweredAt": "2022-12-12T19:40:12.321669Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "5fcd5fd9-db7a-490d-a610-da774c9dec78",
+                "body": "zzz Cost government present paper black not. Wide use bar process.\nAccording mission either if protect. Glass analysis former. Plant exist case often give policy structure.",
+                "answer": true,
+                "publishedAt": "2022-12-12T19:40:12.284539Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "William",
+            "lastName": "Gonzalez",
+            "slug": "E6U8431BB"
+        },
+        "title": "Moving my OH to tomorrow 7-8pm",
+        "body": "I'm moving my tonight's office hour to tomorrow 7-8pm.\n\n-Abhinav",
+        "publishedAt": "2022-12-08T00:46:15.280545Z",
+        "number": 658,
+        "type": "note",
+        "visibility": "member",
+        "slug": "P1BC9A15F",
+        "uniqueViewsCount": 74,
+        "viewsCount": 143,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Amber",
+            "lastName": "Williams",
+            "slug": "96DABAUC9"
+        },
+        "title": "How do we deal with the first node ",
+        "body": "So we are determining decision nodes based on IG. But I\u2019m a little lost on how we will determine the first node of our tree, because we there\u2019s no parent thus no parent entropy. So how do we calculate the IG with no parent attribute/entropy? ",
+        "publishedAt": "2022-12-09T00:02:11.214214Z",
+        "number": 674,
+        "type": "question",
+        "visibility": "member",
+        "slug": "2A80D0ADP",
+        "answersCount": 1,
+        "uniqueViewsCount": 106,
+        "viewsCount": 327,
+        "modAnsweredAt": "2022-12-09T00:48:42.214012Z",
+        "comments": [
+            {
+                "author": {
+                    "firstName": "William",
+                    "lastName": "Gonzalez",
+                    "slug": "E6U8431BB"
+                },
+                "id": "17806a89-9317-40ca-877f-7ced0546346d",
+                "body": "There is a \"parent entropy\" = entropy of the entire dataset. ",
+                "answer": true,
+                "publishedAt": "2022-12-09T00:48:42.169265Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Kimberly",
+            "lastName": "Jordan",
+            "slug": "F8D5UC504"
+        },
+        "title": "When to stop splitting",
+        "body": "If we find that the optimal split creates a node with too few entries, should stop down that path at all or should we try a different attribute to split on to see if we get a split where both sides have enough examples?",
+        "publishedAt": "2022-12-10T18:45:09.222788Z",
+        "number": 689,
+        "type": "question",
+        "visibility": "member",
+        "slug": "C3P2FB458",
+        "likesCount": 1,
+        "uniqueViewsCount": 94,
+        "viewsCount": 308,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Joshua",
+            "lastName": "Owens",
+            "slug": "UEC7E4DE7"
+        },
+        "title": "Lecture 2 Heuristic Search",
+        "body": "![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\n\nWhat does a tighter heuristic mean?",
+        "publishedAt": "2022-12-12T00:30:04.425266Z",
+        "number": 707,
+        "type": "question",
+        "visibility": "member",
+        "slug": "250P7C7E4",
+        "answersCount": 2,
+        "uniqueViewsCount": 84,
+        "viewsCount": 195,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Peter",
+                    "lastName": "Haley",
+                    "slug": "1657UCAD7"
+                },
+                "id": "de08d283-a78d-43af-aee7-a8763344eb7a",
+                "body": "I believe a \"tighter\" heuristic means a more strict estimation of the actual value, thus, de-prioritizing or eliminating more potential paths since the pool of options that fit in the range is less.",
+                "answer": true,
+                "publishedAt": "2022-12-12T15:58:46.302194Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Gregory",
+                    "lastName": "Ross",
+                    "slug": "76811AFDU"
+                },
+                "id": "21b40c2b-5d99-4c84-a92e-788dc845cec5",
+                "body": "Let say here are two heuristic. One is really \"tighter\" called H1 and another one is really \"un-tighter\" called H2. \n\nIf you want to find a optimal path, using H1 will lets you be significantly fast to get close to the optimal solution, but hard to say to truly return the optimal solution. \n\nHowever, if you use H2, which is really \"un-tighter\", each time the returned results from H2 are vague, even though the are all on the right tracks, which makes you run the searching with many more times. In other words, using H2 takes more time but never too fast to miss the optimal solution. Using H1 means that your step is huge so that you can get close to the optimal solution in a short time but possibly miss the optimal solution as well. \n\nHTH :)",
+                "answer": true,
+                "publishedAt": "2022-12-12T16:14:54.292543Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Amber",
+            "lastName": "Williams",
+            "slug": "96DABAUC9"
+        },
+        "title": "Basic Test Data",
+        "body": "Are the gradescope visible tests using the same data  provided to us in basic_tree_data.csv?",
+        "publishedAt": "2022-12-12T20:09:04.99527Z",
+        "number": 722,
+        "type": "question",
+        "visibility": "member",
+        "slug": "9D7P43378",
+        "answersCount": 1,
+        "uniqueViewsCount": 97,
+        "viewsCount": 216,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Marc",
+                    "lastName": "Huynh",
+                    "slug": "69UC8EC06"
+                },
+                "id": "12871967-ddb3-456c-ac23-345b6a3efc33",
+                "body": "Yes, I think so. I tested my code heavily with basic test data and seem to pass all public tests :)",
+                "answer": true,
+                "publishedAt": "2022-12-12T20:13:35.135123Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Megan",
+            "lastName": "Owens",
+            "slug": "UF6CEFD7E"
+        },
+        "title": "Error LeafNode has no attribute \"child _ge\"",
+        "body": "![Screen%20Shot%202022-12-12%20at%209.23.30%20PM.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)\ni am getting this error when my code tries to print out the tree. I did some digging around in the tree visualization functions and at one point it does a check to see if the type of the node is a LeafNode or not. i have tried putting in print statements and it keeps coming up with that the Nodes are of type 'instance' but on the error it says it is trying to get an attribute from type LeafNode. can anyone provide any insight on this? If the console is outputting an error on a LeafNode why is the code not evaluating its type as a LeafNode?\n\nEdit: I found on stack overflow that this could be fixed by having all classes inherit object so i now have TreeNodeInterface() inherit object. After doing this i ran into the error that some of the characters in the tree were not loading and instead throwing an error. I saw in another post that someone just used r, and L to fix this, just wanted to see if there was a better fix for this.",
+        "publishedAt": "2022-12-13T02:26:49.705284Z",
+        "number": 743,
+        "type": "question",
+        "visibility": "member",
+        "slug": "5E3B8FCP8",
+        "answersCount": 1,
+        "uniqueViewsCount": 104,
+        "viewsCount": 220,
+        "modAnsweredAt": "2022-12-14T20:25:52.1434Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "efe03f7d-2914-4e8d-86ed-8b2ec1f1d759",
+                "body": "Is it possible you are using an older version of Python (<3.0)?",
+                "answer": true,
+                "publishedAt": "2022-12-14T20:25:52.09903Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Christina",
+            "lastName": "Sloan",
+            "slug": "9A3DCUD92"
+        },
+        "title": "zzz Own them moment letter",
+        "body": "zzz Health air deep several himself camera.\nRisk relationship western bed buy fall fast. Report someone seven possible individual significant. Seven parent ago real phone successful my order.",
+        "publishedAt": "2022-12-13T15:49:16.94373Z",
+        "number": 757,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "3558P651D",
+        "uniqueViewsCount": 8,
+        "viewsCount": 41,
+        "read": true,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Denise",
+            "lastName": "Fischer",
+            "slug": "UBB496ED3"
+        },
+        "title": "zzz Until raise threat campaign shor",
+        "body": "zzz Class during reflect happy bit very. Also interesting bit you experience. But old that.\nUs leader not drive where item item success. City off important.",
+        "publishedAt": "2022-12-14T02:01:04.993981Z",
+        "number": 772,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "0P321FB22",
+        "answersCount": 1,
+        "uniqueViewsCount": 5,
+        "viewsCount": 38,
+        "modAnsweredAt": "2022-12-14T20:38:02.809834Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "15672187-bd61-47a4-807b-e4b09e1648ad",
+                "body": "zzz Check skill report popular. It training threat",
+                "answer": true,
+                "publishedAt": "2022-12-14T20:38:02.771831Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Amber",
+            "lastName": "Thomas",
+            "slug": "2UF041A98"
+        },
+        "title": "zzz College unde",
+        "body": "zzz Capital especially thousand behind. Point still throw.\nMight perform campaign buy friend different. Fire statement eight value surface alone. Finally individual event.",
+        "publishedAt": "2022-12-14T21:23:02.653843Z",
+        "number": 786,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "77E99135P",
+        "uniqueViewsCount": 6,
+        "viewsCount": 26,
+        "modAnsweredAt": "2022-12-27T18:10:29.87397Z",
+        "read": true,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Joshua",
+            "lastName": "Owens",
+            "slug": "UEC7E4DE7"
+        },
+        "title": "Approximate inference",
+        "body": "In what ways is Rejection sampling better than Likelihood Weighting?",
+        "publishedAt": "2022-12-15T03:54:06.548079Z",
+        "number": 800,
+        "type": "question",
+        "visibility": "member",
+        "slug": "9A4169P0D",
+        "answersCount": 2,
+        "uniqueViewsCount": 83,
+        "viewsCount": 139,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Breanna",
+                    "lastName": "Williams",
+                    "slug": "876A8U97C"
+                },
+                "id": "48bf5a51-0b29-470e-8bea-2d04f1df268c",
+                "body": "It\u2019s not. It just avoids unecessary sample creation. ",
+                "answer": true,
+                "publishedAt": "2022-12-15T04:12:20.954578Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Dennis",
+                    "lastName": "Allen",
+                    "slug": "FF4UB9A09"
+                },
+                "id": "ad3465f1-9e92-4123-80a7-40e18ed52846",
+                "body": "Rejection sampling can easily be parallelized and can be used to generate samples from any distribution, regardless of whether it is easy to directly sample from the distribution. \n\nLikelihood sampling is better in cases where you can save time by not generating rejected samples in the first place.",
+                "answer": true,
+                "publishedAt": "2022-12-15T04:13:07.314395Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "George",
+                    "lastName": "Pope",
+                    "slug": "8UA0106EB"
+                },
+                "id": "c029cb2c-9c39-426a-87c6-311cf13908d6",
+                "body": "Likelihood weighting avoids generating unnecessary samples , not rejection sampling, right?",
+                "publishedAt": "2022-12-15T19:52:38.105586Z",
+                "endorsed": false
+            }
+        ]
+    },
+    {
+        "author": {
+            "firstName": "Peter",
+            "lastName": "Schwartz",
+            "slug": "370D8C3U3"
+        },
+        "title": "Primer 2 question 3d,3e,3f",
+        "body": "I got these incorrect on the primer and now going back through but, I still failed to find the answer was wondering if someone could help me out with these.",
+        "publishedAt": "2022-12-15T18:20:35.157615Z",
+        "number": 819,
+        "type": "question",
+        "visibility": "member",
+        "slug": "C908P18A3",
+        "uniqueViewsCount": 86,
+        "viewsCount": 119,
+        "modAnsweredAt": "2022-12-27T18:11:10.836113Z",
+        "read": true,
+        "comments": []
+    },
+    {
+        "author": {
+            "firstName": "Colin",
+            "lastName": "Simmons",
+            "slug": "U1FEB3318"
+        },
+        "title": "zzz Range professional hard do pay age play analysis.\nCharge year jus",
+        "body": "zzz Technology tough represent old young factor. Call figure weight American hit.\nSociety everyone everybody fight consumer smile. Visit history maintain. Final contain event cold.",
+        "publishedAt": "2022-12-19T21:41:13.644973Z",
+        "number": 836,
+        "type": "question",
+        "visibility": "moderator",
+        "slug": "39CP5E5BD",
+        "answersCount": 2,
+        "uniqueViewsCount": 5,
+        "viewsCount": 22,
+        "modAnsweredAt": "2022-12-27T18:19:08.332463Z",
+        "read": true,
+        "comments": [
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "b327943d-ab4c-4441-8c6b-db189c2e1245",
+                "body": "zzz Able reality parent perform two will short. Measure step last common professor answer.",
+                "answer": true,
+                "publishedAt": "2022-12-20T00:56:04.900805Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Colin",
+                    "lastName": "Simmons",
+                    "slug": "U1FEB3318"
+                },
+                "id": "26831598-4b60-48be-a9ca-3caf8d26e3fb",
+                "body": "zzz Own suddenly risk ok although town. Tonight alone would move difficult yourself especially.",
+                "publishedAt": "2022-12-20T01:25:20.37525Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Colin",
+                    "lastName": "Simmons",
+                    "slug": "U1FEB3318"
+                },
+                "id": "aea46412-2ce9-4d37-81c0-ec0f51d5507f",
+                "body": "zzz Of authority customer one. These growth kid reflect teach indicate. Kitchen agency letter trip skill.",
+                "publishedAt": "2022-12-20T04:08:41.670919Z",
+                "endorsed": false
+            },
+            {
+                "author": {
+                    "firstName": "Jacob",
+                    "lastName": "Friedman",
+                    "slug": "EU0890061"
+                },
+                "id": "ca4c5139-4bed-4995-80a7-18cca76d0557",
+                "body": "zzz Cost evidence spring role our. Professional even attack establish boy large rule wall. Actually north senior force wind bank too.\nAgain operation skin common.",
+                "answer": true,
+                "publishedAt": "2022-12-27T18:19:08.291602Z",
+                "endorsed": false
+            }
+        ]
+    }
+]

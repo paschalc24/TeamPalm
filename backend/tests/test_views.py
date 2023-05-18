@@ -85,16 +85,17 @@ class ViewsTestOracle(TestCase):
         self.assertEqual(len(response1.data), len(self.posts))
 
         response2 = posts_by_timeframe_view.get(request, '2022-10-10', '2022-11-01')
-        self.assertEqual(response1.status_code, HTTP_200_OK)
-        self.assertEqual(len(response1.data), 12)
+        self.assertEqual(response2.status_code, HTTP_200_OK)
+        self.assertEqual(len(response2.data), 12)
 
         response3 = posts_by_timeframe_view.get(request, '2023-10-10', '2023-11-01')
         self.assertEqual(response3.status_code, HTTP_400_BAD_REQUEST)
 
-    # def testGetUnansweredPosts(self):
-    #     request = HttpRequest()
-    #     unanswered_posts_view = AnalyticsUnansweredPostsApiView()
-    #     response = unanswered_posts_view.get()
+    def testGetUnansweredPosts(self):
+        request = HttpRequest()
+        unanswered_posts_view = AnalyticsUnansweredPostsApiView()
+        response = unanswered_posts_view.get(request)
+        
             
 
 
