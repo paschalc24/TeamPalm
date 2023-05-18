@@ -553,8 +553,9 @@ export default function EnhancedTable({ rows }: Props) {
                           {row.name}
                         </TableCell>
                         <TableCell align="right">{row.postsNum}</TableCell>
-                        <TableCell align="right">{row.slug}</TableCell>
-                        <TableCell align="right">{row.title}</TableCell>
+                        <TableCell align="right">{row.commentsNum}</TableCell>
+                        <TableCell align="right">{row.endorsedCommentsNum}</TableCell>
+                        <TableCell align="right">{row.answeredPostsNum}</TableCell>
                       </TableRow>
                     );
                   })}
@@ -593,22 +594,13 @@ export default function EnhancedTable({ rows }: Props) {
                     Number of Posts: {selectedRow?.postsNum}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.commentsNum}
+                    Number of Comments: {selectedRow?.commentsNum}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.endorsedCommentsNum}
+                    Number of Endorsed Comments: {selectedRow?.endorsedCommentsNum}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.answeredPostsNum}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Title: {selectedRow?.title}
+                    Number of Posts Answered: {selectedRow?.answeredPostsNum}
                   </Typography>
                 </CardContent>
               </Card>

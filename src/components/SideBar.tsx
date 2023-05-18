@@ -13,7 +13,8 @@ interface SidebarProps {
 }
 
 const SidebarWrapper = styled.div`
-  position: fixed;
+  position: sticky;
+  height: 50%;
   top: 70px; /* adjust as necessary */
   left: 0;
   bottom: 0;
@@ -56,6 +57,8 @@ const CourseButtonContainer = styled.div`
 `;
 
 const ProfileSection = styled.div`
+  position: fixed;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,11 +112,11 @@ const Sidebar: React.FC<SidebarProps> = ({
           ))}
         </CourseButtonContainer>
       </ScrollViewContainer>
-      <ProfileSection style={{ display: "-webkit-flex" }}>
+      {/* <ProfileSection style={{ display: "-webkit-flex" }}>
         <ProfilePic src={userIcon} />
         <Name>{username}</Name>
         <SettingsIcon src={settingsIcon} />
-      </ProfileSection>
+      </ProfileSection> */}
     </SidebarWrapper>
   );
 };
