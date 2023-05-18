@@ -34,28 +34,28 @@ class ViewsTestOracle(TestCase):
 
     def testGetAuthors(self):
         request = HttpRequest()
-        all_authors_view = AnalyticsApiAllAuthorsView()
+        all_authors_view = AllAuthors()
         response = all_authors_view.get(request)       
         self.assertEqual(response.status_code, HTTP_200_OK)
         self.assertEqual(len(response.data), len(self.authors))
 
     def testGetPosts(self):
         request = HttpRequest()
-        all_posts_view = AnalyticsApiAllPostsView()
+        all_posts_view = AllPosts()
         response = all_posts_view.get(request)       
         self.assertEqual(response.status_code, HTTP_200_OK)
         self.assertEqual(len(response.data), len(self.posts))
 
     def testGetComments(self):
         request = HttpRequest()
-        all_comments_view = AnalyticsApiAllCommentsView()
+        all_comments_view = AllComments()
         response = all_comments_view.get(request)       
         self.assertEqual(response.status_code, HTTP_200_OK)
         self.assertEqual(len(response.data), len(self.comments))
 
     def testGetPostByNumber(self):
         request = HttpRequest()
-        post_by_num_view = AnalyticsPostByNumApiView()
+        post_by_num_view = PostByNumber()
         response1 = post_by_num_view.get(request, 99)
         self.assertEqual(response1.status_code, HTTP_200_OK)
 
@@ -67,7 +67,7 @@ class ViewsTestOracle(TestCase):
 
     def testGetPostsByAuthor(self):
         request = HttpRequest()
-        posts_by_author_view = AnalyticsPostByAuthorApiView()
+        posts_by_author_view = PostsByAuthor()
         response1 = posts_by_author_view.get(request, 'FBU29E06A')
         self.assertEqual(response1.status_code, HTTP_200_OK)
 
@@ -79,7 +79,7 @@ class ViewsTestOracle(TestCase):
 
     def testGetPostsByTimeFrame(self):
         request = HttpRequest()
-        posts_by_timeframe_view = AnalyticsPostByTimeframeApiView()
+        posts_by_timeframe_view = PostsByTimeFrame()
         response1 = posts_by_timeframe_view.get(request, '2022-09-07', '2022-12-20')
         self.assertEqual(response1.status_code, HTTP_200_OK)
         self.assertEqual(len(response1.data), len(self.posts))
@@ -93,14 +93,14 @@ class ViewsTestOracle(TestCase):
 
     def testGetUnansweredPosts(self):
         request = HttpRequest()
-        unanswered_posts_view = AnalyticsUnansweredPostsApiView()
+        unanswered_posts_view = AllUnansweredPosts()
         response = unanswered_posts_view.get(request)
         for post in response.data:
             self.assertNotIn('answeredAt', post)
 
     def testMostViewedPosts(self):
         request = HttpRequest()
-        most_viewed_posts_view = AnalyticsMostViewedPostsApiView()
+        most_viewed_posts_view = MostViewedPosts()
         response = most_viewed_posts_view.get(request)
         self.assertEqual(len(response.data), 10)
         response = most_viewed_posts_view.get(request)
@@ -109,7 +109,7 @@ class ViewsTestOracle(TestCase):
 
     def testMostUniqueViewedPosts(self):
         request = HttpRequest()
-        most_unique_viewed_posts_view = AnalyticsMostUniqueViewedPostsApiView()
+        most_unique_viewed_posts_view = MostUniqueViewedPosts()
         response = most_unique_viewed_posts_view.get(request)
         self.assertEqual(len(response.data), 10)
         for i in range(1, 10):
@@ -117,7 +117,7 @@ class ViewsTestOracle(TestCase):
         
     def testMostLikedPosts(self):
         request = HttpRequest()
-        most_liked_posts_view = AnalyticsMostLikedPostsApiView()
+        most_liked_posts_view = MostLikedPosts()
         response = most_liked_posts_view.get(request)
         self.assertEqual(len(response.data), 10)
         for i in range(1, 10):
@@ -125,7 +125,7 @@ class ViewsTestOracle(TestCase):
         
     def testMostAnsweredPosts(self):
         request = HttpRequest()
-        most_answered_posts_view = AnalyticsMostAnsweredPostsApiView()
+        most_answered_posts_view = MostAnsweredPosts()
         response = most_answered_posts_view.get(request)
         self.assertEqual(len(response.data), 10)
         for i in range(1, 10):
@@ -133,7 +133,7 @@ class ViewsTestOracle(TestCase):
 
     def testResponseTime(self):
         request = HttpRequest()
-        response_time_view = AnalyticsResponseTimeApiView()
+        response_time_view = ResponseTime()
         response = response_time_view.get(request)
         for obj in response.data:
             self.assertIn('number', obj)
@@ -142,7 +142,7 @@ class ViewsTestOracle(TestCase):
 
     def testStudentModPosts(self):
         request = HttpRequest()
-        student_mod_posts_view = StudentVsModPostsApiView()
+        student_mod_posts_view = StudentVsModPosts()
 
         mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
                     "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", 
@@ -163,7 +163,7 @@ class ViewsTestOracle(TestCase):
 
     def testViewsByTimeframe(self):
         request = HttpRequest()
-        views_by_timeframe_view = AnalyticsViewsByTimeframeApiView()
+        views_by_timeframe_view = ViewsByTimeFrame()
         response1 = views_by_timeframe_view.get(request, '2022-09-07', '2022-12-20')
         self.assertEqual(response1.status_code, HTTP_200_OK)
         self.assertEqual(response1.data['views'], 
@@ -181,7 +181,7 @@ class ViewsTestOracle(TestCase):
 
     def testPostsUnansweredByMod(self):
         request = HttpRequest()
-        unanswered_by_mod_view = AnalyticsPostsUnansweredByModApiView()
+        unanswered_by_mod_view = PostsUnansweredByMods()
         response = unanswered_by_mod_view.get(request)
         for post in response.data:
             self.assertIs(post['modAnsweredAt'], None)
