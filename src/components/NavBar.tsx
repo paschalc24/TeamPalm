@@ -120,7 +120,7 @@ const NavBar: FC<NavBarProps> = ({
           <></>
         )}
         <Navbar.Collapse className="justify-content-right">
-          <Form onSubmit={e => submitLogout(e)}>
+          <Form onSubmit={e => submitLogout(e)} style={{ marginLeft: 'auto' }}>
             <Button style={{ height: '47px' }} variant='outlined' color='error' type="submit">Log Out</Button>
           </Form>
         </Navbar.Collapse>

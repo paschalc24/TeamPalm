@@ -82,19 +82,47 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
         }
     }
 
+    const entryIconOption = (option: string, item: IData) => {
+        switch (option) {
+            case "posts/":
+            return <small
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            color: "gray",
+                            fontFamily: "sans-serif",
+                            fontSize: "12px",
+                            paddingTop: "15px",
+                        }}
+                        >
+                        <FaEye style={{ marginRight: "10px" }} />
+                        {item.viewsCount}
+                        <FaThumbsUp
+                            style={{ marginLeft: "10px", marginRight: "10px" }}
+                        />
+                        {item.likesCount}
+                        <FaComment
+                            style={{ marginLeft: "10px", marginRight: "10px" }}
+                        />
+                        {item.answersCount}
+                    </small>;
+            case "comments/":
+            return null;
+            default:
+            break;
+        }
+    }
   // Use the retrieved data
   
   const filteredData = data.filter(item => item.title !== "" && item.author == authorSlug);
 
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ overflow: "auto", width: "100%" }}>
-      <div
-                style={{ overflow: "auto", display: "flex", paddingBottom: "20px", paddingRight: "20px" }}
-                >
+      <div style={{ overflow: "hidden", height: "60vh", width: "100%" }}>
+        <div style={{ display: "flex", paddingBottom: "20px", paddingRight: "20px" }}>
                 <div
                     style={{
-                    overflow: "auto",
+
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
@@ -105,7 +133,7 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                     className="card-title"
                     style={{
                         margin: "0",
-                        paddingLeft: "30px",
+                        paddingLeft: "15px",
                         flex: "1",
                         alignItems: "center",
                         textAlign: "left",
@@ -113,7 +141,7 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                         fontSize: "22px",
                     }}
                     >
-                    {formatOption(selectedOption)}
+                    {formatOption(selectedOption)}:
                     </h3>
                     <select
                     value={selectedOption}
@@ -136,20 +164,18 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                 </div>
             </div>
         {loading ? (
-          <div style={{display: 'flex',
-                       justifyContent: 'center',
-                       alignItems: 'center',
-                       height: "300px", 
-                       width: "488px"
-                     }}>
-            <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </div>
+            <div style={{display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: "300px", 
+                        width: "488px"
+                        }}>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
         ) : (
-            <div style={{ overflow: "auto", width: "100%" }}>
-                
-                <div style={{ overflow: "auto", height: "300px", paddingRight: "10px" }}>
+            <div style={{ overflow: "scroll", height: "100%", paddingRight: "10px" }}>
                 <div className="list-group">
                     {filteredData.length === 0 ? (
                     // No data left after filter
@@ -197,27 +223,7 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                             >
                             {item.body}
                             </p>
-                            <small
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                color: "gray",
-                                fontFamily: "sans-serif",
-                                fontSize: "12px",
-                                paddingTop: "15px",
-                            }}
-                            >
-                            <FaEye style={{ marginRight: "10px" }} />
-                            {item.viewsCount}
-                            <FaThumbsUp
-                                style={{ marginLeft: "10px", marginRight: "10px" }}
-                            />
-                            {item.likesCount}
-                            <FaComment
-                                style={{ marginLeft: "10px", marginRight: "10px" }}
-                            />
-                            {item.answersCount}
-                            </small>
+                            {entryIconOption(selectedOption, item)}
                         </div>
                         {index !== data.length - 1 && (
                             <div
@@ -238,10 +244,8 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                             </div>
                         )}
                         </div>
-                    ))
-                    )
+                    )))
                 }
-                </div>
                 </div>
             </div>
         )}

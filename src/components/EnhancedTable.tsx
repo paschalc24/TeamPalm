@@ -291,28 +291,32 @@ export default function EnhancedTable({ rows }: Props) {
                 >
                   <div className="col" style={{}}>
                     <CardContent>
-                      <Typography variant="h5" component="div" style={{paddingBottom: "20px", paddingLeft: "10px"}}>
+                      <Typography variant="h5" component="div" style={{paddingBottom: "40px", paddingLeft: "20px"}}>
                         {selectedRow?.name}
                       </Typography>
                       <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
-                        Number of Posts: {selectedRow?.postsNum}
+                        Number of Posts: 
+                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.postsNum}</span>
                       </Typography>
                       <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
-                        Number of Comments: {selectedRow?.commentsNum}
+                        Number of Comments:
+                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.commentsNum}</span>
                       </Typography>
                       <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
-                        Number of Endorsed Comments: {selectedRow?.endorsedCommentsNum}
+                        Endorsed Comments:
+                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.endorsedCommentsNum}</span>
                       </Typography>
                       <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
-                        Number of Posts Answered: {selectedRow?.answeredPostsNum}
+                        Posts Answered:
+                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.answeredPostsNum}</span>
                       </Typography>
                     </CardContent>
                   </div>
-                  <div className="col-7 d-flex justify-content-end"
+                  <div className="col-8 d-flex justify-content-end"
                             style={{ paddingTop: "20px", height: "100%", overflowY: "auto" }}>
-                    <Card>
+                    
                       <PersonList authorSlug = {selectedRow?.slug} firstName = {selectedRow?.name.split(" ")[0]}/>
-                    </Card>
+                    
                   </div>
                 </div>
                 
@@ -331,9 +335,12 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '50vw',
+  height: 'min-height', // or any value you want
   bgcolor: 'background.paper',
   boxShadow: 24,
-  borderRadius: "10px"
+  borderRadius: "10px",
+  overflowY: 'auto', // or 'scroll'
 };
+
   
   
