@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import logo from "../assets/Filigree_Logo_With_Name.png";
+import Button from "@mui/material/Button";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import "../fonts.css";
@@ -8,7 +9,6 @@ import {
   Nav,
   Form,
   FormControl,
-  Button,
   Dropdown,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -86,7 +86,7 @@ const NavBar: FC<NavBarProps> = ({
   return course == activeCourse ? (
     <>
       <Navbar expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand style={{paddingLeft: '1%'}} href="#home">
           <img
             alt=""
             src={logo}
@@ -109,7 +109,7 @@ const NavBar: FC<NavBarProps> = ({
               exclusive={true}
               onChange={handleChange}
               aria-label="Platform"
-              style={{ "paddingLeft": "50px", "paddingRight": "50px" }}
+              style={{ "paddingLeft": "50px", "paddingRight": "240px" }}
             >
               <ToggleButton value="home">Home</ToggleButton>
               <ToggleButton value="students">Students</ToggleButton>
@@ -119,12 +119,10 @@ const NavBar: FC<NavBarProps> = ({
         ) : (
           <></>
         )}
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            <form onSubmit={e => submitLogout(e)}>
-              <Button type="submit" variant="light">Log out</Button>
-            </form>
-          </Navbar.Text>
+        <Navbar.Collapse className="justify-content-right">
+          <Form onSubmit={e => submitLogout(e)}>
+            <Button style={{ height: '47px' }} variant='outlined' color='error' type="submit">Log Out</Button>
+          </Form>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" />
