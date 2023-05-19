@@ -138,7 +138,7 @@ const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {
                         alignItems: "center",
                         textAlign: "left",
                         fontFamily: theme.typography.fontFamily,
-                        fontSize: "22px",
+                        fontSize: "20px",
                     }}
                     >
                     {formatOption(selectedOption)}:

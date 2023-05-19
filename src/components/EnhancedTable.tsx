@@ -291,22 +291,22 @@ export default function EnhancedTable({ rows }: Props) {
                 >
                   <div className="col" style={{}}>
                     <CardContent>
-                      <Typography variant="h5" component="div" style={{paddingBottom: "40px", paddingLeft: "20px"}}>
+                      <Typography variant="h4" component="div" style={{fontSize: "30px", paddingBottom: "40px", paddingLeft: "20px"}}>
                         {selectedRow?.name}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
+                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
                         Number of Posts: 
                         <span style={{color: "#9925BE"}}>{" " + selectedRow?.postsNum}</span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
+                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
                         Number of Comments:
                         <span style={{color: "#9925BE"}}>{" " + selectedRow?.commentsNum}</span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
+                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
                         Endorsed Comments:
                         <span style={{color: "#9925BE"}}>{" " + selectedRow?.endorsedCommentsNum}</span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '20px'}}>
+                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
                         Posts Answered:
                         <span style={{color: "#9925BE"}}>{" " + selectedRow?.answeredPostsNum}</span>
                       </Typography>
@@ -334,7 +334,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '50vw',
+  width: '55vw',
   height: 'min-height', // or any value you want
   bgcolor: 'background.paper',
   boxShadow: 24,
