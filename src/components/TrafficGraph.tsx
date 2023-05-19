@@ -148,7 +148,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '60vh' 
+          height: '43.5vh' 
         }}>
           <Spinner animation="border" role="status">
           </Spinner>
