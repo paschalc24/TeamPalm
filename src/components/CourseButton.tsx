@@ -15,7 +15,7 @@ const CourseButtonWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 65px;
   height: 50px;
   margin-top: 20px;
   margin-left: 30px;
@@ -38,7 +38,7 @@ const CourseButtonImage = styled.img`
 const CourseButtonHighlight = styled.div<{ active: boolean }>`
   position: absolute;
   top: -5px;
-  left: -5px;
+  left: 2px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
