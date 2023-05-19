@@ -11,12 +11,13 @@ from analytics.models import *
 def populateDatabase(filename: str, db: str):
     all_posts = json.load(open(filename))
     conn = sqlite3.connect(db)
-    cursor = conn.cursor()
     for post in all_posts:
         insertAuthor(post["author"]) 
         insertPost(post)     
         for comment in post["comments"]:
             insertComment(post["number"], comment)
+
+    conn.close()
 
 def insertAuthor(author: dict):
     mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
