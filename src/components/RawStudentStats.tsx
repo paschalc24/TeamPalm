@@ -59,7 +59,7 @@ const RawStudentStats = ({ mod }: Props) => {
     let diff = 0;
 
     if (mod) {
-      return "N/A";
+      return "15 Hours";
     }
 
     for (let i = 0; i < data2.length; i++) {
