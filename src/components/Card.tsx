@@ -15,10 +15,10 @@ const Card = ({ heading, width, children }: CardProps) => {
         borderRadius: "15px",
         backgroundColor: "#FFFFFF",
         boxShadow: "0px 10px 20px rgba(153, 37, 190, 0.1)",
-        width: width || "auto", // Apply the dynamic width or fallback to "auto"
+        width: width || "auto",
       }}
     >
-      <div className="card-body">
+      <div className="card-body" style={{ overflow: "auto" }}>
         <h5 className="card-title">{heading}</h5>
         {children}
       </div>
