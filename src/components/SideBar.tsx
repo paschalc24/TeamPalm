@@ -15,10 +15,10 @@ interface SidebarProps {
 const SidebarWrapper = styled.div`
   position: sticky;
   height: 40vh;
-  top: 70px; /* adjust as necessary */
+  top: 108px; /* adjust as necessary */
   left: 0;
   bottom: 0;
-  width: 80px;
+  width: 105px;
   background-color: ${({ theme }) => theme.colors.darkBlue};
   display: flex;
   flex-direction: column;
@@ -105,6 +105,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           {courses.map((course) => (
             <CourseButton
               {...course}
+              key={Math.random()}
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
               setSelectedMode={setSelectedMode}
