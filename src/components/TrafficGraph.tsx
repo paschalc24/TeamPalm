@@ -258,7 +258,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
               },
               yaxis: {
                 title: {
-                  text: '# of Posts',
+                  text: '# of Views',
                   font: {
                     family: 'Roboto Flex',
                     size: 16,
