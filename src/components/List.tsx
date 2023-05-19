@@ -66,7 +66,7 @@ const List = () => {
   // Use the retrieved data
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ overflow: "auto" }}>
+      <div style={{ overflow: "auto", width: "400px" }}>
         <div
           style={{ overflow: "auto", display: "flex", paddingBottom: "20px" }}
         >
@@ -87,6 +87,7 @@ const List = () => {
                 alignItems: "center",
                 textAlign: "center",
                 fontFamily: theme.typography.fontFamily,
+                fontSize: "22px",
               }}
             >
               {formatOption(selectedOption)}
@@ -97,7 +98,7 @@ const List = () => {
               style={{
                 backgroundColor: "#F6F6F6",
                 color: "#4174F7",
-                fontSize: "16px",
+                fontSize: "12px",
                 padding: "8px",
                 border: "none",
                 borderRadius: "8px",
@@ -113,7 +114,7 @@ const List = () => {
             </select>
           </div>
         </div>
-        <div style={{ overflow: "auto", maxHeight: "400px" }}>
+        <div style={{ overflow: "auto", maxHeight: "425px" }}>
           <div className="list-group">
             {data
               .filter((item) => item.title !== "")
@@ -128,7 +129,10 @@ const List = () => {
                     <div className="d-flex w-100 justify-content-between">
                       <h5
                         className="mb-1"
-                        style={{ fontFamily: theme.typography.fontFamily }}
+                        style={{
+                          fontFamily: theme.typography.fontFamily,
+                          fontSize: "18px",
+                        }}
                       >
                         {item.title}
                       </h5>
@@ -136,6 +140,7 @@ const List = () => {
                         style={{
                           fontFamily: "sans-serif",
                           fontWeight: "normal",
+                          fontSize: "12px",
                           color: "gray",
                         }}
                       >
@@ -145,10 +150,11 @@ const List = () => {
                     <p
                       className="mb-1"
                       style={{
-                        height: "70px",
+                        height: "75px",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         fontFamily: "sans-serif",
+                        fontSize: "13px",
                       }}
                     >
                       {item.body}

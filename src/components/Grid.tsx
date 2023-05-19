@@ -16,24 +16,36 @@ const Grid = () => {
       {/* <div className="row" style={{height: "500px", overflowY: 'auto'}}>*/}
       <div>
         <Card>
-        <Raw />
+          <Raw />
         </Card>
       </div>
-      <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto"}}>
+      <div
+        className="col"
+        style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}
+      >
         <div className="col">
-        <Card>
-          <TrafficGraph urlParam="http://127.0.0.1:8000/forumtraffic/" dataDescriptor="Posts"/>
-        </Card>
+          <Card>
+            <TrafficGraph
+              urlParam="http://127.0.0.1:8000/forumtraffic/"
+              dataDescriptor="Posts"
+            />
+          </Card>
         </div>
         <div className="col">
           <Card>
-            <TrafficGraph urlParam="http://127.0.0.1:8000/viewstraffic/" dataDescriptor="Views"/>
+            <TrafficGraph
+              urlParam="http://127.0.0.1:8000/viewstraffic/"
+              dataDescriptor="Views"
+            />
           </Card>
         </div>
       </div>
-      <div className="col" style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}>
-        <Card>
-        <List />
+      <div
+        className="col d-flex justify-content-end"
+        style={{ paddingTop: "20px", height: "600px", overflowY: "auto" }}
+      >
+        <Card width="425px">
+          <List />
         </Card>
       </div>
     </div>
