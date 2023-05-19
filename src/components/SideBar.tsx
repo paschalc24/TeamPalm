@@ -105,6 +105,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           {courses.map((course) => (
             <CourseButton
               {...course}
+              key={Math.random()}
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
               setSelectedMode={setSelectedMode}

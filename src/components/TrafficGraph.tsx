@@ -3,6 +3,7 @@ import axios from "axios";
 import Plotly from 'plotly.js';
 import Plot from 'react-plotly.js';
 import Spinner from 'react-bootstrap/Spinner';
+import "../fonts.css";
 
 
 interface Props {
@@ -77,8 +78,8 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
       const parsed = JSON.parse(JSON.stringify(data));
       const graph = [
         {
-          x: truncate(parsed[timePeriod]["0"], 30),
-          y: truncate(parsed[timePeriod]["1"], 30),
+          x: parsed[timePeriod]["0"], //truncate(parsed[timePeriod]["0"], 30),
+          y: parsed[timePeriod]["1"],
           type: 'bar',
         }
       ];
@@ -99,7 +100,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
       title: {
         text: `${dataDescriptor} by ${timeUnitName.get(timePeriod)}`,
         font: {
-          family: 'Roboto',
+          family: 'Roboto Flex',
           size: 24,
           color: '#000000'
         }
@@ -108,7 +109,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
         title: {
           text: timeUnitName.get(timePeriod),
           font: {
-            family: 'Roboto',
+            family: 'Roboto Flex',
             size: 16,
             color: '#000000'
           }
@@ -116,7 +117,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
         gridcolor: '#FFFFFF',
         showgrid: false,
         tickfont: {
-          family: 'Roboto',
+          family: 'Roboto Flex',
           size: 14,
           color: '#000000'
         }
@@ -125,7 +126,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
         title: {
           text: '# of Posts',
           font: {
-            family: 'Roboto',
+            family: 'Roboto Flex',
             size: 16,
             color: '#000000'
           }
@@ -133,7 +134,7 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
         gridcolor: '#FFFFFF',
         showgrid: false,
         tickfont: {
-          family: 'Roboto',
+          family: 'Roboto Flex',
           size: 14,
           color: '#000000'
         }
@@ -167,16 +168,121 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
           <Spinner animation="border" role="status">
           </Spinner>
         </div>
-      ) : data && graphData && graphLayout && (
+      ) : data && graphData && (
         <div>
           <div>
-            <button onClick={handleTimePeriodChange} value="per_day">Day</button>
-            <button onClick={handleTimePeriodChange} value="per_week">Week</button>
-            <button onClick={handleTimePeriodChange} value="per_hour">Hour</button>
+            <button onClick={handleTimePeriodChange} value="per_week" style={{
+                margin: '0 5px',
+                padding: '10px 20px',
+                borderRadius: '20px',
+                backgroundColor: '#your-color',
+                color: '#your-color',
+                fontFamily: 'Roboto Flex',
+                fontSize: '14px',
+                border: 'none',
+                cursor: 'pointer'
+              }}>Week</button>
+            <button onClick={handleTimePeriodChange} value="per_day" style={{
+                margin: '0 5px',
+                padding: '10px 20px',
+                borderRadius: '20px',
+                backgroundColor: '#your-color',
+                color: '#your-color',
+                fontFamily: 'Roboto Flex',
+                fontSize: '14px',
+                border: 'none',
+                cursor: 'pointer'
+              }}>Day</button>
+            <button onClick={handleTimePeriodChange} value="per_hour" style={{
+                margin: '0 5px',
+                padding: '10px 20px',
+                borderRadius: '20px',
+                backgroundColor: '#your-color',
+                color: '#your-color',
+                fontFamily: 'Roboto Flex',
+                fontSize: '14px',
+                border: 'none',
+                cursor: 'pointer'
+              }}>Hour</button>
           </div>
           <Plot
-            data={graphData}
-            layout={graphLayout}
+            data={[
+              {
+                x: graphData.length !== 0 ? graphData[0]['x'] : [],
+                y: graphData.length !== 0 ? graphData[0]['y'] : [],
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: {
+                  color: 'rgb(153, 37, 190)',
+                  width: 2
+                },
+                marker: {
+                  color: 'purple',
+                  size: 6,
+                  symbol: 'square',
+                  line: {
+                    color: 'reg(153, 37, 190)',
+                    width: 1
+                  }
+                },
+                fill: 'tozeroy',
+                fillcolor: 'rgba(156, 39, 176, 0.08)'
+              }
+            ]}
+            layout={{
+              title: {
+                text: `${dataDescriptor} by ${timeUnitName.get(timePeriod)}`,
+                font: {
+                  family: 'Roboto Flex',
+                  size: 24,
+                  color: '#000000'
+                }
+              },
+              xaxis: {
+                title: {
+                  text: timeUnitName.get(timePeriod),
+                  font: {
+                    family: 'Roboto Flex',
+                    size: 16,
+                    color: '#000000'
+                  }
+                },
+                gridcolor: '#FFFFFF',
+                showgrid: false,
+                tickfont: {
+                  family: 'Roboto Flex',
+                  size: 14,
+                  color: '#000000'
+                },
+                range: [graphData.length > 0 ? graphData[0].x.slice(-30)[0] : null, graphData.length > 0 ? graphData[0].x.slice(-1)[0] : null]
+              },
+              yaxis: {
+                title: {
+                  text: '# of Posts',
+                  font: {
+                    family: 'Roboto Flex',
+                    size: 16,
+                    color: '#000000'
+                  }
+                },
+                gridcolor: '#FFFFFF',
+                showgrid: false,
+                tickfont: {
+                  family: 'Roboto Flex',
+                  size: 14,
+                  color: '#000000'
+                }
+              },
+              plot_bgcolor: '#FFFFFF',
+              paper_bgcolor: '#FFFFFF',
+              showlegend: false,
+              hovermode: 'closest',
+              transition: {
+                duration: 500,
+                easing: 'cubic-in-out'
+              }
+        
+            }}    
             style={{ width: "100%", height: "100%" }}
           />
         </div>

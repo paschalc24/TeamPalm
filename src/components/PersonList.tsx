@@ -3,6 +3,7 @@ import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FaEye, FaThumbsUp, FaComment } from "react-icons/fa";
 import { Spinner } from 'react-bootstrap';
+import "../fonts.css";
 
 
 const theme = createTheme({
@@ -31,8 +32,8 @@ interface IData {
 }
 
 interface PersonListProps {
-    authorSlug: string;
-    firstName: string;
+    authorSlug?: string;
+    firstName?: string;
 }
 
 const PersonList: React.FC<PersonListProps> = ({ authorSlug, firstName }) => {

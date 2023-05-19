@@ -22,6 +22,7 @@ import Typography from '@mui/material/Typography';
 import axios from "axios";
 import PersonList from './PersonList'
 import TextField from '@mui/material/TextField';
+import "../fonts.css";
 
 
 const theme = createTheme({
