@@ -92,28 +92,42 @@ const RawStudentStats = ({ mod }: Props) => {
   };
 
   useEffect(() => {
-    const fetchData1 = async () => {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/unansweredposts/"
-      );
-      setData1(response.data);
+    const fetchData1 = async (url: string) => {
+      const cachedData = localStorage.getItem(url);
+      if (cachedData) {
+        setData1(JSON.parse(cachedData));
+      } else {
+        const response = await axios.get(url);
+        setData1(response.data);
+        localStorage.setItem(url, JSON.stringify(response.data));
+      }
     };
 
-    const fetchData2 = async () => {
-      let option = "";
-      mod ? (option = "moderator/") : (option = "student/");
-      const response = await axios.get(`http://127.0.0.1:8000/posts/${option}`);
-      setData2(response.data);
+    const fetchData2 = async (url: string) => {
+      const cachedData = localStorage.getItem(url);
+      if (cachedData) {
+        setData2(JSON.parse(cachedData));
+      } else {
+        const response = await axios.get(url);
+        setData2(response.data);
+        localStorage.setItem(url, JSON.stringify(response.data));
+      }
     };
 
-    const fetchData3 = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/authors/");
-      setData3(response.data);
+    const fetchData3 = async (url: string) => {
+      const cachedData = localStorage.getItem(url);
+      if (cachedData) {
+        setData3(JSON.parse(cachedData));
+      } else {
+        const response = await axios.get(url);
+        setData3(response.data);
+        localStorage.setItem(url, JSON.stringify(response.data));
+      }
     };
 
-    fetchData1();
-    fetchData2();
-    fetchData3();
+    fetchData1("http://127.0.0.1:8000/unansweredposts/");
+    fetchData2(mod ? "http://127.0.0.1:8000/posts/moderator/" : "http://127.0.0.1:8000/posts/student/");
+    fetchData3("http://127.0.0.1:8000/authors/");
   }, []);
 
   return (
