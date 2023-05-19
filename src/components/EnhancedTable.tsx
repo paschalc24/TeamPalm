@@ -21,6 +21,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
 import PersonList from './PersonList'
+import TextField from '@mui/material/TextField';
+
 
 const theme = createTheme({
   typography: {
@@ -177,6 +179,7 @@ export default function EnhancedTable({ rows }: Props) {
   const [open, setOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState<Data | null>(null);
   const [numComments, setNumComments] = useState<Number>(10);
+  const [searchTerm, setSearchTerm] = useState("");
 
 
   
@@ -208,17 +211,31 @@ export default function EnhancedTable({ rows }: Props) {
     handleOpen(row);
   };  
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+    setPage(0); // resets page number after every search
+  };
+  
 
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          width: "100%",
-          borderRadius: "12px",
-          overflow: "hidden",
-        }}
-      >
-        <Paper sx={{ width: "100%", mb: 2 }}>
+    <Box
+      sx={{
+        width: "100%",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
+    >
+      <Paper sx={{ width: "100%", mb: 2 }}>
+        <TextField
+          id="search"
+          label="Search by Name"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          margin="normal"
+          variant="outlined"
+          style={{ marginBottom: "20px", width: "100%" }}
+        />
           <TableContainer>
             <Table
               sx={{ minWidth: 750 }}
@@ -233,9 +250,12 @@ export default function EnhancedTable({ rows }: Props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => {
+              {stableSort(rows, getComparator(order, orderBy))
+                .filter((row) =>
+                  row.name.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
                     return (
                       <TableRow
                         hover
