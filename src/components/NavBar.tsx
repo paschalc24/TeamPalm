@@ -96,7 +96,7 @@ const NavBar: FC<NavBarProps> = ({
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <GoodMorningDiv>Good morning Matthew!</GoodMorningDiv>
+        <GoodMorningDiv>Good Morning Matthew!</GoodMorningDiv>
 
         <VerticalLine />
         <CourseNameDiv>{course}</CourseNameDiv>
