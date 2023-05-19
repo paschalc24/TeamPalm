@@ -23,7 +23,7 @@ const Grid = () => {
         className="col"
         style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}
       >
-        <div className="col">
+        <div className="col" style={{ width: "auto" }}>
           <Card>
             <TrafficGraph
               urlParam="http://127.0.0.1:8000/forumtraffic/"
