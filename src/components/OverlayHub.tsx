@@ -15,7 +15,7 @@ interface OverlayHubProps {
   }
   
   const OverlayHub: FC<OverlayHubProps> = ({ courses, submitLogout }) => {
-    const [selectedCourse, setSelectedCourse] = useState(courses[0].tooltipText);
+    const [selectedCourse, setSelectedCourse] = useState("");
     const [selectedMode, setSelectedMode] = useState("home");
     //const [selectedMode, setSelectedMode] = useState("");
 

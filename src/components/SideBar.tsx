@@ -14,7 +14,7 @@ interface SidebarProps {
 
 const SidebarWrapper = styled.div`
   position: sticky;
-  height: 50%;
+  height: 40vh;
   top: 70px; /* adjust as necessary */
   left: 0;
   bottom: 0;
@@ -108,7 +108,6 @@ const Sidebar: React.FC<SidebarProps> = ({
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
               setSelectedMode={setSelectedMode}
-              key={Math.random()}
             />
           ))}
         </CourseButtonContainer>
