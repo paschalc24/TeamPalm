@@ -96,31 +96,66 @@ const List = () => {
       <div style={{ overflow: "auto", maxHeight: "399px" }}>
         {/* Apply the maxHeight CSS property to limit the height of the container */}
         <div className="list-group">
-          <h3 className="card-title" style={{ paddingBottom: "20px" }}>
-            {formatOption(selectedOption)}
-          </h3>
-          {data.map((item) => (
-            <div key={item.number}>
-              <a
-                href="#"
-                className="list-group-item list-group-item-action flex-column align-items-start"
+          {data
+            .filter((item) => item.title != "")
+            .map((item, index) => (
+              <div
+                key={item.number}
+                className={`list-group-item${
+                  index !== data.length - 1 ? " mb-3" : ""
+                }`}
+                style={{ border: "none" }}
               >
                 <div className="d-flex w-100 justify-content-between">
                   <h5 className="mb-1">{item.title}</h5>
-                  <small>{item.publishedAt}</small>
+                  <small>{item.publishedAt?.slice(0, 10)}</small>
                 </div>
                 <p>Author: {item.author}</p>
-                <p className="mb-1">{item.body}</p>
-                <small>
-                  Views: {item.viewsCount} Unique Views: {item.uniqueViewsCount}
+                <p
+                  className="mb-1"
+                  style={{
+                    height: "100px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {item.body}
+                </p>
+                <small style={{ alignItems: "right", color: "gray" }}>
+                  <FaEye
+                    style={{
+                      verticalAlign: "middle",
+                      marginRight: "10px",
+                      marginLeft: "10px",
+                    }}
+                  />
+                  {item.viewsCount}
+                  <FaThumbsUp
+                    style={{
+                      verticalAlign: "middle",
+                      marginRight: "10px",
+                      marginLeft: "10px",
+                    }}
+                  />
+                  {item.likesCount}
+                  <FaComment
+                    style={{
+                      verticalAlign: "middle",
+                      marginRight: "10px",
+                      marginLeft: "10px",
+                    }}
+                  />
+                  {item.answersCount}
                 </small>
-              </a>
-            </div>
-          ))}
+                {index !== data.length - 1 && (
+                  <hr style={{ borderStyle: "dotted" }} />
+                )}
+              </div>
+            ))}
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default List;
