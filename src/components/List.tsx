@@ -165,6 +165,7 @@ const List = () => {
                         alignItems: "center",
                         color: "gray",
                         fontFamily: "sans-serif",
+                        fontSize: "12px",
                         paddingTop: "15px",
                       }}
                     >
