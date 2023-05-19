@@ -33,14 +33,14 @@ const List = () => {
   const [data, setData] = useState<IData[]>([]);
 
   const getData = (option: string) => {
-    axios
-      .get(`http://127.0.0.1:8000/${option}`)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const url = `http://127.0.0.1:8000/${option}`
+    const cachedData = localStorage.getItem(url);
+    if (cachedData) {
+      setData(JSON.parse(cachedData));
+    } else {
+      axios.get(url).then(response => { setData(response.data); return response; })
+                    .then(response => localStorage.setItem(url, JSON.stringify(response.data)));
+    }
   };
 
   useEffect(() => {

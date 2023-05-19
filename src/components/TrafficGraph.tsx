@@ -34,9 +34,17 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get<Data>(`${urlParam}`);
-        setData(response.data);
-        setIsLoading(false);
+        const cachedData = localStorage.getItem(`${urlParam}`);
+  
+        if (cachedData) {
+          setData(JSON.parse(cachedData));
+          setIsLoading(false);
+        } else {
+          const response = await axios.get<Data>(`${urlParam}`);
+          setData(response.data);
+          localStorage.setItem(`${urlParam}`, JSON.stringify(response.data));
+          setIsLoading(false);
+        }
       } catch (error) {
         console.error(error);
         setIsLoading(false);
@@ -49,8 +57,14 @@ const TrafficGraph: React.FC<Props> = ({urlParam, dataDescriptor}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Data>(`${urlParam}`);
-        setData(response.data);
+        const cachedData = localStorage.getItem(`${urlParam}`);
+        if (cachedData) {
+          setData(JSON.parse(cachedData));
+        } else {
+          const response = await axios.get<Data>(`${urlParam}`);
+          setData(response.data);
+          localStorage.setItem(`${urlParam}`, JSON.stringify(response.data));
+        }
       } catch (error) {
         console.error(error);
       }
