@@ -23,7 +23,7 @@ const Grid = () => {
         className="col"
         style={{ paddingTop: "20px", height: "500px", overflowY: "auto" }}
       >
-        <div className="col">
+        <div className="col" style={{ width: "auto" }}>
           <Card>
             <TrafficGraph
               urlParam="http://127.0.0.1:8000/forumtraffic/"
@@ -42,9 +42,9 @@ const Grid = () => {
       </div>
       <div
         className="col d-flex justify-content-end"
-        style={{ paddingTop: "20px", height: "600px", overflowY: "auto" }}
+        style={{ paddingTop: "20px", height: "100%", overflowY: "auto" }}
       >
-        <Card width="425px">
+        <Card width="75%">
           <List />
         </Card>
       </div>

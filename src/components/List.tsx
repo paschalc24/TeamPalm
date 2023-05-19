@@ -66,7 +66,7 @@ const List = () => {
   // Use the retrieved data
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ overflow: "auto", width: "400px" }}>
+      <div style={{ overflow: "auto", width: "100%" }}>
         <div
           style={{ overflow: "auto", display: "flex", paddingBottom: "20px" }}
         >
@@ -97,7 +97,7 @@ const List = () => {
               onChange={(event) => setSelectedOption(event.target.value)}
               style={{
                 backgroundColor: "#F6F6F6",
-                color: "#4174F7",
+                color: "#9925BE",
                 fontSize: "12px",
                 padding: "8px",
                 border: "none",
@@ -114,7 +114,7 @@ const List = () => {
             </select>
           </div>
         </div>
-        <div style={{ overflow: "auto", maxHeight: "425px" }}>
+        <div style={{ overflow: "auto", height: "400px" }}>
           <div className="list-group">
             {data
               .filter((item) => item.title !== "")
