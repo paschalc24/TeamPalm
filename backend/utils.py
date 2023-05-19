@@ -92,7 +92,7 @@ def create_test_data(main_file, test_file, data_len):
     test_json.close()
 
 # Uncomment below line to populate the database
-# populateDatabase('cw_posts_scrubbed.json', 'db.sqlite3')
+populateDatabase('cw_posts_scrubbed.json', 'db.sqlite3')
 
 # Uncomment below line to generate test data
 # create_test_data('cw_posts_scrubbed.json', 'tests/test_data.json', 50)
