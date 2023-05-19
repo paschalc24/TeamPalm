@@ -41,10 +41,10 @@ const Grid = () => {
         </div>
       </div>
       <div
-        className="col d-flex justify-content-end"
+        className="col-5 d-flex justify-content-end"
         style={{ paddingTop: "20px", height: "100%", overflowY: "auto" }}
       >
-        <Card width="75%">
+        <Card width="100%">
           <List />
         </Card>
       </div>
