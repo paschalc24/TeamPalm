@@ -25,8 +25,9 @@ const theme = {
 };
 
 const FullScreenDiv = styled.div`
-  margin: 0;
-  height: 110vh;
+  position: relative; /* changed from absolute */
+  width: 100%;
+  min-height: 100vh; /* changed from height */
   background-color: ${({ theme }) => theme.colors.light_grey};
 `;
 

@@ -114,7 +114,7 @@ const List = () => {
             </select>
           </div>
         </div>
-        <div style={{ overflow: "auto", height: "400px" }}>
+        <div style={{ overflow: "auto", height: "980px" }}>
           <div className="list-group">
             {data
               .filter((item) => item.title !== "")
