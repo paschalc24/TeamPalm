@@ -28,7 +28,7 @@ interface IData3 {
 }
 
 const Raw = () => {
-    const w = 2;
+  const w = 2;
 
   const [data1, setData1] = useState<IData[]>([]);
   const [data2, setData2] = useState<IData[]>([]);
@@ -83,8 +83,8 @@ const Raw = () => {
     const remainingMinutes = minutes % 60;
     const remainingHours = hours % 24;
 
-    let str = `${days} days\n ${remainingHours} hours\n ${remainingMinutes} minutes\n ${remainingSeconds} seconds`;
-    return days + " days";
+    let str = `${days} Days\n ${remainingHours} Hours\n ${remainingMinutes} Mins \n ${remainingSeconds} Secs`;
+    return days + " Days";
   };
 
   useEffect(() => {
@@ -111,26 +111,26 @@ const Raw = () => {
   }, []);
 
   return (
-    <Row>
-      <Col xs={w}>
+    <Row className="justify-content-center raw-stats">
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Posts Generated</h5>
-        <h2>{posts_generated()}</h2>
+        <h2 className="stats">{posts_generated()}</h2>
       </Col>
-      <Col xs={w}>
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Unanswered Posts</h5>
-        <h2>{data1.length}</h2>
+        <h2 className="stats">{data1.length}</h2>
       </Col>
-      <Col xs={w}>
-        <h5>Avg. Response Time</h5>
-        <h2>{average_response_time()}</h2>
+      <Col className="column d-flex flex-column align-items-center">
+        <h5>Avg Response Time</h5>
+        <h2 className="stats">{average_response_time()}</h2>
       </Col>
-      <Col xs={w}>
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Active Students</h5>
-        <h2>{active_students()}</h2>
+        <h2 className="stats">{active_students()}</h2>
       </Col>
-      <Col xs={w}>
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Active Staff</h5>
-        <h2>{active_staff()}</h2>
+        <h2 className="stats">{active_staff()}</h2>
       </Col>
     </Row>
   );

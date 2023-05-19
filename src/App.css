@@ -112,3 +112,29 @@ body {
 .title {
   margin-bottom: 20px;
 }
+
+.raw-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: left;
+  color: rgb(153, 37, 190);
+}
+
+.column {
+  flex: 1;
+  border-right: 1px dashed gray;
+  padding: 0 0px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.column:last-child {
+  border-right: none;
+}

@@ -52,14 +52,14 @@ const RawStudentStats = ({ mod }: Props) => {
     for (let i = 0; i < data2.length; i++) {
       c = c + data2[i].uniqueViewsCount;
     }
-    return Math.round(c / data2.length);
+    return (100 * c / (data2.length * data1.length)).toFixed(1);
   };
 
   const average_response_time = () => {
     let diff = 0;
 
     if (mod) {
-      return "No Data";
+      return "N/A";
     }
 
     for (let i = 0; i < data2.length; i++) {
@@ -88,7 +88,7 @@ const RawStudentStats = ({ mod }: Props) => {
     const remainingHours = hours % 24;
 
     let str = `${days} days\n ${remainingHours} hours\n ${remainingMinutes} minutes\n ${remainingSeconds} seconds`;
-    return days + " day " + remainingHours + " hours";
+    return hours + " Hours";
   };
 
   useEffect(() => {
@@ -117,25 +117,23 @@ const RawStudentStats = ({ mod }: Props) => {
   }, []);
 
   return (
-    <Row>
-      <Col xs={3}>
+    <Row style={{paddingRight: '0px'}} className="justify-content-center raw-stats">
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Average Response Time</h5>
-        <h2>{average_response_time()}</h2>
+        <h2 className="stats">{average_response_time()}</h2>
         <h2>{}</h2>
       </Col>
-      <Col xs={3}>
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Posts Generated</h5>
-        <h2>{posts_generated()}</h2>
+        <h2 className="stats">{posts_generated()}</h2>
       </Col>
-      <Col xs={3}>
-        <h5>% Total Traffic</h5>
-        {/* some hard coding going on here */}
-        <h2>{((posts_generated() / 617) * 100).toFixed(4)}</h2>
+      <Col className="column d-flex flex-column align-items-center">
+        <h5>Total Traffic</h5>
+        <h2 className="stats">{((posts_generated() / 617) * 100).toFixed(1)} %</h2>
       </Col>
-      <Col xs={3}>
+      <Col className="column d-flex flex-column align-items-center">
         <h5>Average Engagement</h5>
-          <h2 style={{display: 'inline'}}>{average_engagement() + ' '}</h2>
-          <p style={{display: 'inline'}}>(Unique Views per Post)</p>
+          <h2 className="stats" style={{display: 'inline'}}>{average_engagement()} %</h2>
       </Col>
     </Row>
   );
