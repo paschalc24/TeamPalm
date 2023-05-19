@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FaEye, FaThumbsUp, FaComment } from "react-icons/fa";
+import "../fonts.css";
 
 const theme = createTheme({
   typography: {
