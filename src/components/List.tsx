@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { FaEye, FaThumbsUp, FaComment } from "react-icons/fa";
 
 const theme = createTheme({
   typography: {
@@ -10,7 +11,6 @@ const theme = createTheme({
 });
 
 interface IData {
-  // Define the structure of your data
   number: number;
   post_slug: string;
   title: string;
@@ -23,6 +23,7 @@ interface IData {
   read: boolean;
   modAnsweredAt: string | null;
   answersCount: number;
+  likesCount: number;
   author: string;
 }
 
@@ -51,115 +52,156 @@ const List = () => {
     switch (option) {
       case "mostviewedposts/":
         return "Most Viewed Posts";
-        break;
       case "unansweredposts/":
         return "Unanswered Posts";
-        break;
       case "mostlikedposts/":
         return "Most Liked Posts";
-        break;
       case "mostansweredposts/":
         return "Most Answered Posts";
-        break;
       default:
         break;
     }
   };
 
-  // Use the retrieved data in your component
+  // Use the retrieved data
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
-        <select
-          value={selectedOption}
-          onChange={(event) => setSelectedOption(event.target.value)}
-          style={{
-            backgroundColor: "lightgray",
-            color: "#0070f3",
-            fontSize: "16px",
-            padding: "8px",
-            border: "none",
-            borderRadius: "4px",
-          }}
+    <ThemeProvider theme={theme}>
+      <div style={{ overflow: "auto" }}>
+        <div
+          style={{ overflow: "auto", display: "flex", paddingBottom: "20px" }}
         >
-          <option value="mostviewedposts/">Most Viewed Posts</option>
-          <option value="unansweredposts/">Unanswered Posts</option>
-          <option value="mostlikedposts/">Most Liked Posts</option>
-          <option value="mostansweredposts/">Most Answered Posts</option>
-        </select>
-      </div>
-      <div style={{ overflow: "auto", maxHeight: "399px" }}>
-        {/* Apply the maxHeight CSS property to limit the height of the container */}
-        <div className="list-group">
-          {data
-            .filter((item) => item.title != "")
-            .map((item, index) => (
-              <div
-                key={item.number}
-                className={`list-group-item${
-                  index !== data.length - 1 ? " mb-3" : ""
-                }`}
-                style={{ border: "none" }}
-              >
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{item.title}</h5>
-                  <small>{item.publishedAt?.slice(0, 10)}</small>
+          <div
+            style={{
+              overflow: "auto",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flex: "1",
+            }}
+          >
+            <h3
+              className="card-title"
+              style={{
+                margin: "0",
+                flex: "1",
+                alignItems: "center",
+                textAlign: "center",
+                fontFamily: theme.typography.fontFamily,
+              }}
+            >
+              {formatOption(selectedOption)}
+            </h3>
+            <select
+              value={selectedOption}
+              onChange={(event) => setSelectedOption(event.target.value)}
+              style={{
+                backgroundColor: "#F6F6F6",
+                color: "#4174F7",
+                fontSize: "16px",
+                padding: "8px",
+                border: "none",
+                borderRadius: "8px",
+                verticalAlign: "middle",
+                fontWeight: "normal",
+                fontFamily: theme.typography.fontFamily,
+              }}
+            >
+              <option value="mostviewedposts/">Most Viewed Posts</option>
+              <option value="unansweredposts/">Unanswered Posts</option>
+              <option value="mostlikedposts/">Most Liked Posts</option>
+              <option value="mostansweredposts/">Most Answered Posts</option>
+            </select>
+          </div>
+        </div>
+        <div style={{ overflow: "auto", maxHeight: "400px" }}>
+          <div className="list-group">
+            {data
+              .filter((item) => item.title !== "")
+              .map((item, index) => (
+                <div key={item.number}>
+                  <div
+                    className={`list-group-item${
+                      index !== data.length - 1 ? " mb-3" : ""
+                    }`}
+                    style={{ border: "none" }}
+                  >
+                    <div className="d-flex w-100 justify-content-between">
+                      <h5
+                        className="mb-1"
+                        style={{ fontFamily: theme.typography.fontFamily }}
+                      >
+                        {item.title}
+                      </h5>
+                      <small
+                        style={{
+                          fontFamily: "sans-serif",
+                          fontWeight: "normal",
+                          color: "gray",
+                        }}
+                      >
+                        {item.publishedAt?.slice(0, 10)}
+                      </small>
+                    </div>
+                    <p
+                      className="mb-1"
+                      style={{
+                        height: "70px",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        fontFamily: "sans-serif",
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                    <small
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        color: "gray",
+                        fontFamily: "sans-serif",
+                        paddingTop: "15px",
+                      }}
+                    >
+                      <FaEye style={{ marginRight: "10px" }} />
+                      {item.viewsCount}
+                      <FaThumbsUp
+                        style={{ marginLeft: "10px", marginRight: "10px" }}
+                      />
+                      {item.likesCount}
+                      <FaComment
+                        style={{ marginLeft: "10px", marginRight: "10px" }}
+                      />
+                      {item.answersCount}
+                    </small>
+                  </div>
+                  {index !== data.length - 1 && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        paddingBottom: "10px",
+                      }}
+                    >
+                      <hr
+                        style={{
+                          width: "90%",
+                          borderStyle: "dotted",
+                          borderWidth: "1px",
+                          margin: "0",
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
-                <p>Author: {item.author}</p>
-                <p
-                  className="mb-1"
-                  style={{
-                    height: "100px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {item.body}
-                </p>
-                <small style={{ alignItems: "right", color: "gray" }}>
-                  <FaEye
-                    style={{
-                      verticalAlign: "middle",
-                      marginRight: "10px",
-                      marginLeft: "10px",
-                    }}
-                  />
-                  {item.viewsCount}
-                  <FaThumbsUp
-                    style={{
-                      verticalAlign: "middle",
-                      marginRight: "10px",
-                      marginLeft: "10px",
-                    }}
-                  />
-                  {item.likesCount}
-                  <FaComment
-                    style={{
-                      verticalAlign: "middle",
-                      marginRight: "10px",
-                      marginLeft: "10px",
-                    }}
-                  />
-                  {item.answersCount}
-                </small>
-                {index !== data.length - 1 && (
-                  <hr style={{ borderStyle: "dotted" }} />
-                )}
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
 export default List;
-
 // Do we want to display more types of posts
 /* return (
     <div>
