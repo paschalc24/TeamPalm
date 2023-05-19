@@ -109,7 +109,7 @@ const NavBar: FC<NavBarProps> = ({
               exclusive={true}
               onChange={handleChange}
               aria-label="Platform"
-              style={{ "paddingLeft": "50px", "paddingRight": "240px" }}
+              style={{ "paddingLeft": "50px", "paddingRight": "190px" }}
             >
               <ToggleButton value="home">Home</ToggleButton>
               <ToggleButton value="students">Students</ToggleButton>
@@ -121,7 +121,7 @@ const NavBar: FC<NavBarProps> = ({
         )}
         <Navbar.Collapse className="justify-content-right">
           <Form onSubmit={e => submitLogout(e)} style={{ marginLeft: 'auto' }}>
-            <Button style={{ height: '47px' }} variant='outlined' color='error' type="submit">Log Out</Button>
+            <Button style={{ height: '47px', marginRight: '0px' }} variant='outlined' color='error' type="submit">Log Out</Button>
           </Form>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
