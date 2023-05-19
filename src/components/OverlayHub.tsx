@@ -35,7 +35,7 @@ interface OverlayHubProps {
             }
             
             <div style={{ display: 'flex' }}>
-                <div style={{ width: '250px' }}>
+                <div style={{ width: '180px' }}>
                     <SideBar courses={courses} username="Matthew Rattigan"
                     selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} setSelectedMode={modeHandler}/>
                 </div>
