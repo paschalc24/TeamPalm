@@ -8,17 +8,16 @@ django.setup()
 
 from analytics.models import *
 
-conn = sqlite3.connect('db.sqlite3')
-cursor = conn.cursor()
-
-all_posts = json.load(open('cw_posts_scrubbed.json'))
-
-def populateDatabase():
+def populateDatabase(filename: str, db: str):
+    all_posts = json.load(open(filename))
+    conn = sqlite3.connect(db)
     for post in all_posts:
         insertAuthor(post["author"]) 
         insertPost(post)     
         for comment in post["comments"]:
             insertComment(post["number"], comment)
+
+    conn.close()
 
 def insertAuthor(author: dict):
     mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
@@ -46,7 +45,8 @@ def insertPost(post: dict):
         if attr in post:
             setattr(new_row, attr, post[attr])
 
-    new_row.save()
+    if new_row.number != 0:
+        new_row.save()
 
 def insertComment(post_num: int, comment: dict):
     try:
@@ -67,5 +67,32 @@ def insertComment(post_num: int, comment: dict):
 
     new_row.save()
 
+def create_test_data(main_file, test_file, data_len):
+    all_posts, test_json = json.load(open(main_file, 'r')), open(test_file, 'w')
+    attrs = {"slug", "visibility", "number", "title", "body", "type", "publishedAt", "viewsCount", 
+             "uniqueViewsCount", "read", "modAnsweredAt", "answersCount", "likesCount"}
+    author_attrs = {"firstName", "lastName", "slug"}
+    comment_attrs = {"id", "body", "answer", "publishedAt", "endorsed"}
+    
+    new_data = []
+    for pos in range(0, len(all_posts), len(all_posts) // data_len):
+        post = all_posts[pos]
+        new_post = { "author": { attr: post["author"][attr] for attr in post["author"] if attr in author_attrs } }
+        comments = []
+        for c in post["comments"]:
+            new_comment = { "author": { attr: c["author"][attr] for attr in c["author"] if attr in author_attrs } }
+            new_comment.update({ attr: c[attr] for attr in c if attr in comment_attrs })
+            comments.append(new_comment)
+
+        new_post.update({ attr: post[attr] for attr in post if attr in attrs})
+        new_post["comments"] = comments
+        new_data.append(new_post)
+    
+    test_json.write(json.dumps(new_data))
+    test_json.close()
+
 # Uncomment below line to populate the database
-# populateDatabase()
+# populateDatabase('cw_posts_scrubbed.json', 'db.sqlite3')
+
+# Uncomment below line to generate test data
+# create_test_data('cw_posts_scrubbed.json', 'tests/test_data.json', 50)

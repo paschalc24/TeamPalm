@@ -6,9 +6,10 @@ from .models import *
 from .serializers import *
 from datetime import datetime, timedelta
 from collections import defaultdict
+import pytz
 
 
-class AnalyticsApiAllAuthorsView(APIView):
+class AllAuthors(APIView):
     # List all Authors
     def get(self, request):
       authors = Author.objects.all()
@@ -18,72 +19,81 @@ class AnalyticsApiAllAuthorsView(APIView):
         author["answered_posts"] = list(set(c.post.number for c in Comment.objects.filter(author=author["slug"])))
       return Response(serializer.data, status=status.HTTP_200_OK)
       
-class AnalyticsApiAllPostsView(APIView):      
+class AllPosts(APIView):      
     # List all Posts
     def get(self, request):
       posts = Post.objects.all()
       serializer = PostSerializer(posts, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
   
-class AnalyticsApiAllCommentsView(APIView):
+class AllComments(APIView):
     # List all Comments
     def get(self, request):
       comments = Comment.objects.all()
       serializer = CommentSerializer(comments, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
 
-class AnalyticsPostByNumApiView(APIView):
+class PostByNumber(APIView):
   # Retrieves the Post with given post_id
   def get(self, request, post_id):
-    Post_instance = Post.objects.get(number=post_id)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Post id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
+    try:
+      post_instance = Post.objects.get(number=post_id)
+    except:
+      return Response(
+          {"res": "Object with Post id does not exists"},
+          status=status.HTTP_400_BAD_REQUEST
+      )
 
-    serializer = PostSerializer(Post_instance)
+    serializer = PostSerializer(post_instance)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-class AnalyticsPostByAuthorApiView(APIView):
+class PostsByAuthor(APIView):
   # Retrieves the Post with given author_id
   def get(self, request, author_id):
-    Post_instance = Post.objects.filter(author=author_id)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Author id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    serializer = PostSerializer(Post_instance, many=True)
+    post_instance = Post.objects.filter(author=author_id)
+    if not post_instance:
+      return Response(
+        {"res": "Object with Author id does not exists"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+    serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-class AnalyticsPostByTimeframeApiView(APIView):
+class PostsByTimeFrame(APIView):
   # Retrieves the post within given time-frame
   def get(self, request, start_time, end_time):
-    start_time = datetime.strptime(start_time, "%Y-%m-%d")
-    end_time = datetime.strptime(end_time, "%Y-%m-%d")
+    timezone = pytz.timezone('UTC')
+    start_time = timezone.localize(datetime.strptime(start_time, "%Y-%m-%d"))
+    end_time = timezone.localize(datetime.strptime(end_time, "%Y-%m-%d"))
     posts = set()
     for post in Post.objects.all():
       if post.publishedAt and start_time <= post.publishedAt <= end_time:
         posts.add(post.number)
 
+    if not posts: 
+      return Response(
+        {"res": "No posts exist within given time-frame"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+
     response = Post.objects.filter(number__in=posts)
     serializer = PostSerializer(response, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-class AnalyticsUnansweredPostsApiView(APIView):
+class AllUnansweredPosts(APIView):
   # Retrieves all unanswered posts
   def get(self, request):
-    Post_instance = Post.objects.filter(answersCount=0)
-    if not Post_instance:
-        return Response(
-            {"res": "Object with Author id does not exists"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    serializer = PostSerializer(Post_instance, many=True)
+    try:
+      post_instance = Post.objects.filter(answersCount=0)
+    except:
+      return Response(
+        {"res": "Object with Author id does not exists"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+    serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
   
-class AnalyticsMostViewedPostsApiView(APIView):
+class MostViewedPosts(APIView):
   # Retrieves top ten most viewed posts
   def get(self, request):
      Post_instance = Post.objects.all().order_by('-viewsCount')[:10]
@@ -95,7 +105,7 @@ class AnalyticsMostViewedPostsApiView(APIView):
      serializer = PostSerializer(Post_instance, many=True)
      return Response(serializer.data, status = status.HTTP_200_OK)
   
-class AnalyticsMostUniqueViewedPostsApiView(APIView):
+class MostUniqueViewedPosts(APIView):
    # Retrieves top ten most uniquely viewed posts
    def get(self, request):
       Post_instance = Post.objects.all().order_by('-uniqueViewsCount')[:10]
@@ -107,7 +117,7 @@ class AnalyticsMostUniqueViewedPostsApiView(APIView):
       serializer = PostSerializer(Post_instance, many=True)
       return Response(serializer.data, status = status.HTTP_200_OK)
    
-class AnalyticsMostLikedPostsApiView(APIView):
+class MostLikedPosts(APIView):
    # Retrieves top ten most liked posts
    def get(self, request):
       Post_instance = Post.objects.all().order_by('-likesCount')[:10]
@@ -119,7 +129,7 @@ class AnalyticsMostLikedPostsApiView(APIView):
       serializer = PostSerializer(Post_instance, many=True)
       return Response(serializer.data, status = status.HTTP_200_OK)
 
-class AnalyticsMostAnsweredPostsApiView(APIView):
+class MostAnsweredPosts(APIView):
   # Retrieves top ten most commented/answered posts
   def get(self, request):
      Post_instance = Post.objects.all().order_by('-answersCount')[:10]
@@ -131,7 +141,7 @@ class AnalyticsMostAnsweredPostsApiView(APIView):
      serializer = PostSerializer(Post_instance, many=True)
      return Response(serializer.data, status = status.HTTP_200_OK)
   
-class AnalyticsForumTraffic(APIView):
+class ForumTraffic(APIView):
   def get(self, request):
     num_posts = { "per_hour": defaultdict(list), "per_day": defaultdict(list), "per_week": defaultdict(list) }
     publish_times = [post.publishedAt for post in Post.objects.all() if post.publishedAt]
@@ -159,7 +169,7 @@ class AnalyticsForumTraffic(APIView):
 
     return Response(num_posts, status=status.HTTP_200_OK)
 
-class AnalyticsResponseTimeApiView(APIView):
+class ResponseTime(APIView):
   # Retrieves publishedAt/modAnsweredAt fields of the data
   def get(self, request):
     Post_instance = Post.objects.all()
@@ -171,7 +181,7 @@ class AnalyticsResponseTimeApiView(APIView):
     serializer = ResponseTimeSerializer(Post_instance, many=True)
     return Response(serializer.data, status = status.HTTP_200_OK)
 
-class StudentVsModPostsApiView(APIView):
+class StudentVsModPosts(APIView):
   # Retrieves posts categorized by student and moderator
   def get(self, request, student_or_mod):
     if student_or_mod in {'student', 'moderator'}:
@@ -180,20 +190,27 @@ class StudentVsModPostsApiView(APIView):
     
     return Response({"res": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
   
-class AnalyticsViewsByTimeframeApiView(APIView):
+class ViewsByTimeFrame(APIView):
   # Retrieves the number of views within given time-frame
   def get(self, request, start_time, end_time):
-    start_time = datetime.strptime(start_time, "%Y-%m-%d")
-    end_time = datetime.strptime(end_time, "%Y-%m-%d")
+    timezone = pytz.timezone('UTC')
+    start_time = timezone.localize(datetime.strptime(start_time, "%Y-%m-%d"))
+    end_time = timezone.localize(datetime.strptime(end_time, "%Y-%m-%d"))
     views, unique_views = 0, 0
     for post in Post.objects.all():
       if post.publishedAt and start_time <= post.publishedAt <= end_time:
         views += post.viewsCount if post.viewsCount else 0
         unique_views += post.uniqueViewsCount if post.uniqueViewsCount else 0
 
+    if views == 0 and unique_views == 0:
+      return Response(
+        {"res": "No views exist within given time-frame"},
+        status=status.HTTP_400_BAD_REQUEST
+      )
+
     return Response({"views": views, "unique_views": unique_views}, status=status.HTTP_200_OK)
 
-class AnalyticsPostsUnansweredByModApiView(APIView):
+class PostsUnansweredByMods(APIView):
   # Retrieves all posts unanswered by mods
   def get(self, request):
     Post_instance = Post.objects.filter(modAnsweredAt=None, answersCount__gt=0)
@@ -205,7 +222,7 @@ class AnalyticsPostsUnansweredByModApiView(APIView):
     serializer = PostSerializer(Post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-class AnalyticsViewsTraffic(APIView):
+class ViewsTraffic(APIView):
   def get(self, request):
     num_views = { "per_hour": defaultdict(list), "per_day": defaultdict(list), "per_week": defaultdict(list) }
     publish_times = [post.publishedAt for post in Post.objects.all() if post.publishedAt]
