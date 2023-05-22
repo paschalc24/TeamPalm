@@ -44,6 +44,9 @@ python backend/manage.py runserver & npm run dev
 
 If there are no issues, the server will boot up at [http://127.0.0.1:5173/](http://127.0.0.1:5173/), which should load up the login page for the application.
 
+Username: teampalm@umass.edu
+Password: teampalm
+
 #### Terminating the Servers
 
 To shut the servers down, you can kill the processes using `Ctrl + C`.
