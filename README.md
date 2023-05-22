@@ -10,9 +10,7 @@ Key Features:
 
 - Student Engagement Reporting: Understand student involvement by analyzing the number of student posts, comments, and identifying the most active participants.
 
-- Trending Topics and Categories: Discover popular posts and corresponding topics within the forum. Stay updated on the subjects generating the most interaction.
-
-- Keyword Search: Effortlessly search for specific keywords across forum posts and comments. Locate relevant discussions or posts that need immediate attention.
+- Trending Topics and Categories: Discover popular posts and corresponding topics within the forum.
 
 - Visualizations: See forum activity patterns through intuitive charts and graphs. Identify peak hours and plan staff availability accordingly.
 
