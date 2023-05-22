@@ -42,10 +42,12 @@ To start the servers run (these commands can be run in separate terminal session
 python backend/manage.py runserver & npm run dev
 ```
 
-If there are no issues, the server will boot up at [http://127.0.0.1:5173/](http://127.0.0.1:5173/), which should load up the login page for the application.
+If there are no issues, the server will boot up at [http://127.0.0.1:5173/](http://127.0.0.1:5173/), which should load up the login page for the application. Utilize the following credentials to login to a test account:
 
+```
 Username: teampalm@umass.edu
 Password: teampalm
+```
 
 #### Terminating the Servers
 
