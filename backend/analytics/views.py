@@ -8,9 +8,8 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 import pytz
 
-
+# List All Authors
 class AllAuthors(APIView):
-    # List all Authors
     def get(self, request):
       authors = Author.objects.all()
       serializer = AuthorSerializer(authors, many=True)
@@ -19,22 +18,22 @@ class AllAuthors(APIView):
         author["answered_posts"] = list(set(c.post.number for c in Comment.objects.filter(author=author["slug"])))
       return Response(serializer.data, status=status.HTTP_200_OK)
       
+# List All Posts
 class AllPosts(APIView):      
-    # List all Posts
     def get(self, request):
       posts = Post.objects.all()
       serializer = PostSerializer(posts, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
   
+# List All Comments
 class AllComments(APIView):
-    # List all Comments
     def get(self, request):
       comments = Comment.objects.all()
       serializer = CommentSerializer(comments, many=True)
       return Response(serializer.data, status=status.HTTP_200_OK)
 
+# Return the Posts With Specified <post_id>
 class PostByNumber(APIView):
-  # Retrieves the Post with given post_id
   def get(self, request, post_id):
     try:
       post_instance = Post.objects.get(number=post_id)
@@ -47,8 +46,8 @@ class PostByNumber(APIView):
     serializer = PostSerializer(post_instance)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+# Return the Posts With Specified <author_id>
 class PostsByAuthor(APIView):
-  # Retrieves the Post with given author_id
   def get(self, request, author_id):
     post_instance = Post.objects.filter(author=author_id)
     if not post_instance:
@@ -59,8 +58,8 @@ class PostsByAuthor(APIView):
     serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+# Return the Posts Within Specified Timeframe: <start_time> - <end_time>
 class PostsByTimeFrame(APIView):
-  # Retrieves the post within given time-frame
   def get(self, request, start_time, end_time):
     timezone = pytz.timezone('UTC')
     start_time = timezone.localize(datetime.strptime(start_time, "%Y-%m-%d"))
@@ -80,8 +79,8 @@ class PostsByTimeFrame(APIView):
     serializer = PostSerializer(response, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+# List All Unanswered Posts
 class AllUnansweredPosts(APIView):
-  # Retrieves all unanswered posts
   def get(self, request):
     try:
       post_instance = Post.objects.filter(answersCount=0)
@@ -93,8 +92,8 @@ class AllUnansweredPosts(APIView):
     serializer = PostSerializer(post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
   
+# List 10 Most Viewed Posts
 class MostViewedPosts(APIView):
-  # Retrieves top ten most viewed posts
   def get(self, request):
      Post_instance = Post.objects.all().order_by('-viewsCount')[:10]
      if not Post_instance:
@@ -105,8 +104,8 @@ class MostViewedPosts(APIView):
      serializer = PostSerializer(Post_instance, many=True)
      return Response(serializer.data, status = status.HTTP_200_OK)
   
+# List 10 Posts With Highest Unique View Counts
 class MostUniqueViewedPosts(APIView):
-   # Retrieves top ten most uniquely viewed posts
    def get(self, request):
       Post_instance = Post.objects.all().order_by('-uniqueViewsCount')[:10]
       if not Post_instance:
@@ -117,8 +116,8 @@ class MostUniqueViewedPosts(APIView):
       serializer = PostSerializer(Post_instance, many=True)
       return Response(serializer.data, status = status.HTTP_200_OK)
    
+# List 10 Most Liked Posts
 class MostLikedPosts(APIView):
-   # Retrieves top ten most liked posts
    def get(self, request):
       Post_instance = Post.objects.all().order_by('-likesCount')[:10]
       if not Post_instance:
@@ -129,8 +128,8 @@ class MostLikedPosts(APIView):
       serializer = PostSerializer(Post_instance, many=True)
       return Response(serializer.data, status = status.HTTP_200_OK)
 
+# List 10 Posts With Most Answers
 class MostAnsweredPosts(APIView):
-  # Retrieves top ten most commented/answered posts
   def get(self, request):
      Post_instance = Post.objects.all().order_by('-answersCount')[:10]
      if not Post_instance:
@@ -141,6 +140,7 @@ class MostAnsweredPosts(APIView):
      serializer = PostSerializer(Post_instance, many=True)
      return Response(serializer.data, status = status.HTTP_200_OK)
   
+# Return Statistics Indicating Traffic Rates
 class ForumTraffic(APIView):
   def get(self, request):
     num_posts = { "per_hour": defaultdict(list), "per_day": defaultdict(list), "per_week": defaultdict(list) }
@@ -168,9 +168,10 @@ class ForumTraffic(APIView):
         curr_week += week_delta       
 
     return Response(num_posts, status=status.HTTP_200_OK)
-
+  
+# Return <publishedAt> and <modAnsweredAt> Attributes of 
+# Posts to Calculate Response Times
 class ResponseTime(APIView):
-  # Retrieves publishedAt/modAnsweredAt fields of the data
   def get(self, request):
     Post_instance = Post.objects.all()
     if not Post_instance:
@@ -181,8 +182,8 @@ class ResponseTime(APIView):
     serializer = ResponseTimeSerializer(Post_instance, many=True)
     return Response(serializer.data, status = status.HTTP_200_OK)
 
+# Return Posts Categorized as Posted by <student> or <moderator>
 class StudentVsModPosts(APIView):
-  # Retrieves posts categorized by student and moderator
   def get(self, request, student_or_mod):
     if student_or_mod in {'student', 'moderator'}:
       serializer = PostSerializer(Post.objects.all().filter(author__moderator=student_or_mod=='moderator'), many=True)
@@ -190,8 +191,8 @@ class StudentVsModPosts(APIView):
     
     return Response({"err": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
   
+# Return the Number of Views Within Specified Timeframe: <start_time> - <end_time>
 class ViewsByTimeFrame(APIView):
-  # Retrieves the number of views within given time-frame
   def get(self, request, start_time, end_time):
     timezone = pytz.timezone('UTC')
     start_time = timezone.localize(datetime.strptime(start_time, "%Y-%m-%d"))
@@ -210,8 +211,8 @@ class ViewsByTimeFrame(APIView):
 
     return Response({"views": views, "unique_views": unique_views}, status=status.HTTP_200_OK)
 
+# Return All Posts Unanswered by Moderators
 class PostsUnansweredByMods(APIView):
-  # Retrieves all posts unanswered by mods
   def get(self, request):
     Post_instance = Post.objects.filter(modAnsweredAt=None, answersCount__gt=0)
     if not Post_instance:
@@ -222,6 +223,7 @@ class PostsUnansweredByMods(APIView):
     serializer = PostSerializer(Post_instance, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+# Return Statistics Relevant to Calculating View Traffic Rates
 class ViewsTraffic(APIView):
   def get(self, request):
     num_views = { "per_hour": defaultdict(list), "per_day": defaultdict(list), "per_week": defaultdict(list) }

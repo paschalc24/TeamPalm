@@ -11,12 +11,6 @@ interface CourseProps {
   activeMode: string;
 }
 
-/*
-function Overlay<CourseProps>({course}) {
-    return <h1>{course}</h1>;
-}
-*/
-
 const Overlay: FC<CourseProps> = ({ course, activeCourse, activeMode }) => {
   const [currMode, setCurrMode] = useState("");
 

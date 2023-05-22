@@ -1,11 +1,13 @@
 from django.db import models
 
+# Author Model - Represents Students and Staff in a Course
 class Author(models.Model):
     slug = models.CharField(max_length=9, primary_key=True)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     moderator = models.BooleanField(default=False)
 
+# Post Model - Represents Post in a Course
 class Post(models.Model):
     author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE)
     number = models.IntegerField(default=0, primary_key=True)
@@ -22,6 +24,7 @@ class Post(models.Model):
     answersCount = models.IntegerField(default=0)
     likesCount = models.IntegerField(default=0)
 
+# Comment Model - Represents Comment in a Course
 class Comment(models.Model):
     author = models.ForeignKey(Author, related_name='comments', on_delete=models.CASCADE)
     comment_id = models.CharField(max_length=50, primary_key=True)

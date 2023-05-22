@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
 
+# URL Patterns for all API Endpoints (http://127.0.0.1:8000/<path>)
 urlpatterns = [
     path('posts/', AllPosts.as_view()),
     path('authors/', AllAuthors.as_view()),

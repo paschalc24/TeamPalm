@@ -3,11 +3,14 @@ import json
 import django
 import os
 
+# Scripts to Setup Database and Tests
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 django.setup()
 
 from analytics.models import *
 
+# Populate <db> with JSON Data in <filename>
 def populateDatabase(filename: str, db: str):
     all_posts = json.load(open(filename))
     conn = sqlite3.connect(db)
@@ -19,6 +22,7 @@ def populateDatabase(filename: str, db: str):
 
     conn.close()
 
+# Insert an Author Object <author> into the Database
 def insertAuthor(author: dict):
     mod_list = {"Jacob Friedman", "Lisa McCormick", "William Gonzalez", "Elizabeth Boyd", 
                 "Sherri Horton", "Erica Brown", "James Martinez", "Emily Hoffman", 
@@ -33,6 +37,7 @@ def insertAuthor(author: dict):
 
     new_row.save()
 
+# Insert a Post Object <post> into the Database
 def insertPost(post: dict):
     new_row = Post(
         author=Author.objects.get(slug=post["author"]["slug"]),
@@ -48,6 +53,7 @@ def insertPost(post: dict):
     if new_row.number != 0:
         new_row.save()
 
+# Insert a Comment Object <comment> from Post #<post_num> into the Database
 def insertComment(post_num: int, comment: dict):
     try:
         author = Author.objects.get(slug=comment["author"]["slug"])
@@ -67,6 +73,7 @@ def insertComment(post_num: int, comment: dict):
 
     new_row.save()
 
+# Generate Test Data of Length <data_len> (Subset of Original Data in <main_file>) and Store in <test_file>
 def create_test_data(main_file, test_file, data_len):
     all_posts, test_json = json.load(open(main_file, 'r')), open(test_file, 'w')
     attrs = {"slug", "visibility", "number", "title", "body", "type", "publishedAt", "viewsCount", 

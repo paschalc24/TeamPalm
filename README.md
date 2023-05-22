@@ -1,4 +1,4 @@
-# TeamPalm 🌴
+# TeamPalm: Filigree - Campuswire Analytics
 
 ### Design Goals
 ---
@@ -29,10 +29,16 @@ Before proceeding, make sure you have the latest possible versions of the follow
 - [Python](https://www.python.org/downloads/)
 - [Node.js + npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-#### Installing Dependencies
-If you would like to set up a virtual environment before installing dependencies, instructions on how to do so can be found [here](https://docs.python.org/3/library/venv.html). All necessary dependencies can be installed using the following command from the main directory `TeamPalm`:
+#### Clone the Repository
+Run the following command to clone this repository on your local machine. Then, `cd` into the `TeamPalm` folder.
+```shell
+git clone https://github.com/paschalc24/TeamPalm.git
 ```
-pip install -r requirements.txt & npm i
+
+#### Setting Up Your Environment
+If you would like to set up a virtual environment before installing dependencies, instructions on how to do so can be found [here](https://docs.python.org/3/library/venv.html). In order to install all necessary dependencies and setup the environment, run the following command from the main directory `TeamPalm`:
+```shell
+python setup.py
 ```
 
 #### Running the Application
