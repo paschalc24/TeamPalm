@@ -1,5 +1,4 @@
 # TeamPalm 🌴
----
 
 ### Design Goals
 ---
