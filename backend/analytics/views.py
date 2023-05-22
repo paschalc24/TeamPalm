@@ -40,7 +40,7 @@ class PostByNumber(APIView):
       post_instance = Post.objects.get(number=post_id)
     except:
       return Response(
-          {"res": "Object with Post id does not exists"},
+          {"err": f"Post #{post_id} does not exist."},
           status=status.HTTP_400_BAD_REQUEST
       )
 
@@ -53,7 +53,7 @@ class PostsByAuthor(APIView):
     post_instance = Post.objects.filter(author=author_id)
     if not post_instance:
       return Response(
-        {"res": "Object with Author id does not exists"},
+        {"err": f"No posts were published by this author or author with id {author_id} does not exist."},
         status=status.HTTP_400_BAD_REQUEST
       )
     serializer = PostSerializer(post_instance, many=True)
@@ -72,7 +72,7 @@ class PostsByTimeFrame(APIView):
 
     if not posts: 
       return Response(
-        {"res": "No posts exist within given time-frame"},
+        {"err": "Date string not in specified format: YYYY-MM-DD or <start_time> and <end_time> are not in chronological order."},
         status=status.HTTP_400_BAD_REQUEST
       )
 
@@ -87,7 +87,7 @@ class AllUnansweredPosts(APIView):
       post_instance = Post.objects.filter(answersCount=0)
     except:
       return Response(
-        {"res": "Object with Author id does not exists"},
+        {"err": "There are currently no unanswered posts."},
         status=status.HTTP_400_BAD_REQUEST
       )
     serializer = PostSerializer(post_instance, many=True)
@@ -99,7 +99,7 @@ class MostViewedPosts(APIView):
      Post_instance = Post.objects.all().order_by('-viewsCount')[:10]
      if not Post_instance:
         return Response(
-           {"res": "No posts in database"},
+           {"err": "There are currently no posts."},
            status = status.HTTP_400_BAD_REQUEST
         )
      serializer = PostSerializer(Post_instance, many=True)
@@ -111,7 +111,7 @@ class MostUniqueViewedPosts(APIView):
       Post_instance = Post.objects.all().order_by('-uniqueViewsCount')[:10]
       if not Post_instance:
         return Response(
-           {"res": "No posts in database"},
+           {"err": "There are currently no posts."},
            status = status.HTTP_400_BAD_REQUEST
         )
       serializer = PostSerializer(Post_instance, many=True)
@@ -123,7 +123,7 @@ class MostLikedPosts(APIView):
       Post_instance = Post.objects.all().order_by('-likesCount')[:10]
       if not Post_instance:
         return Response(
-           {"res": "No posts in database"},
+           {"err": "There are currently no posts."},
            status = status.HTTP_400_BAD_REQUEST
         )
       serializer = PostSerializer(Post_instance, many=True)
@@ -135,7 +135,7 @@ class MostAnsweredPosts(APIView):
      Post_instance = Post.objects.all().order_by('-answersCount')[:10]
      if not Post_instance:
         return Response(
-           {"res": "No posts in database"},
+           {"err": "There are currently no posts."},
            status = status.HTTP_400_BAD_REQUEST
         )
      serializer = PostSerializer(Post_instance, many=True)
@@ -175,7 +175,7 @@ class ResponseTime(APIView):
     Post_instance = Post.objects.all()
     if not Post_instance:
         return Response(
-          {"res": "No posts in database"},
+          {"err": "There are currently no posts."},
           status = status.HTTP_400_BAD_REQUEST
         )
     serializer = ResponseTimeSerializer(Post_instance, many=True)
@@ -188,7 +188,7 @@ class StudentVsModPosts(APIView):
       serializer = PostSerializer(Post.objects.all().filter(author__moderator=student_or_mod=='moderator'), many=True)
       return Response(serializer.data, status = status.HTTP_200_OK)
     
-    return Response({"res": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
+    return Response({"err": "No Matching Posts Found."}, status = status.HTTP_400_BAD_REQUEST)
   
 class ViewsByTimeFrame(APIView):
   # Retrieves the number of views within given time-frame
@@ -204,7 +204,7 @@ class ViewsByTimeFrame(APIView):
 
     if views == 0 and unique_views == 0:
       return Response(
-        {"res": "No views exist within given time-frame"},
+        {"err": "Date string not in specified format: YYYY-MM-DD, <start_time> and <end_time> are not in chronological order, or no views were registered in this time frame."},
         status=status.HTTP_400_BAD_REQUEST
       )
 
@@ -216,7 +216,7 @@ class PostsUnansweredByMods(APIView):
     Post_instance = Post.objects.filter(modAnsweredAt=None, answersCount__gt=0)
     if not Post_instance:
         return Response(
-            {"res": "Object does not exists"},
+            {"err": "There are currently no posts unanswered by staff."},
             status=status.HTTP_400_BAD_REQUEST
         )
     serializer = PostSerializer(Post_instance, many=True)
