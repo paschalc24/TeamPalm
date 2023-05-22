@@ -79,9 +79,13 @@ const NavBar: FC<NavBarProps> = ({
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
   ) => {
-    setAlignment(newAlignment);
-    setSelectedMode(newAlignment);
+    // If newAlignment is null, ignore the update
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+      setSelectedMode(newAlignment);
+    }
   };
+  
 
   return course == activeCourse ? (
     <>

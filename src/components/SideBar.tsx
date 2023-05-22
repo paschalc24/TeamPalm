@@ -1,17 +1,18 @@
+// Import necessary libraries
 import React from "react";
 import styled from "styled-components";
 import CourseButton from "./CourseButton";
-import userIcon from "../assets/user-icon.png";
-import settingsIcon from "../assets/settings-icon.jpg";
 
+// Define prop types for the Sidebar component
 interface SidebarProps {
-  courses: { imageSrc: string; tooltipText: string; onClick: () => void }[];
-  username: string;
-  selectedCourse: string;
-  setSelectedCourse: (course: string) => void;
-  setSelectedMode: (course: string) => void;
+  courses: { imageSrc: string; tooltipText: string; onClick: () => void }[]; // Array of course objects
+  username: string; // Current user's name
+  selectedCourse: string; // Selected course
+  setSelectedCourse: (course: string) => void; // Function to change selected course
+  setSelectedMode: (course: string) => void; // Function to change selected mode
 }
 
+// Define the main wrapper for the sidebar
 const SidebarWrapper = styled.div`
   position: sticky;
   height: 40vh;
@@ -26,6 +27,7 @@ const SidebarWrapper = styled.div`
   align-items: center;
 `;
 
+// Define the scrollable view container
 const ScrollViewContainer = styled.div`
   height: 100%;
   overflow-y: scroll;
@@ -46,6 +48,7 @@ const ScrollViewContainer = styled.div`
   }
 `;
 
+// Define the container for course buttons
 const CourseButtonContainer = styled.div`
   padding-top: 20px;
   display: flex;
@@ -56,41 +59,8 @@ const CourseButtonContainer = styled.div`
   padding-left: 50px;
 `;
 
-const ProfileSection = styled.div`
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: ${({ theme }) => theme.colors.lightBlue};
-  border-radius: 10px;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-`;
-
-const ProfilePic = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-bottom: 5px;
-  object-fit: cover;
-`;
-
-const Name = styled.span`
-  font-size: 14px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.darkBlue};
-  text-align: center;
-  line-height: 1.2;
-`;
-
-const SettingsIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
-`;
-
+// Define the main Sidebar component:
+// Contains course buttons to allow for switching between courses.
 const Sidebar: React.FC<SidebarProps> = ({
   courses,
   username,
@@ -113,112 +83,8 @@ const Sidebar: React.FC<SidebarProps> = ({
           ))}
         </CourseButtonContainer>
       </ScrollViewContainer>
-      {/* <ProfileSection style={{ display: "-webkit-flex" }}>
-        <ProfilePic src={userIcon} />
-        <Name>{username}</Name>
-        <SettingsIcon src={settingsIcon} />
-      </ProfileSection> */}
     </SidebarWrapper>
   );
 };
 
 export default Sidebar;
-
-/***************************** */
-// import React, { useState } from "react";
-// import styled from "styled-components";
-// import CourseButton from "./CourseButton";
-// import userIcon from "../assets/user-icon.png";
-// import settingsIcon from "../assets/settings-icon.jpg";
-
-// interface SidebarProps {
-//   courses: { id: string; imageSrc: string; tooltipText: string; onClick: () => void }[];
-//   username: string;
-// }
-
-// const SidebarWrapper = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   width: 80px;
-//   background-color: ${({ theme }) => theme.colors.darkBlue};
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-
-// const CourseButtonContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 70px;
-// `;
-
-// const ProfileSection = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const ProfilePic = styled.img`
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   margin-right: 10px;
-// `;
-
-// const ProfileInfo = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
-
-// const Name = styled.span`
-//   font-size: 16px;
-//   font-weight: bold;
-// `;
-
-// const SettingsIcon = styled.img`
-//   width: 20px;
-//   height: 20px;
-//   margin-top: 5px;
-// `;
-
-// const Sidebar: React.FC<SidebarProps> = ({ courses, username }) => {
-//   const [activeCourse, setActiveCourse] = useState("");
-
-//   const handleCourseButtonClick = (id: string) => {
-//     setActiveCourse(id);
-//     onClick();
-//   };
-
-//   return (
-//     <SidebarWrapper>
-//       <CourseButtonContainer>
-//         {courses.map((course) => (
-//           <CourseButton
-//             imageSrc={course.imageSrc}
-//             tooltipText={course.tooltipText}
-//             onClick={() => {
-//               handleCourseButtonClick(course.id);
-//               course.onClick();
-//             }}
-//             active={course.id === activeCourse}
-//             setActive={setActiveCourse}
-//             id={course.id}
-//           />
-//         ))}
-//       </CourseButtonContainer>
-//       <ProfileSection>
-//         <ProfilePic src="profile-pic.png" />
-//         <ProfileInfo>
-//           <Name>{username}</Name>
-//           <SettingsIcon src="settings-icon.png" />
-//         </ProfileInfo>
-//       </ProfileSection>
-//     </SidebarWrapper>
-//   );
-// };
-
-// export default Sidebar;
