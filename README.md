@@ -37,4 +37,4 @@ python backend/manage.py runserver & npm run dev
 
 If there are no issues, the server will boot up at [http://127.0.0.1:5173/](http://127.0.0.1:5173/), which should load up the login page for the application.
 
-To end the servers you can kill the process with Ctrl + C.
+To end the servers you can kill the process with `Ctrl + C`.
