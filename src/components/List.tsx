@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FaEye, FaThumbsUp, FaComment } from "react-icons/fa";
 import "../fonts.css";
 
+// theme for consistency
 const theme = createTheme({
   typography: {
     fontFamily: ["Roboto Flex", "sans-serif"].join(","),
@@ -11,6 +12,7 @@ const theme = createTheme({
   },
 });
 
+// interface to represent the raw data we pull
 interface IData {
   number: number;
   post_slug: string;
@@ -29,18 +31,27 @@ interface IData {
 }
 
 const List = () => {
+  // initialize variables
   const [selectedOption, setSelectedOption] =
     useState<string>("unansweredposts/");
   const [data, setData] = useState<IData[]>([]);
 
   const getData = (option: string) => {
-    const url = `http://127.0.0.1:8000/${option}`
+    const url = `http://127.0.0.1:8000/${option}`;
     const cachedData = localStorage.getItem(url);
+    // use caching to improve loading times
     if (cachedData) {
       setData(JSON.parse(cachedData));
     } else {
-      axios.get(url).then(response => { setData(response.data); return response; })
-                    .then(response => localStorage.setItem(url, JSON.stringify(response.data)));
+      axios
+        .get(url)
+        .then((response) => {
+          setData(response.data);
+          return response;
+        })
+        .then((response) =>
+          localStorage.setItem(url, JSON.stringify(response.data))
+        );
     }
   };
 
@@ -48,7 +59,7 @@ const List = () => {
     getData(selectedOption);
   }, [selectedOption]);
 
-  // Helper function to format the selected option
+  // helper function to format the selected option
   const formatOption = (option: string) => {
     switch (option) {
       case "mostviewedposts/":
@@ -64,7 +75,7 @@ const List = () => {
     }
   };
 
-  // Use the retrieved data
+  // render our list
   return (
     <ThemeProvider theme={theme}>
       <div style={{ overflow: "auto", width: "100%" }}>
@@ -115,10 +126,12 @@ const List = () => {
             </select>
           </div>
         </div>
+        {/* top element of List component: with select button and appropriate title*/}
         <div style={{ overflow: "auto", height: "980px" }}>
           <div className="list-group">
             {data
               .filter((item) => item.title !== "")
+              // remove any "empty" posts that were retrieved
               .map((item, index) => (
                 <div key={item.number}>
                   <div
@@ -148,6 +161,7 @@ const List = () => {
                         {item.publishedAt?.slice(0, 10)}
                       </small>
                     </div>
+                    {/* render a post title and publishing information along with styling*/}
                     <p
                       className="mb-1"
                       style={{
@@ -160,6 +174,7 @@ const List = () => {
                     >
                       {item.body}
                     </p>
+                    {/* render post body*/}
                     <small
                       style={{
                         display: "flex",
@@ -181,6 +196,7 @@ const List = () => {
                       />
                       {item.answersCount}
                     </small>
+                    {/* Footer information, i.e. render Likes, Views, Comments with icons for prettiness*/}
                   </div>
                   {index !== data.length - 1 && (
                     <div
@@ -200,6 +216,7 @@ const List = () => {
                       />
                     </div>
                   )}
+                  {/* separate each post and create the dotted line between*/}
                 </div>
               ))}
           </div>
@@ -210,19 +227,3 @@ const List = () => {
 };
 
 export default List;
-// Do we want to display more types of posts
-/* return (
-    <div>
-      <select
-        value={selectedOption}
-        onChange={(event) => setSelectedOption(event.target.value)}
-      >
-        <option value="mostviewedposts/">Most Viewed Posts</option>
-        <option value="unansweredposts/">Unanswered Posts</option>
-        <option value="posts/">Posts</option>
-      </select>
-      <ul>
-        <EnhancedTable key={selectedOption} rows={data} />
-      </ul>
-    </div>
-  ); */

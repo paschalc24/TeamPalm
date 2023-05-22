@@ -45,12 +45,13 @@ const AuthorTable = ({ isMod }: TableType) => {
   const [authorData, setData] = useState<Author[]>([]);
   const [timeFrame, setTimeFrame] = useState<string>("month");
 
-  // Axios request for authors endpoint
+  // axios request for authors endpoint
   const getData = () => {
     axios
       .get(`http://127.0.0.1:8000/authors/`)
       .then((response) => {
         // convert data into our Author prop, simplifies implementation
+        // also, filter out according to whether we want a moderator table or not
         const authorData = response.data
           .filter((prop: Prop) => (isMod ? prop.moderator : !prop.moderator))
           .map((prop: Prop) => convertPropToAuthor(prop));
@@ -59,7 +60,7 @@ const AuthorTable = ({ isMod }: TableType) => {
       .catch((error) => console.log(error));
   };
 
-  // Convert raw data pulled into new datatype
+  // convert raw data pulled into new datatype
   const convertPropToAuthor = (prop: Prop): Author => {
     return {
       slug: prop.slug,
@@ -72,7 +73,7 @@ const AuthorTable = ({ isMod }: TableType) => {
     };
   };
 
-  // Pull posts information from a specific time frame
+  // pull posts information from a specific time frame (SCRAPPED)
   const getPostsByTimeFrame = (option: string) => {
     let startTime = "";
     let endTime = "2022-12-29";

@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// interface so Card can hold other props (and more optional args)
 interface CardProps {
   heading?: string;
   children?: ReactNode;

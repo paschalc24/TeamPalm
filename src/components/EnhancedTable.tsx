@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -13,17 +13,18 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Modal from '@mui/material/Modal';
-import Backdrop from '@mui/material/Backdrop';
-import Fade from '@mui/material/Fade';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import Modal from "@mui/material/Modal";
+import Backdrop from "@mui/material/Backdrop";
+import Fade from "@mui/material/Fade";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import axios from "axios";
-import PersonList from './PersonList'
-import TextField from '@mui/material/TextField';
+import PersonList from "./PersonList";
+import TextField from "@mui/material/TextField";
 import "../fonts.css";
 
+// Note: this table was adapted from MUI's enhanced table
 
 const theme = createTheme({
   typography: {
@@ -46,6 +47,7 @@ interface Props {
   rows: Data[];
 }
 
+// MUI code for sorting
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -58,6 +60,7 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
 
 type Order = "asc" | "desc";
 
+// sorting helper function
 function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key
@@ -70,6 +73,7 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
+// sorting function
 function stableSort<T>(
   array: readonly T[],
   comparator: (a: T, b: T) => number
@@ -85,6 +89,7 @@ function stableSort<T>(
   return stabilizedThis.map((el) => el[0]);
 }
 
+// interface for header information
 interface HeadCell {
   disablePadding: boolean;
   id: keyof Data;
@@ -92,6 +97,7 @@ interface HeadCell {
   numeric: boolean;
 }
 
+// top row/header for the table
 const headCells: readonly HeadCell[] = [
   {
     id: "name",
@@ -136,12 +142,14 @@ interface EnhancedTableProps {
   rowCount: number;
 }
 
+// Create and render the table header
 function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } = props;
 
-  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property);
-  };
+  const createSortHandler =
+    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+      onRequestSort(event, property);
+    };
 
   return (
     <TableHead>
@@ -172,6 +180,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
+// create and render the entire enhanced table
 export default function EnhancedTable({ rows }: Props) {
   const [order, setOrder] = useState<Order>("desc");
   const [orderBy, setOrderBy] = useState<keyof Data>("postsNum");
@@ -182,9 +191,10 @@ export default function EnhancedTable({ rows }: Props) {
   const [numComments, setNumComments] = useState<Number>(10);
   const [searchTerm, setSearchTerm] = useState("");
 
-
-  
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: keyof Data
+  ) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
@@ -194,7 +204,9 @@ export default function EnhancedTable({ rows }: Props) {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -210,33 +222,35 @@ export default function EnhancedTable({ rows }: Props) {
 
   const handleClick = (event: React.MouseEvent<unknown>, row: Data) => {
     handleOpen(row);
-  };  
+  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
     setPage(0); // resets page number after every search
   };
-  
 
+  // rendering of the table, along with associated styles
   return (
     <ThemeProvider theme={theme}>
-    <Box
-      sx={{
-        width: "100%",
-        borderRadius: "12px",
-        overflow: "hidden",
-      }}
-    >
-      <Paper sx={{ width: "100%", mb: 2 }}>
-        <TextField
-          id="search"
-          label="Search by Name"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          margin="normal"
-          variant="outlined"
-          style={{ marginBottom: "20px", width: "100%" }}
-        />
+      {/* component to keep themeing across our app consistent*/}
+      <Box
+        sx={{
+          width: "100%",
+          borderRadius: "12px",
+          overflow: "hidden",
+        }}
+      >
+        <Paper sx={{ width: "100%", mb: 2 }}>
+          <TextField
+            id="search"
+            label="Search by Name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            margin="normal"
+            variant="outlined"
+            style={{ marginBottom: "20px", width: "100%" }}
+          />
+          {/* TextField component to handle search input*/}
           <TableContainer>
             <Table
               sx={{ minWidth: 750 }}
@@ -250,13 +264,15 @@ export default function EnhancedTable({ rows }: Props) {
                 onRequestSort={handleRequestSort}
                 rowCount={rows.length}
               />
+              {/* render our EnhancedTableHead*/}
               <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
-                .filter((row) =>
-                  row.name.toLowerCase().includes(searchTerm.toLowerCase())
-                )
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
+                {stableSort(rows, getComparator(order, orderBy))
+                  .filter((row) =>
+                    row.name.toLowerCase().includes(searchTerm.toLowerCase())
+                  )
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => {
+                    // map our data into rendered rows with appropriate styling
                     return (
                       <TableRow
                         hover
@@ -274,8 +290,12 @@ export default function EnhancedTable({ rows }: Props) {
                         </TableCell>
                         <TableCell align="right">{row.postsNum}</TableCell>
                         <TableCell align="right">{row.commentsNum}</TableCell>
-                        <TableCell align="right">{row.endorsedCommentsNum}</TableCell>
-                        <TableCell align="right">{row.answeredPostsNum}</TableCell>
+                        <TableCell align="right">
+                          {row.endorsedCommentsNum}
+                        </TableCell>
+                        <TableCell align="right">
+                          {row.answeredPostsNum}
+                        </TableCell>
                       </TableRow>
                     );
                   })}
@@ -291,6 +311,7 @@ export default function EnhancedTable({ rows }: Props) {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
+          {/* table navigation*/}
         </Paper>
         <Modal
           aria-labelledby="transition-modal-title"
@@ -308,39 +329,98 @@ export default function EnhancedTable({ rows }: Props) {
               <Card>
                 <div
                   className="row"
-                  style={{ paddingTop: "20px", height: "auto", overflowY: "auto", paddingBottom: "10px" }}
+                  style={{
+                    paddingTop: "20px",
+                    height: "auto",
+                    overflowY: "auto",
+                    paddingBottom: "10px",
+                  }}
                 >
                   <div className="col" style={{}}>
                     <CardContent>
-                      <Typography variant="h4" component="div" style={{fontSize: "30px", paddingBottom: "40px", paddingLeft: "20px"}}>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        style={{
+                          fontSize: "30px",
+                          paddingBottom: "40px",
+                          paddingLeft: "20px",
+                        }}
+                      >
                         {selectedRow?.name}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
-                        Number of Posts: 
-                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.postsNum}</span>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        style={{
+                          fontSize: "18px",
+                          paddingBottom: "10px",
+                          paddingLeft: "30px",
+                        }}
+                      >
+                        Number of Posts:
+                        <span style={{ color: "#9925BE" }}>
+                          {" " + selectedRow?.postsNum}
+                        </span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        style={{
+                          fontSize: "18px",
+                          paddingBottom: "10px",
+                          paddingLeft: "30px",
+                        }}
+                      >
                         Number of Comments:
-                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.commentsNum}</span>
+                        <span style={{ color: "#9925BE" }}>
+                          {" " + selectedRow?.commentsNum}
+                        </span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        style={{
+                          fontSize: "18px",
+                          paddingBottom: "10px",
+                          paddingLeft: "30px",
+                        }}
+                      >
                         Endorsed Comments:
-                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.endorsedCommentsNum}</span>
+                        <span style={{ color: "#9925BE" }}>
+                          {" " + selectedRow?.endorsedCommentsNum}
+                        </span>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary" style={{fontSize: "18px", paddingBottom: "10px", paddingLeft: '30px'}}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        style={{
+                          fontSize: "18px",
+                          paddingBottom: "10px",
+                          paddingLeft: "30px",
+                        }}
+                      >
                         Posts Answered:
-                        <span style={{color: "#9925BE"}}>{" " + selectedRow?.answeredPostsNum}</span>
+                        <span style={{ color: "#9925BE" }}>
+                          {" " + selectedRow?.answeredPostsNum}
+                        </span>
                       </Typography>
                     </CardContent>
                   </div>
-                  <div className="col-8 d-flex justify-content-end"
-                            style={{ paddingTop: "20px", height: "100%", overflowY: "auto" }}>
-                    
-                      <PersonList authorSlug = {selectedRow?.slug} firstName = {selectedRow?.name.split(" ")[0]}/>
-                    
+                  <div
+                    className="col-8 d-flex justify-content-end"
+                    style={{
+                      paddingTop: "20px",
+                      height: "100%",
+                      overflowY: "auto",
+                    }}
+                  >
+                    <PersonList
+                      authorSlug={selectedRow?.slug}
+                      firstName={selectedRow?.name.split(" ")[0]}
+                    />
                   </div>
                 </div>
-                
               </Card>
             </Box>
           </Fade>
@@ -351,17 +431,14 @@ export default function EnhancedTable({ rows }: Props) {
 }
 
 const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '55vw',
-  height: 'min-height', // or any value you want
-  bgcolor: 'background.paper',
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "55vw",
+  height: "min-height",
+  bgcolor: "background.paper",
   boxShadow: 24,
   borderRadius: "10px",
-  overflowY: 'auto', // or 'scroll'
+  overflowY: "auto", // or 'scroll'
 };
-
-  
-  
