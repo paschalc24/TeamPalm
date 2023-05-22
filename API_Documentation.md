@@ -621,5 +621,12 @@ None Required
 
 ---
 
-## User Account API
+#### Unit Testing
+
+There are several tests that have been already written in `backend/tests` that test basic functionality of these endpoints and the models used by them. They can be run using the following command from the main `TeamPalm` folder:
+
+```shell
+python backend/manage.py test
+```
+
 
