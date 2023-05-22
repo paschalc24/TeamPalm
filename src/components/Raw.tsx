@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 
+//This component is displayed at the top of the "HOME" page on the application,
+//showing raw statistics
+
+// Defining Data Structure
 interface IData {
-  // Define the structure of your data
   number: number;
   post_slug: string;
   title: string;
@@ -18,8 +21,8 @@ interface IData {
   answersCount: number;
   author: string;
 }
+// Defining Data Structure
 interface IData3 {
-  // Define the structure of your data
   slug: string;
   posts: Array<number>;
   firstName: string;
@@ -34,6 +37,9 @@ const Raw = () => {
   const [data2, setData2] = useState<IData[]>([]);
   const [data3, setData3] = useState<IData3[]>([]);
 
+  // method to calculate the total number of posts generated
+  //params: none
+  //output: integer number
   const posts_generated = () => {
     let c = 0;
     for (let i = 0; i < data3.length; i++) {
@@ -42,6 +48,9 @@ const Raw = () => {
     return c;
   };
 
+  //method to calculuate the number of students that have ever posted or commented
+  //params: none
+  //output: integer number
   const active_students = () => {
     let s = new Set<string>();
     for (let i = 0; i < data3.length; i++) {
@@ -50,6 +59,9 @@ const Raw = () => {
     return s.size;
   };
 
+  //method to calculate the number of staff that have ever posted or commented
+  //params: none
+  //output: integer number
   const active_staff = () => {
     let c = 0;
     for (let i = 0; i < data3.length; i++) {
@@ -60,6 +72,9 @@ const Raw = () => {
     return c;
   };
 
+  //method to calculate the average difference between post times and response times among all posts
+  //params: non
+  //output: string
   const average_response_time = () => {
     let diff = 0;
     for (let i = 0; i < data2.length; i++) {
@@ -88,6 +103,7 @@ const Raw = () => {
   };
 
   useEffect(() => {
+    //Axios calls
     const fetchData1 = async (url: string) => {
       const cachedData = localStorage.getItem(url);
       if (cachedData) {
@@ -126,6 +142,7 @@ const Raw = () => {
     fetchData3("http://127.0.0.1:8000/authors/");
   }, []);
 
+  // Return: React table component using Col and Row classes
   return (
     <Row className="justify-content-center raw-stats">
       <Col className="column d-flex flex-column align-items-center">
