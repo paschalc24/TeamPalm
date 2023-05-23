@@ -138,12 +138,12 @@ function App() {
   if (currentUser) {
     return (
       <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<FullScreenDiv><OverlayHub submitLogout={submitLogout} courses={courseObjects} /></FullScreenDiv>} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<FullScreenDiv><OverlayHub submitLogout={submitLogout} courses={courseObjects} /></FullScreenDiv>} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
     );
   }
 

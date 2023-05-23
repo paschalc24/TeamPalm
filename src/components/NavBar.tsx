@@ -1,9 +1,12 @@
+// Importing necessary React and Material UI components
 import React, { FC, useEffect } from "react";
 import logo from "../assets/Filigree_Logo_With_Name.png";
 import Button from "@mui/material/Button";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import "../fonts.css";
+
+// Importing Bootstrap components for the navigation bar
 import {
   Navbar,
   Nav,
@@ -11,10 +14,17 @@ import {
   FormControl,
   Dropdown,
 } from "react-bootstrap";
+
+// Importing Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+
+// Importing styled-components to style our components
 import styled from "styled-components";
+
+// Importing App component
 import App from "../App"
 
+// Defining the properties that NavBar component will receive
 interface NavBarProps {
   submitLogout: (e: React.FormEvent<HTMLFormElement>) => void
   course: string;
@@ -23,6 +33,7 @@ interface NavBarProps {
   setSelectedMode: (newMode: string) => void;
 }
 
+// Styled-components for the Navbar
 const GoodMorningDiv = styled.div`
   font-family: "Roboto Flex";
   font-style: normal;
@@ -60,6 +71,7 @@ const CourseNameDiv = styled.div`
   letter-spacing: 0.01em;
 `;
 
+// Definition of the NavBar component
 const NavBar: FC<NavBarProps> = ({
   submitLogout,
   course,
@@ -70,6 +82,7 @@ const NavBar: FC<NavBarProps> = ({
   const [alignment, setAlignment] = React.useState("home"); //Last change on default mode alignment
   const [noneSelected, setNoneSelected] = React.useState(true);
 
+  // This effect will reset the alignment to 'home' every time the component re-renders
   useEffect(() => {
     // Reset alignment to 'left' every time the component re-renders
     setAlignment('home');
@@ -86,7 +99,7 @@ const NavBar: FC<NavBarProps> = ({
     }
   };
   
-
+  // If course equals activeCourse, render the NavBar
   return course == activeCourse ? (
     <>
       <Navbar expand="lg">
@@ -138,4 +151,5 @@ const NavBar: FC<NavBarProps> = ({
   );
 };
 
+// Exporting the NavBar component
 export default NavBar;
